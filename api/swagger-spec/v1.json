@@ -11792,7 +11792,8 @@
      "osImage",
      "containerRuntimeVersion",
      "kubeletVersion",
-     "kubeProxyVersion"
+     "kubeProxyVersion",
+     "featureInfo"
     ],
     "properties": {
      "machineID": {
@@ -11826,8 +11827,15 @@
      "kubeProxyVersion": {
       "type": "string",
       "description": "Kube-proxy version reported by the node"
+     },
+     "featureInfo": {
+      "$ref": "v1.NodeFeatureInfo"
      }
     }
+   },
+   "v1.NodeFeatureInfo": {
+    "id": "v1.NodeFeatureInfo",
+    "properties": {}
    },
    "v1.PersistentVolumeClaimList": {
     "id": "v1.PersistentVolumeClaimList",

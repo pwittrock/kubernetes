@@ -906,6 +906,10 @@ func deepCopy_api_NodeCondition(in NodeCondition, out *NodeCondition, c *convers
 	return nil
 }
 
+func deepCopy_api_NodeFeatureInfo(in NodeFeatureInfo, out *NodeFeatureInfo, c *conversion.Cloner) error {
+	return nil
+}
+
 func deepCopy_api_NodeList(in NodeList, out *NodeList, c *conversion.Cloner) error {
 	if err := deepCopy_api_TypeMeta(in.TypeMeta, &out.TypeMeta, c); err != nil {
 		return err
@@ -983,6 +987,9 @@ func deepCopy_api_NodeSystemInfo(in NodeSystemInfo, out *NodeSystemInfo, c *conv
 	out.ContainerRuntimeVersion = in.ContainerRuntimeVersion
 	out.KubeletVersion = in.KubeletVersion
 	out.KubeProxyVersion = in.KubeProxyVersion
+	if err := deepCopy_api_NodeFeatureInfo(in.FeatureInfo, &out.FeatureInfo, c); err != nil {
+		return err
+	}
 	return nil
 }
 
@@ -2284,6 +2291,7 @@ func init() {
 		deepCopy_api_Node,
 		deepCopy_api_NodeAddress,
 		deepCopy_api_NodeCondition,
+		deepCopy_api_NodeFeatureInfo,
 		deepCopy_api_NodeList,
 		deepCopy_api_NodeSpec,
 		deepCopy_api_NodeStatus,

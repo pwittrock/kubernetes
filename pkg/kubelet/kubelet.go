@@ -2115,6 +2115,7 @@ func (kl *Kubelet) setNodeStatus(node *api.Node) error {
 		node.Status.NodeInfo.KubeletVersion = version.Get().String()
 		// TODO: kube-proxy might be different version from kubelet in the future
 		node.Status.NodeInfo.KubeProxyVersion = version.Get().String()
+		node.Status.NodeInfo.FeatureInfo = kl.getFeatureInfo(verinfo)
 	}
 
 	// Check whether container runtime can be reported as up.
@@ -2512,6 +2513,14 @@ func (kl *Kubelet) GetCachedMachineInfo() (*cadvisorApi.MachineInfo, error) {
 		kl.machineInfo = info
 	}
 	return kl.machineInfo, nil
+}
+
+// getFeatureInfo creates a NodeFeatureInfo describing the Kubernetes features supported by the
+// available container runtime and OS
+// TODO: Consider moving these mappings into a configurable file so they can be overridden
+func (kl *Kubelet) getFeatureInfo(*cadvisorApi.VersionInfo) api.NodeFeatureInfo {
+	// TODO: Implement this once we have the mappings
+	return api.NodeFeatureInfo{}
 }
 
 func (kl *Kubelet) ListenAndServe(address net.IP, port uint, tlsOptions *TLSOptions, enableDebuggingHandlers bool) {

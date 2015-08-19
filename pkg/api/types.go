@@ -1366,6 +1366,11 @@ type NodeSystemInfo struct {
 	KubeletVersion string `json:"kubeletVersion"`
 	// Kube-proxy version reported by the node
 	KubeProxyVersion string `json:"kubeProxyVersion"`
+	// Kubernetes features supported by this node
+	FeatureInfo NodeFeatureInfo `json:"featureInfo"`
+}
+
+type NodeFeatureInfo struct {
 }
 
 // NodeStatus is information about the current status of a node.

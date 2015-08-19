@@ -1054,6 +1054,13 @@ func convert_api_NodeCondition_To_v1_NodeCondition(in *api.NodeCondition, out *N
 	return nil
 }
 
+func convert_api_NodeFeatureInfo_To_v1_NodeFeatureInfo(in *api.NodeFeatureInfo, out *NodeFeatureInfo, s conversion.Scope) error {
+	if defaulting, found := s.DefaultingInterface(reflect.TypeOf(*in)); found {
+		defaulting.(func(*api.NodeFeatureInfo))(in)
+	}
+	return nil
+}
+
 func convert_api_NodeList_To_v1_NodeList(in *api.NodeList, out *NodeList, s conversion.Scope) error {
 	if defaulting, found := s.DefaultingInterface(reflect.TypeOf(*in)); found {
 		defaulting.(func(*api.NodeList))(in)
@@ -1143,6 +1150,9 @@ func convert_api_NodeSystemInfo_To_v1_NodeSystemInfo(in *api.NodeSystemInfo, out
 	out.ContainerRuntimeVersion = in.ContainerRuntimeVersion
 	out.KubeletVersion = in.KubeletVersion
 	out.KubeProxyVersion = in.KubeProxyVersion
+	if err := convert_api_NodeFeatureInfo_To_v1_NodeFeatureInfo(&in.FeatureInfo, &out.FeatureInfo, s); err != nil {
+		return err
+	}
 	return nil
 }
 
@@ -3475,6 +3485,13 @@ func convert_v1_NodeCondition_To_api_NodeCondition(in *NodeCondition, out *api.N
 	return nil
 }
 
+func convert_v1_NodeFeatureInfo_To_api_NodeFeatureInfo(in *NodeFeatureInfo, out *api.NodeFeatureInfo, s conversion.Scope) error {
+	if defaulting, found := s.DefaultingInterface(reflect.TypeOf(*in)); found {
+		defaulting.(func(*NodeFeatureInfo))(in)
+	}
+	return nil
+}
+
 func convert_v1_NodeList_To_api_NodeList(in *NodeList, out *api.NodeList, s conversion.Scope) error {
 	if defaulting, found := s.DefaultingInterface(reflect.TypeOf(*in)); found {
 		defaulting.(func(*NodeList))(in)
@@ -3564,6 +3581,9 @@ func convert_v1_NodeSystemInfo_To_api_NodeSystemInfo(in *NodeSystemInfo, out *ap
 	out.ContainerRuntimeVersion = in.ContainerRuntimeVersion
 	out.KubeletVersion = in.KubeletVersion
 	out.KubeProxyVersion = in.KubeProxyVersion
+	if err := convert_v1_NodeFeatureInfo_To_api_NodeFeatureInfo(&in.FeatureInfo, &out.FeatureInfo, s); err != nil {
+		return err
+	}
 	return nil
 }
 
@@ -4926,6 +4946,7 @@ func init() {
 		convert_api_Namespace_To_v1_Namespace,
 		convert_api_NodeAddress_To_v1_NodeAddress,
 		convert_api_NodeCondition_To_v1_NodeCondition,
+		convert_api_NodeFeatureInfo_To_v1_NodeFeatureInfo,
 		convert_api_NodeList_To_v1_NodeList,
 		convert_api_NodeSpec_To_v1_NodeSpec,
 		convert_api_NodeStatus_To_v1_NodeStatus,
@@ -5047,6 +5068,7 @@ func init() {
 		convert_v1_Namespace_To_api_Namespace,
 		convert_v1_NodeAddress_To_api_NodeAddress,
 		convert_v1_NodeCondition_To_api_NodeCondition,
+		convert_v1_NodeFeatureInfo_To_api_NodeFeatureInfo,
 		convert_v1_NodeList_To_api_NodeList,
 		convert_v1_NodeSpec_To_api_NodeSpec,
 		convert_v1_NodeStatus_To_api_NodeStatus,

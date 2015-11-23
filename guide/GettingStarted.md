@@ -12,10 +12,29 @@ $ docker run --net host -t -i -v /var/run/docker.sock:/var/run/docker.sock -v $(
 ```
 
 This will bootstrap the key components of a k8s cluster locally, and provide a shell for interacting with the cluster.
+The shell is running within a docker container.
 
 TODO: currently this does not bootstrap dns or other required cluster add ons.  We need to make the cluster fully functional.
 
 ### Check that the cluster is healthy
+It will take about a minute for the cluster to bootstrap.
+You can check the progress by looking for the apiserver docker container using *docker ps*.
+
+TODO: Automatically poll for this and give the user status updates before dropping them into the shell
+
+```
+$ docker ps
+ec8ff878abbc        pwittrock/hyperkube                    "/hyperkube scheduler"   8 seconds ago        Up 7 seconds                            k8s_scheduler.311ef3b8_k8s-master-127.0.0.1_default_80a7e0a4c91a1a76bc0edf645738ac0b_11cece05
+06777a454807        pwittrock/hyperkube                    "/hyperkube apiserver"   8 seconds ago        Up 7 seconds                            k8s_apiserver.7f3413bc_k8s-master-127.0.0.1_default_80a7e0a4c91a1a76bc0edf645738ac0b_1ac82df2
+49f713894f8e        pwittrock/hyperkube                    "/hyperkube controlle"   8 seconds ago        Up 7 seconds                            k8s_controller-manager.1e09fad2_k8s-master-127.0.0.1_default_80a7e0a4c91a1a76bc0edf645738ac0b_2bf67b31
+c2f38cbd1618        gcr.io/google_containers/pause:2.0     "/pause"                 8 seconds ago        Up 7 seconds                            k8s_POD.6059dfa2_k8s-master-127.0.0.1_default_80a7e0a4c91a1a76bc0edf645738ac0b_c096738f
+44a40bbe51f2        pwittrock/hyperkube                    "/hyperkube kubelet -"   About a minute ago   Up 59 seconds                           hopeful_pasteur
+9749339710df        gcr.io/google_containers/etcd:2.0.12   "/usr/local/bin/etcd "   About a minute ago   Up 59 seconds                           sick_newton
+1f96604fd742        pwittrock/hyperkube                    "/hyperkube proxy --m"   About a minute ago   Up About a minute                       kickass_wozniak
+3b1dd084d554        pwittrock/k8sguide:latest              "/sbin/my_init -- bas"   About a minute ago   Up About a minute                       determined_fermat
+```
+
+Once the *apiserver* container is running, check that kubectl is able to talk to it.
 
 ```
 $ kubectl get nodes

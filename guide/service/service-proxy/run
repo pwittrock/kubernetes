@@ -1,0 +1,9 @@
+#!/bin/sh
+
+exec docker run \
+    --net=host \
+    --privileged=true \
+    pwittrock/hyperkube \
+      /hyperkube proxy \
+      --master=http://127.0.0.1:8080 \
+      --v=0

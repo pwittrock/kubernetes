@@ -41,7 +41,6 @@ type StatsProvider interface {
 	GetContainerInfoV2(name string, options cadvisorapiv2.RequestOptions) (map[string]cadvisorapiv2.ContainerInfo, error)
 	GetRawContainerInfo(containerName string, req *cadvisorapi.ContainerInfoRequest, subcontainers bool) (map[string]*cadvisorapi.ContainerInfo, error)
 	GetPodByName(namespace, name string) (*api.Pod, bool)
-	GetRunningPods() ([]*api.Pod, error)
 	GetNode() (*api.Node, error)
 	GetNodeConfig() cm.NodeConfig
 }

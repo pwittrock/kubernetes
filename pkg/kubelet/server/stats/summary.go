@@ -19,6 +19,7 @@ package stats
 import (
 	"fmt"
 
+	"github.com/golang/glog"
 	cadvisorapiv2 "github.com/google/cadvisor/info/v2"
 	"k8s.io/kubernetes/pkg/api"
 	"k8s.io/kubernetes/pkg/api/resource"
@@ -28,14 +29,14 @@ import (
 	"k8s.io/kubernetes/pkg/kubelet/leaky"
 )
 
-// Handles stats summary requests to /stats/summary
+// buildSummary aggregates the data passed as arguments and parses it into a *Summary structure
 func buildSummary(
 	node *api.Node,
 	nodeConfig cm.NodeConfig,
 	infos map[string]cadvisorapiv2.ContainerInfo) (*Summary, error) {
 
 	rootInfo, found := infos["/"]
-	if !found || len(rootInfo.Stats) < 1 || rootInfo.Stats[0] == nil {
+	if !found || len(rootInfo.Stats) < 1 || latestContainerStats(&rootInfo) == nil {
 		return nil, fmt.Errorf("Missing stats for root container")
 	}
 
@@ -59,11 +60,16 @@ func buildSummary(
 	}
 
 	summary := Summary{
-		Time: unversioned.NewTime(rootInfo.Stats[0].Timestamp),
+		Time: unversioned.NewTime(latestContainerStats(&rootInfo).Timestamp),
 		Node: nodeStats,
 		Pods: buildSummaryPods(infos),
 	}
 	return &summary, nil
+}
+
+func latestContainerStats(info *cadvisorapiv2.ContainerInfo) *cadvisorapiv2.ContainerStats {
+	stats := info.Stats
+	return stats[len(stats)-1]
 }
 
 // buildSummaryPods aggregates and returns the container stats in cinfos by the Pod managing the container.
@@ -76,7 +82,7 @@ func buildSummaryPods(cinfos map[string]cadvisorapiv2.ContainerInfo) []PodStats 
 		if !isPodManagedContainer(&cinfo) {
 			continue
 		}
-		ref := buildPodKey(&cinfo)
+		ref := buildPodRef(&cinfo)
 
 		// Lookup the PodStats for the pod using the PodRef.  If none exists, initialize a new entry.
 		stats, found := podToStats[ref]
@@ -103,8 +109,8 @@ func buildSummaryPods(cinfos map[string]cadvisorapiv2.ContainerInfo) []PodStats 
 	return result
 }
 
-// buildPodKey returns a NonLocalObjectReference that identifies the Pod managing cinfo
-func buildPodKey(cinfo *cadvisorapiv2.ContainerInfo) NonLocalObjectReference {
+// buildPodRef returns a NonLocalObjectReference that identifies the Pod managing cinfo
+func buildPodRef(cinfo *cadvisorapiv2.ContainerInfo) NonLocalObjectReference {
 	podName := dockertools.GetPodName(cinfo)
 	podNamespace := dockertools.GetPodNamespace(cinfo)
 	return NonLocalObjectReference{Name: podName, Namespace: podNamespace}
@@ -112,7 +118,15 @@ func buildPodKey(cinfo *cadvisorapiv2.ContainerInfo) NonLocalObjectReference {
 
 // isPodManagedContainer returns true if the cinfo container is managed by a Pod
 func isPodManagedContainer(cinfo *cadvisorapiv2.ContainerInfo) bool {
-	return dockertools.GetPodName(cinfo) != "" && dockertools.GetPodNamespace(cinfo) != ""
+	podName := dockertools.GetPodName(cinfo)
+	podNamespace := dockertools.GetPodNamespace(cinfo)
+	managed := podName != "" && podNamespace != ""
+	if !managed && podName != podNamespace {
+		glog.Warningf(
+			"Expect container to have either both podName (%s) and podNamespace (%s) labels, or neither.",
+			podName, podNamespace)
+	}
+	return managed
 }
 
 func containerInfoV2ToStats(name string, info *cadvisorapiv2.ContainerInfo) ContainerStats {
@@ -122,7 +136,7 @@ func containerInfoV2ToStats(name string, info *cadvisorapiv2.ContainerInfo) Cont
 	if len(info.Stats) < 1 {
 		return stats
 	}
-	cstat := info.Stats[0]
+	cstat := latestContainerStats(info)
 	// TODO(timstclair) - check for overflow
 	if info.Spec.HasCpu {
 		cpuStats := CPUStats{}
@@ -161,7 +175,7 @@ func containerInfoV2ToNetworkStats(info *cadvisorapiv2.ContainerInfo) *NetworkSt
 		txErrors int64
 	)
 	// TODO(stclair): check for overflow
-	for _, inter := range info.Stats[0].Network.Interfaces {
+	for _, inter := range latestContainerStats(info).Network.Interfaces {
 		rxBytes += int64(inter.RxBytes)
 		rxErrors += int64(inter.RxErrors)
 		txBytes += int64(inter.TxBytes)

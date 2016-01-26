@@ -107,9 +107,8 @@ var _ = Describe("Kubelet", func() {
 					RestartPolicy: api.RestartPolicyNever,
 					Containers: []api.Container{
 						{
-							Image:           "gcr.io/google_containers/busybox",
+							Image:           "gcr.io/google_containers/pause:2.0",
 							Name:            pod1 + containerSuffix,
-							Command:         []string{"sleep", "120"},
 							ImagePullPolicy: api.PullIfNotPresent,
 						},
 					},
@@ -130,9 +129,8 @@ var _ = Describe("Kubelet", func() {
 					RestartPolicy: api.RestartPolicyNever,
 					Containers: []api.Container{
 						{
-							Image:           "gcr.io/google_containers/busybox",
+							Image:           "gcr.io/google_containers/pause:2.0",
 							Name:            pod2 + containerSuffix,
-							Command:         []string{"sleep", "120"},
 							ImagePullPolicy: api.PullIfNotPresent,
 						},
 					},

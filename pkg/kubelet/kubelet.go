@@ -3278,6 +3278,16 @@ func (kl *Kubelet) GetContainerInfoV2(name string, options cadvisorapiv2.Request
 	return kl.cadvisor.ContainerInfoV2(name, options)
 }
 
+// RootFsInfo proxies the call to cadvisor
+func (kl *Kubelet) RootFsInfo() (cadvisorapiv2.FsInfo, error) {
+	return kl.cadvisor.RootFsInfo()
+}
+
+// DockerImagesFsInfo proxies the call to cadvisor
+func (kl *Kubelet) DockerImagesFsInfo() (cadvisorapiv2.FsInfo, error) {
+	return kl.cadvisor.DockerImagesFsInfo()
+}
+
 // Returns stats (from Cadvisor) for a non-Kubernetes container.
 func (kl *Kubelet) GetRawContainerInfo(containerName string, req *cadvisorapi.ContainerInfoRequest, subcontainers bool) (map[string]*cadvisorapi.ContainerInfo, error) {
 	if subcontainers {

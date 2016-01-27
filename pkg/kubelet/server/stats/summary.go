@@ -33,19 +33,22 @@ import (
 func buildSummary(
 	node *api.Node,
 	nodeConfig cm.NodeConfig,
-	infos map[string]cadvisorapiv2.ContainerInfo) (*Summary, error) {
+	infos map[string]cadvisorapiv2.ContainerInfo,
+	rootFsInfo cadvisorapiv2.FsInfo,
+	imageFsInfo cadvisorapiv2.FsInfo) (*Summary, error) {
 
 	rootInfo, found := infos["/"]
 	if !found || len(rootInfo.Stats) < 1 || latestContainerStats(&rootInfo) == nil {
 		return nil, fmt.Errorf("Missing stats for root container")
 	}
 
-	rootStats := containerInfoV2ToStats("", &rootInfo)
+	rootStats := containerInfoV2ToStats("", &rootInfo, rootFsInfo, imageFsInfo)
 	nodeStats := NodeStats{
 		NodeName: node.Name,
 		CPU:      rootStats.CPU,
 		Memory:   rootStats.Memory,
 		Network:  containerInfoV2ToNetworkStats(&rootInfo),
+		Fs:       getNodeFsStats(rootFsInfo),
 	}
 
 	systemContainers := map[string]string{
@@ -55,16 +58,24 @@ func buildSummary(
 	}
 	for sys, name := range systemContainers {
 		if info, ok := infos[name]; ok {
-			nodeStats.SystemContainers = append(nodeStats.SystemContainers, containerInfoV2ToStats(sys, &info))
+			nodeStats.SystemContainers = append(nodeStats.SystemContainers, containerInfoV2ToStats(sys, &info, rootFsInfo, imageFsInfo))
 		}
 	}
 
 	summary := Summary{
 		Time: unversioned.NewTime(latestContainerStats(&rootInfo).Timestamp),
 		Node: nodeStats,
-		Pods: buildSummaryPods(infos),
+		Pods: buildSummaryPods(infos, rootFsInfo, imageFsInfo),
 	}
 	return &summary, nil
+}
+
+func getNodeFsStats(rootFsInfo cadvisorapiv2.FsInfo) *FsStats {
+	return &FsStats{
+		AvailableBytes: resource.NewQuantity(int64(rootFsInfo.Available), resource.BinarySI),
+		CapacityBytes:  resource.NewQuantity(int64(rootFsInfo.Capacity), resource.BinarySI),
+		UsedBytes:      resource.NewQuantity(int64(rootFsInfo.Usage), resource.BinarySI),
+	}
 }
 
 func latestContainerStats(info *cadvisorapiv2.ContainerInfo) *cadvisorapiv2.ContainerStats {
@@ -74,7 +85,11 @@ func latestContainerStats(info *cadvisorapiv2.ContainerInfo) *cadvisorapiv2.Cont
 
 // buildSummaryPods aggregates and returns the container stats in cinfos by the Pod managing the container.
 // Containers not managed by a Pod are omitted.
-func buildSummaryPods(cinfos map[string]cadvisorapiv2.ContainerInfo) []PodStats {
+func buildSummaryPods(
+	cinfos map[string]cadvisorapiv2.ContainerInfo,
+	rootFsInfo cadvisorapiv2.FsInfo,
+	imageFsInfo cadvisorapiv2.FsInfo) []PodStats {
+
 	// Map each container to a pod and update the PodStats with container data
 	podToStats := map[NonLocalObjectReference]*PodStats{}
 	for _, cinfo := range cinfos {
@@ -97,7 +112,7 @@ func buildSummaryPods(cinfos map[string]cadvisorapiv2.ContainerInfo) []PodStats 
 			// Special case for infrastructure container which is hidden from the user and has network stats
 			stats.Network = containerInfoV2ToNetworkStats(&cinfo)
 		} else {
-			stats.Containers = append(stats.Containers, containerInfoV2ToStats(containerName, &cinfo))
+			stats.Containers = append(stats.Containers, containerInfoV2ToStats(containerName, &cinfo, rootFsInfo, imageFsInfo))
 		}
 	}
 
@@ -130,7 +145,8 @@ func isPodManagedContainer(cinfo *cadvisorapiv2.ContainerInfo) bool {
 	return managed
 }
 
-func containerInfoV2ToStats(name string, info *cadvisorapiv2.ContainerInfo) ContainerStats {
+func containerInfoV2ToStats(name string, info *cadvisorapiv2.ContainerInfo, rootFsInfo cadvisorapiv2.FsInfo,
+	imageFsInfo cadvisorapiv2.FsInfo) ContainerStats {
 	stats := ContainerStats{
 		Name: name,
 	}
@@ -159,7 +175,42 @@ func containerInfoV2ToStats(name string, info *cadvisorapiv2.ContainerInfo) Cont
 			MajorPageFaults: &majorPageFaults,
 		}
 	}
+	containerInfoV2FsStats(info, rootFsInfo, imageFsInfo, &stats)
 	return stats
+}
+
+// containerInfoV2FsStats populates the container fs stats
+func containerInfoV2FsStats(
+	info *cadvisorapiv2.ContainerInfo,
+	rootFsInfo cadvisorapiv2.FsInfo,
+	imageFsInfo cadvisorapiv2.FsInfo,
+	cs *ContainerStats) {
+
+	cfs := latestContainerStats(info).Filesystem
+
+	glog.Infof("pwittroc - rootfs %+v imageFs %+v info %+v", rootFsInfo, imageFsInfo, cfs)
+
+	// The container logs live on the node rootfs device
+	var logsUsage *resource.Quantity
+	if cfs.BaseUsageBytes != nil && cfs.TotalUsageBytes != nil {
+		logsUsage = resource.NewQuantity(int64(*cfs.TotalUsageBytes - *cfs.BaseUsageBytes), resource.BinarySI)
+	}
+	cs.Logs = &FsStats{
+		AvailableBytes: resource.NewQuantity(int64(rootFsInfo.Available), resource.BinarySI),
+		CapacityBytes:  resource.NewQuantity(int64(rootFsInfo.Capacity), resource.BinarySI),
+		UsedBytes:      logsUsage,
+	}
+
+	// The container rootFs lives on the imageFs devices (which may not be the node root fs)
+	var rootUsage *resource.Quantity
+	if cfs.BaseUsageBytes != nil {
+		rootUsage = resource.NewQuantity(int64(*cfs.BaseUsageBytes), resource.BinarySI)
+	}
+	cs.Rootfs = &FsStats{
+		AvailableBytes: resource.NewQuantity(int64(imageFsInfo.Available), resource.BinarySI),
+		CapacityBytes:  resource.NewQuantity(int64(imageFsInfo.Capacity), resource.BinarySI),
+		UsedBytes:      rootUsage,
+	}
 }
 
 func containerInfoV2ToNetworkStats(info *cadvisorapiv2.ContainerInfo) *NetworkStats {

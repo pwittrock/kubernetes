@@ -142,6 +142,8 @@ type AuthInterface interface {
 type HostInterface interface {
 	GetContainerInfo(podFullName string, uid types.UID, containerName string, req *cadvisorapi.ContainerInfoRequest) (*cadvisorapi.ContainerInfo, error)
 	GetContainerInfoV2(name string, options cadvisorapiv2.RequestOptions) (map[string]cadvisorapiv2.ContainerInfo, error)
+	RootFsInfo() (cadvisorapiv2.FsInfo, error)
+	DockerImagesFsInfo() (cadvisorapiv2.FsInfo, error)
 	GetRawContainerInfo(containerName string, req *cadvisorapi.ContainerInfoRequest, subcontainers bool) (map[string]*cadvisorapi.ContainerInfo, error)
 	GetCachedMachineInfo() (*cadvisorapi.MachineInfo, error)
 	GetPods() []*api.Pod

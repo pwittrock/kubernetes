@@ -111,6 +111,7 @@ func buildSummaryPods(cinfos map[string]cadvisorapiv2.ContainerInfo) []PodStats 
 
 // buildPodRef returns a NonLocalObjectReference that identifies the Pod managing cinfo
 func buildPodRef(cinfo *cadvisorapiv2.ContainerInfo) NonLocalObjectReference {
+	// TODO: Move these out of dockertools and into a general container pkg + make sure rkt is supported
 	podName := dockertools.GetPodName(cinfo)
 	podNamespace := dockertools.GetPodNamespace(cinfo)
 	return NonLocalObjectReference{Name: podName, Namespace: podNamespace}

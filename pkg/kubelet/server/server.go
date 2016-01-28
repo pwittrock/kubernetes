@@ -159,6 +159,8 @@ type HostInterface interface {
 	GetNode() (*api.Node, error)
 	GetNodeConfig() cm.NodeConfig
 	LatestLoopEntryTime() time.Time
+	DockerImagesFsInfo() (cadvisorapiv2.FsInfo, error)
+	RootFsInfo() (cadvisorapiv2.FsInfo, error)
 }
 
 // NewServer initializes and configures a kubelet.Server object to handle HTTP requests.

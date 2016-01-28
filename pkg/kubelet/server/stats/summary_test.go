@@ -24,7 +24,6 @@ import (
 	"github.com/stretchr/testify/assert"
 
 	"k8s.io/kubernetes/pkg/api"
-	"k8s.io/kubernetes/pkg/api/resource"
 	"k8s.io/kubernetes/pkg/kubelet/cm"
 	"k8s.io/kubernetes/pkg/kubelet/leaky"
 )
@@ -100,7 +99,10 @@ func TestBuildSummary(t *testing.T) {
 		"/pod2-c0": summaryTestContainerInfo(seedPod2Container, pName2, namespace2, cName20),
 	}
 
-	summary, err := buildSummary(&node, nodeConfig, infos)
+	rootfs := v2.FsInfo{}
+	imagefs := v2.FsInfo{}
+
+	summary, err := buildSummary(&node, nodeConfig, rootfs, imagefs, infos)
 	assert.NoError(t, err)
 	nodeStats := summary.Node
 	assert.Equal(t, "FooNode", nodeStats.NodeName)
@@ -211,20 +213,20 @@ func summaryTestContainerInfo(seed int, podName string, podNamespace string, con
 }
 
 func checkNetworkStats(t *testing.T, label string, seed int, stats *NetworkStats) {
-	assert.EqualValues(t, seed+offsetNetRxBytes, stats.RxBytes.Value(), label+".Net.RxBytes")
+	assert.EqualValues(t, seed+offsetNetRxBytes, *stats.RxBytes, label+".Net.RxBytes")
 	assert.EqualValues(t, seed+offsetNetRxErrors, *stats.RxErrors, label+".Net.RxErrors")
-	assert.EqualValues(t, seed+offsetNetTxBytes, stats.TxBytes.Value(), label+".Net.TxBytes")
+	assert.EqualValues(t, seed+offsetNetTxBytes, *stats.TxBytes, label+".Net.TxBytes")
 	assert.EqualValues(t, seed+offsetNetTxErrors, *stats.TxErrors, label+".Net.TxErrors")
 }
 
 func checkCPUStats(t *testing.T, label string, seed int, stats *CPUStats) {
-	assert.EqualValues(t, seed+offsetCPUUsageCores, stats.UsageCores.ScaledValue(resource.Nano), label+".CPU.UsageCores")
-	assert.EqualValues(t, seed+offsetCPUUsageCoreSeconds, stats.UsageCoreSeconds.ScaledValue(resource.Nano), label+".CPU.UsageCoreSeconds")
+	assert.EqualValues(t, seed+offsetCPUUsageCores, *stats.UsageCores, label+".CPU.UsageCores")
+	assert.EqualValues(t, seed+offsetCPUUsageCoreSeconds, *stats.UsageCoreNanoSeconds, label+".CPU.UsageCoreSeconds")
 }
 
 func checkMemoryStats(t *testing.T, label string, seed int, stats *MemoryStats) {
-	assert.EqualValues(t, seed+offsetMemUsageBytes, stats.UsageBytes.Value(), label+".Mem.UsageBytes")
-	assert.EqualValues(t, seed+offsetMemWorkingSetBytes, stats.WorkingSetBytes.Value(), label+".Mem.WorkingSetBytes")
+	assert.EqualValues(t, seed+offsetMemUsageBytes, *stats.UsageBytes, label+".Mem.UsageBytes")
+	assert.EqualValues(t, seed+offsetMemWorkingSetBytes, *stats.WorkingSetBytes, label+".Mem.WorkingSetBytes")
 	assert.EqualValues(t, seed+offsetMemPageFaults, *stats.PageFaults, label+".Mem.PageFaults")
 	assert.EqualValues(t, seed+offsetMemMajorPageFaults, *stats.MajorPageFaults, label+".Mem.MajorPageFaults")
 }

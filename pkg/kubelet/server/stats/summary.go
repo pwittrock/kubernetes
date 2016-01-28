@@ -22,7 +22,6 @@ import (
 	"github.com/golang/glog"
 	cadvisorapiv2 "github.com/google/cadvisor/info/v2"
 	"k8s.io/kubernetes/pkg/api"
-	"k8s.io/kubernetes/pkg/api/resource"
 	"k8s.io/kubernetes/pkg/api/unversioned"
 	"k8s.io/kubernetes/pkg/kubelet/cm"
 	"k8s.io/kubernetes/pkg/kubelet/dockertools"
@@ -33,6 +32,8 @@ import (
 func buildSummary(
 	node *api.Node,
 	nodeConfig cm.NodeConfig,
+	rootFsInfo cadvisorapiv2.FsInfo,
+	imageFsInfo cadvisorapiv2.FsInfo,
 	infos map[string]cadvisorapiv2.ContainerInfo) (*Summary, error) {
 
 	rootInfo, found := infos["/"]
@@ -44,7 +45,7 @@ func buildSummary(
 		return nil, fmt.Errorf("Missing stats for root container")
 	}
 
-	rootStats := containerInfoV2ToStats("", &rootInfo)
+	rootStats := containerInfoV2ToStats("", rootFsInfo, imageFsInfo, &rootInfo)
 	nodeStats := NodeStats{
 		NodeName: node.Name,
 		CPU:      rootStats.CPU,
@@ -59,16 +60,51 @@ func buildSummary(
 	}
 	for sys, name := range systemContainers {
 		if info, ok := infos[name]; ok {
-			nodeStats.SystemContainers = append(nodeStats.SystemContainers, containerInfoV2ToStats(sys, &info))
+			nodeStats.SystemContainers = append(nodeStats.SystemContainers, containerInfoV2ToStats(sys, rootFsInfo, imageFsInfo, &info))
 		}
 	}
 
 	summary := Summary{
 		Time: unversioned.NewTime(cstat.Timestamp),
 		Node: nodeStats,
-		Pods: buildSummaryPods(infos),
+		Pods: buildSummaryPods(rootFsInfo, imageFsInfo, infos),
 	}
 	return &summary, nil
+}
+
+// containerInfoV2FsStats populates the container fs stats
+func containerInfoV2FsStats(
+	info *cadvisorapiv2.ContainerInfo,
+	rootFsInfo cadvisorapiv2.FsInfo,
+	imageFsInfo cadvisorapiv2.FsInfo,
+	cs *ContainerStats) {
+
+	// The container logs live on the node rootfs device
+	cs.Logs = &FsStats{
+		AvailableBytes: &rootFsInfo.Available,
+		CapacityBytes:  &rootFsInfo.Capacity,
+	}
+
+	// The container rootFs lives on the imageFs devices (which may not be the node root fs)
+	cs.Rootfs = &FsStats{
+		AvailableBytes: &imageFsInfo.Available,
+		CapacityBytes:  &imageFsInfo.Capacity,
+	}
+
+	lcs, found := latestContainerStats(info)
+	if !found {
+		return
+	}
+	cfs := lcs.Filesystem
+	if cfs != nil && cfs.BaseUsageBytes != nil {
+		// rootfs used == BaseUsageBytes
+		cs.Rootfs.UsedBytes = cfs.BaseUsageBytes
+		if cfs.TotalUsageBytes != nil {
+			// logs used == Total - Base
+			logsUsage := *cfs.TotalUsageBytes - *cfs.BaseUsageBytes
+			cs.Logs.UsedBytes = &logsUsage
+		}
+	}
 }
 
 func latestContainerStats(info *cadvisorapiv2.ContainerInfo) (*cadvisorapiv2.ContainerStats, bool) {
@@ -85,7 +121,10 @@ func latestContainerStats(info *cadvisorapiv2.ContainerInfo) (*cadvisorapiv2.Con
 
 // buildSummaryPods aggregates and returns the container stats in cinfos by the Pod managing the container.
 // Containers not managed by a Pod are omitted.
-func buildSummaryPods(cinfos map[string]cadvisorapiv2.ContainerInfo) []PodStats {
+func buildSummaryPods(
+	rootFsInfo cadvisorapiv2.FsInfo,
+	imageFsInfo cadvisorapiv2.FsInfo,
+	cinfos map[string]cadvisorapiv2.ContainerInfo) []PodStats {
 	// Map each container to a pod and update the PodStats with container data
 	podToStats := map[NonLocalObjectReference]*PodStats{}
 	for _, cinfo := range cinfos {
@@ -108,7 +147,7 @@ func buildSummaryPods(cinfos map[string]cadvisorapiv2.ContainerInfo) []PodStats 
 			// Special case for infrastructure container which is hidden from the user and has network stats
 			stats.Network = containerInfoV2ToNetworkStats(&cinfo)
 		} else {
-			stats.Containers = append(stats.Containers, containerInfoV2ToStats(containerName, &cinfo))
+			stats.Containers = append(stats.Containers, containerInfoV2ToStats(containerName, rootFsInfo, imageFsInfo, &cinfo))
 		}
 	}
 
@@ -140,7 +179,11 @@ func isPodManagedContainer(cinfo *cadvisorapiv2.ContainerInfo) bool {
 	return managed
 }
 
-func containerInfoV2ToStats(name string, info *cadvisorapiv2.ContainerInfo) ContainerStats {
+func containerInfoV2ToStats(
+	name string,
+	rootFsInfo cadvisorapiv2.FsInfo,
+	imageFsInfo cadvisorapiv2.FsInfo,
+	info *cadvisorapiv2.ContainerInfo) ContainerStats {
 	stats := ContainerStats{
 		Name: name,
 	}
@@ -152,10 +195,10 @@ func containerInfoV2ToStats(name string, info *cadvisorapiv2.ContainerInfo) Cont
 	if info.Spec.HasCpu {
 		cpuStats := CPUStats{}
 		if cstat.CpuInst != nil {
-			cpuStats.UsageCores = resource.NewScaledQuantity(int64(cstat.CpuInst.Usage.Total), resource.Nano)
+			cpuStats.UsageCores = &cstat.CpuInst.Usage.Total
 		}
 		if cstat.Cpu != nil {
-			cpuStats.UsageCoreSeconds = resource.NewScaledQuantity(int64(cstat.Cpu.Usage.Total), resource.Nano)
+			cpuStats.UsageCoreNanoSeconds = &cstat.Cpu.Usage.Total
 		}
 		stats.CPU = &cpuStats
 	}
@@ -163,12 +206,13 @@ func containerInfoV2ToStats(name string, info *cadvisorapiv2.ContainerInfo) Cont
 		pageFaults := int64(cstat.Memory.ContainerData.Pgfault)
 		majorPageFaults := int64(cstat.Memory.ContainerData.Pgmajfault)
 		stats.Memory = &MemoryStats{
-			UsageBytes:      resource.NewQuantity(int64(cstat.Memory.Usage), resource.DecimalSI),
-			WorkingSetBytes: resource.NewQuantity(int64(cstat.Memory.WorkingSet), resource.DecimalSI),
+			UsageBytes:      &cstat.Memory.Usage,
+			WorkingSetBytes: &cstat.Memory.WorkingSet,
 			PageFaults:      &pageFaults,
 			MajorPageFaults: &majorPageFaults,
 		}
 	}
+	containerInfoV2FsStats(info, rootFsInfo, imageFsInfo, &stats)
 	return stats
 }
 
@@ -181,22 +225,22 @@ func containerInfoV2ToNetworkStats(info *cadvisorapiv2.ContainerInfo) *NetworkSt
 		return nil
 	}
 	var (
-		rxBytes  int64
-		rxErrors int64
-		txBytes  int64
-		txErrors int64
+		rxBytes  uint64
+		rxErrors uint64
+		txBytes  uint64
+		txErrors uint64
 	)
 	// TODO(stclair): check for overflow
 	for _, inter := range cstat.Network.Interfaces {
-		rxBytes += int64(inter.RxBytes)
-		rxErrors += int64(inter.RxErrors)
-		txBytes += int64(inter.TxBytes)
-		txErrors += int64(inter.TxErrors)
+		rxBytes += inter.RxBytes
+		rxErrors += inter.RxErrors
+		txBytes += inter.TxBytes
+		txErrors += inter.TxErrors
 	}
 	return &NetworkStats{
-		RxBytes:  resource.NewQuantity(rxBytes, resource.DecimalSI),
+		RxBytes:  &rxBytes,
 		RxErrors: &rxErrors,
-		TxBytes:  resource.NewQuantity(txBytes, resource.DecimalSI),
+		TxBytes:  &txBytes,
 		TxErrors: &txErrors,
 	}
 }

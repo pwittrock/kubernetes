@@ -126,7 +126,7 @@ var _ = Describe("Kubelet", func() {
 
 				// Verify Node Stats are present
 				Expect(summary.Node.NodeName).To(Equal(*nodeName))
-				Expect(summary.Node.CPU.UsageCoreSeconds).NotTo(BeZero())
+				Expect(summary.Node.CPU.UsageCoreNanoSeconds).NotTo(BeZero())
 				Expect(summary.Node.Memory.UsageBytes).NotTo(BeZero())
 				Expect(summary.Node.Memory.WorkingSetBytes).NotTo(BeZero())
 				// TODO: Test FS
@@ -136,7 +136,7 @@ var _ = Describe("Kubelet", func() {
 				for _, container := range summary.Node.SystemContainers {
 					sysContainers[container.Name] = container
 					sysContainersList = append(sysContainersList, container.Name)
-					Expect(container.CPU.UsageCoreSeconds).NotTo(BeZero())
+					Expect(container.CPU.UsageCoreNanoSeconds).NotTo(BeZero())
 					// TODO: Test Network
 					// TODO: Test logs
 					Expect(container.Memory.UsageBytes).NotTo(BeZero())
@@ -152,7 +152,6 @@ var _ = Describe("Kubelet", func() {
 						// Ignore pods created outside this test
 						continue
 
-
 					}
 					// TODO: Test network
 
@@ -160,7 +159,7 @@ var _ = Describe("Kubelet", func() {
 					Expect(pod.Containers).To(HaveLen(1))
 					container := pod.Containers[0]
 					Expect(container.Name).To(Equal(pod.PodRef.Name + containerSuffix))
-					Expect(container.CPU.UsageCoreSeconds).NotTo(BeZero())
+					Expect(container.CPU.UsageCoreNanoSeconds).NotTo(BeZero())
 					Expect(container.Memory.UsageBytes).NotTo(BeZero())
 					Expect(container.Memory.WorkingSetBytes).NotTo(BeZero())
 				}
@@ -192,7 +191,7 @@ func createPod(cl *client.Client, podName string, containers []api.Container) {
 			NodeName: *nodeName,
 			// Don't restart the Pod since it is expected to exit
 			RestartPolicy: api.RestartPolicyNever,
-			Containers: containers,
+			Containers:    containers,
 		},
 	}
 	_, err := cl.Pods(api.NamespaceDefault).Create(pod)

@@ -17,7 +17,6 @@ limitations under the License.
 package stats
 
 import (
-	"k8s.io/kubernetes/pkg/api/resource"
 	"k8s.io/kubernetes/pkg/api/unversioned"
 )
 
@@ -97,31 +96,31 @@ type NonLocalObjectReference struct {
 // NetworkStats contains data about network resources.
 type NetworkStats struct {
 	// Cumulative count of bytes received.
-	RxBytes *resource.Quantity `json:"rxBytes,omitempty"`
+	RxBytes *uint64 `json:"rxBytes,omitempty"`
 	// Cumulative count of receive errors encountered.
-	RxErrors *int64 `json:"rxErrors,omitempty"`
+	RxErrors *uint64 `json:"rxErrors,omitempty"`
 	// Cumulative count of bytes transmitted.
-	TxBytes *resource.Quantity `json:"txBytes,omitempty"`
+	TxBytes *uint64 `json:"txBytes,omitempty"`
 	// Cumulative count of transmit errors encountered.
-	TxErrors *int64 `json:"txErrors,omitempty"`
+	TxErrors *uint64 `json:"txErrors,omitempty"`
 }
 
 // CPUStats contains data about CPU usage.
 type CPUStats struct {
 	// Total CPU usage (sum of all cores) averaged over the sample window.
 	// The "core" unit can be interpreted as CPU core-seconds per second.
-	UsageCores *resource.Quantity `json:"usageCores,omitempty"`
+	UsageCores *uint64 `json:"usageCores,omitempty"`
 	// Cumulative CPU usage (sum of all cores) since object creation.
-	UsageCoreSeconds *resource.Quantity `json:"usageCoreSeconds,omitempty"`
+	UsageCoreNanoSeconds *uint64 `json:"usageCoreSeconds,omitempty"`
 }
 
 // MemoryStats contains data about memory usage.
 type MemoryStats struct {
 	// Total memory in use. This includes all memory regardless of when it was accessed.
-	UsageBytes *resource.Quantity `json:"usageBytes,omitempty"`
+	UsageBytes *uint64 `json:"usageBytes,omitempty"`
 	// The amount of working set memory. This includes recently accessed memory,
 	// dirty memory, and kernel memory. UsageBytes is <= TotalBytes.
-	WorkingSetBytes *resource.Quantity `json:"workingSetBytes,omitempty"`
+	WorkingSetBytes *uint64 `json:"workingSetBytes,omitempty"`
 	// Cumulative number of minor page faults.
 	PageFaults *int64 `json:"pageFaults,omitempty"`
 	// Cumulative number of major page faults.
@@ -139,11 +138,11 @@ type VolumeStats struct {
 // FsStats contains data about filesystem usage.
 type FsStats struct {
 	// AvailableBytes represents the storage space available (bytes) for the filesystem.
-	AvailableBytes *resource.Quantity `json:"availableBytes,omitempty"`
+	AvailableBytes *uint64 `json:"availableBytes,omitempty"`
 	// CapacityBytes represents the total capacity (bytes) of the filesystems underlying storage.
-	CapacityBytes *resource.Quantity `json:"capacityBytes,omitempty"`
+	CapacityBytes *uint64 `json:"capacityBytes,omitempty"`
 	// UsedBytes represents the bytes used for a specific task on the filesystem.
 	// This may differ from the total bytes used on the filesystem and may not equal CapacityBytes - AvailableBytes.
 	// e.g. For ContainerStats.Rootfs this is the bytes used by the container rootfs on the filesystem.
-	UsedBytes *resource.Quantity `json:"usedBytes,omitempty"`
+	UsedBytes *uint64 `json:"usedBytes,omitempty"`
 }

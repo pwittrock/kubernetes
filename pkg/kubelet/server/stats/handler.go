@@ -43,6 +43,8 @@ type StatsProvider interface {
 	GetPodByName(namespace, name string) (*api.Pod, bool)
 	GetNode() (*api.Node, error)
 	GetNodeConfig() cm.NodeConfig
+	DockerImagesFsInfo() (cadvisorapiv2.FsInfo, error)
+	RootFsInfo() (cadvisorapiv2.FsInfo, error)
 }
 
 type handler struct {
@@ -160,8 +162,18 @@ func (h *handler) handleSummary(request *restful.Request, response *restful.Resp
 	}
 
 	nodeConfig := h.provider.GetNodeConfig()
+	rootFsInfo, err := h.provider.RootFsInfo()
+	if err != nil {
+		handleError(response, err)
+		return
+	}
+	imageFsInfo, err := h.provider.DockerImagesFsInfo()
+	if err != nil {
+		handleError(response, err)
+		return
+	}
 
-	summary, err := buildSummary(node, nodeConfig, infos)
+	summary, err := buildSummary(node, nodeConfig, rootFsInfo, imageFsInfo, infos)
 	if err != nil {
 		handleError(response, err)
 	} else {

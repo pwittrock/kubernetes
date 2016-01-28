@@ -135,6 +135,15 @@ func (fk *fakeKubelet) StreamingConnectionIdleTimeout() time.Duration {
 func (_ *fakeKubelet) GetContainerInfoV2(_ string, _ cadvisorapiv2.RequestOptions) (map[string]cadvisorapiv2.ContainerInfo, error) {
 	return nil, nil
 }
+
+func (_ *fakeKubelet) DockerImagesFsInfo() (cadvisorapiv2.FsInfo, error) {
+	return cadvisorapiv2.FsInfo{}, fmt.Errorf("Unsupported Operation DockerImagesFsInfo")
+}
+
+func (_ *fakeKubelet) RootFsInfo() (cadvisorapiv2.FsInfo, error) {
+	return cadvisorapiv2.FsInfo{}, fmt.Errorf("Unsupport Operation RootFsInfo")
+}
+
 func (_ *fakeKubelet) GetNode() (*api.Node, error)  { return nil, nil }
 func (_ *fakeKubelet) GetNodeConfig() cm.NodeConfig { return cm.NodeConfig{} }
 

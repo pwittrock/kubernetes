@@ -21,7 +21,6 @@ import (
 	"strconv"
 
 	"github.com/golang/glog"
-	cadvisorapiv2 "github.com/google/cadvisor/info/v2"
 	"k8s.io/kubernetes/pkg/api"
 	"k8s.io/kubernetes/pkg/apimachinery/registered"
 	kubecontainer "k8s.io/kubernetes/pkg/kubelet/container"
@@ -65,16 +64,20 @@ type labelledContainerInfo struct {
 	PreStopHandler            *api.Handler
 }
 
-func GetContainerName(info *cadvisorapiv2.ContainerInfo) string {
-	return info.Spec.Labels[kubernetesContainerNameLabel]
+func GetContainerName(labels map[string]string) string {
+	return labels[kubernetesContainerNameLabel]
 }
 
-func GetPodName(info *cadvisorapiv2.ContainerInfo) string {
-	return info.Spec.Labels[kubernetesPodNameLabel]
+func GetPodName(labels map[string]string) string {
+	return labels[kubernetesPodNameLabel]
 }
 
-func GetPodNamespace(info *cadvisorapiv2.ContainerInfo) string {
-	return info.Spec.Labels[kubernetesPodNamespaceLabel]
+func GetPodUID(labels map[string]string) string {
+	return labels[kubernetesPodUIDLabel]
+}
+
+func GetPodNamespace(labels map[string]string) string {
+	return labels[kubernetesPodNamespaceLabel]
 }
 
 func newLabels(container *api.Container, pod *api.Pod, restartCount int) map[string]string {

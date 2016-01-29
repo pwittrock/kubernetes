@@ -81,9 +81,9 @@ func TestBuildSummary(t *testing.T) {
 		cName20 = "c1" // ensure cName20 conflicts with cName01, but is in a different pod + namespace
 	)
 
-	prf0 := NonLocalObjectReference{Name: pName0, Namespace: namespace0}
-	prf1 := NonLocalObjectReference{Name: pName1, Namespace: namespace0}
-	prf2 := NonLocalObjectReference{Name: pName2, Namespace: namespace2}
+	prf0 := PodReference{Name: pName0, Namespace: namespace0, UID: "UID" + pName0}
+	prf1 := PodReference{Name: pName1, Namespace: namespace0, UID: "UID" + pName1}
+	prf2 := PodReference{Name: pName2, Namespace: namespace2, UID: "UID" + pName2}
 	infos := map[string]v2.ContainerInfo{
 		"/":              summaryTestContainerInfo(seedRoot, "", "", ""),
 		"/docker-daemon": summaryTestContainerInfo(seedRuntime, "", "", ""),
@@ -128,14 +128,14 @@ func TestBuildSummary(t *testing.T) {
 	}
 
 	assert.Equal(t, 3, len(summary.Pods))
-	indexPods := make(map[NonLocalObjectReference]PodStats, len(summary.Pods))
+	indexPods := make(map[PodReference]PodStats, len(summary.Pods))
 	for _, pod := range summary.Pods {
 		indexPods[pod.PodRef] = pod
 	}
 
 	// Validate Pod0 Results
-	assert.NotNil(t, indexPods[prf0])
-	ps := indexPods[prf0]
+	ps, found := indexPods[prf0]
+	assert.True(t, found)
 	assert.Len(t, ps.Containers, 2)
 	indexCon := make(map[string]ContainerStats, len(ps.Containers))
 	for _, con := range ps.Containers {
@@ -152,8 +152,8 @@ func TestBuildSummary(t *testing.T) {
 	checkNetworkStats(t, "Pod", seedPod0Infra, ps.Network)
 
 	// Validate Pod1 Results
-	assert.NotNil(t, indexPods[prf1])
-	ps = indexPods[prf1]
+	ps, found = indexPods[prf1]
+	assert.True(t, found)
 	assert.Len(t, ps.Containers, 1)
 	con = ps.Containers[0]
 	assert.Equal(t, cName10, con.Name)
@@ -162,8 +162,8 @@ func TestBuildSummary(t *testing.T) {
 	checkNetworkStats(t, "Pod", seedPod1Infra, ps.Network)
 
 	// Validate Pod2 Results
-	assert.NotNil(t, indexPods[prf2])
-	ps = indexPods[prf2]
+	ps, found = indexPods[prf2]
+	assert.True(t, found)
 	assert.Len(t, ps.Containers, 1)
 	con = ps.Containers[0]
 	assert.Equal(t, cName20, con.Name)
@@ -222,6 +222,7 @@ func summaryTestContainerInfo(seed int, podName string, podNamespace string, con
 	if podName != "" {
 		labels = map[string]string{
 			"io.kubernetes.pod.name":       podName,
+			"io.kubernetes.pod.uid":        "UID" + podName,
 			"io.kubernetes.pod.namespace":  podNamespace,
 			"io.kubernetes.container.name": containerName,
 		}

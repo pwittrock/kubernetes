@@ -61,7 +61,7 @@ const (
 // PodStats holds pod-level unprocessed sample stats.
 type PodStats struct {
 	// Reference to the measured Pod.
-	PodRef NonLocalObjectReference `json:"podRef"`
+	PodRef PodReference `json:"podRef"`
 	// Stats of containers in the measured pod.
 	Containers []ContainerStats `json:"containers" patchStrategy:"merge" patchMergeKey:"name"`
 	// Stats pertaining to network resources.
@@ -89,10 +89,11 @@ type ContainerStats struct {
 	Logs *FsStats `json:"logs,omitempty"`
 }
 
-// NonLocalObjectReference contains enough information to locate the referenced object.
-type NonLocalObjectReference struct {
+// PodReference contains enough information to locate the referenced pod.
+type PodReference struct {
 	Name      string `json:"name"`
 	Namespace string `json:"namespace"`
+	UID       string `json:"uid"`
 }
 
 // NetworkStats contains data about network resources.

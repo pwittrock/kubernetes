@@ -128,7 +128,7 @@ func buildSummaryPods(
 	imageFsInfo cadvisorapiv2.FsInfo,
 	cinfos map[string]cadvisorapiv2.ContainerInfo) []PodStats {
 	// Map each container to a pod and update the PodStats with container data
-	podToStats := map[NonLocalObjectReference]*PodStats{}
+	podToStats := map[PodReference]*PodStats{}
 	for _, cinfo := range cinfos {
 		// Build the Pod key if this container is managed by a Pod
 		if !isPodManagedContainer(&cinfo) {
@@ -144,7 +144,7 @@ func buildSummaryPods(
 		}
 
 		// Update the PodStats entry with the stats from the container by adding it to stats.Containers
-		containerName := dockertools.GetContainerName(&cinfo)
+		containerName := dockertools.GetContainerName(cinfo.Spec.Labels)
 		if containerName == leaky.PodInfraContainerName {
 			// Special case for infrastructure container which is hidden from the user and has network stats
 			stats.Network = containerInfoV2ToNetworkStats(&cinfo)
@@ -162,17 +162,18 @@ func buildSummaryPods(
 	return result
 }
 
-// buildPodRef returns a NonLocalObjectReference that identifies the Pod managing cinfo
-func buildPodRef(cinfo *cadvisorapiv2.ContainerInfo) NonLocalObjectReference {
-	podName := dockertools.GetPodName(cinfo)
-	podNamespace := dockertools.GetPodNamespace(cinfo)
-	return NonLocalObjectReference{Name: podName, Namespace: podNamespace}
+// buildPodRef returns a PodReference that identifies the Pod managing cinfo
+func buildPodRef(cinfo *cadvisorapiv2.ContainerInfo) PodReference {
+	podName := dockertools.GetPodName(cinfo.Spec.Labels)
+	podNamespace := dockertools.GetPodNamespace(cinfo.Spec.Labels)
+	podUID := dockertools.GetPodUID(cinfo.Spec.Labels)
+	return PodReference{Name: podName, Namespace: podNamespace, UID: podUID}
 }
 
 // isPodManagedContainer returns true if the cinfo container is managed by a Pod
 func isPodManagedContainer(cinfo *cadvisorapiv2.ContainerInfo) bool {
-	podName := dockertools.GetPodName(cinfo)
-	podNamespace := dockertools.GetPodNamespace(cinfo)
+	podName := dockertools.GetPodName(cinfo.Spec.Labels)
+	podNamespace := dockertools.GetPodNamespace(cinfo.Spec.Labels)
 	managed := podName != "" && podNamespace != ""
 	if !managed && podName != podNamespace {
 		glog.Warningf(

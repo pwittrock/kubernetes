@@ -20,6 +20,7 @@ kube::golang::setup_env
 
 focus=${FOCUS}
 skip=${SKIP:-""}
+SUDO=${SUDO:="true"}
 
 ginkgo=$(kube::util::find-binary "ginkgo")
 if [[ -z "${ginkgo}" ]]; then
@@ -28,7 +29,10 @@ if [[ -z "${ginkgo}" ]]; then
 fi
 
 # Provided for backwards compatibility
-sudo -v
+if [[ ${SUDO} == "true" ]]; then
+  sudo -v
+fi
+
 "${ginkgo}" --focus=$focus --skip=$skip "${KUBE_ROOT}/test/e2e_node/" -- --alsologtostderr --v 2 --node-name $(hostname) --build-services=true --start-services=true --stop-services=true
 
 exit $?

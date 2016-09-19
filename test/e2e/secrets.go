@@ -26,10 +26,6 @@ import (
 	. "github.com/onsi/ginkgo"
 )
 
-var (
-	serverVersion13 = version.MustParse("v1.3.0")
-)
-
 var _ = Describe("Secrets", func() {
 	f := NewDefaultFramework("secrets")
 

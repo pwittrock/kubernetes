@@ -1,0 +1,23 @@
+---
+title: Kubernetes API Reference
+
+language_tabs:
+  - shell
+  - ruby
+
+toc_footers:
+  - <a href='https://github.com/tripit/slate'>Documentation Powered by Slate</a>
+
+includes:
+  - deployments
+  - errors
+
+search: true
+---
+
+# Introduction
+
+Welcome to the Kubernetes API! You can use our API to access Kubernetes API endpoints to read and write Kubernetes resource objects.
+
+TODO: Write explanation of metadata vs status vs spec
+

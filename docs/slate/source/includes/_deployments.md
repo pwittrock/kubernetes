@@ -157,7 +157,7 @@ spec:
 
 > The above command returns JSON structured like this:
 
-```json
+```shell
 {
   "kind": "Deployment",
   "apiVersion": "extensions/v1beta1",

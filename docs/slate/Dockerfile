@@ -13,4 +13,6 @@ RUN bundle install
 
 RUN apt-get update && apt-get install -y nodejs && apt-get clean && rm -rf /var/lib/apt/lists/*
 
-CMD ["bundle", "exec", "middleman", "build", "--clean"]
+ENTRYPOINT ["bundle", "exec", "middleman"]
+
+CMD ["build", "--clean"]

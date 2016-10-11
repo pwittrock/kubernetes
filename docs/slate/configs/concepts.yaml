@@ -1,0 +1,12 @@
+Concepts:
+- Name: Pod
+- Name: Container
+- Name: Deployment
+    Operations:
+    -
+- Name: Ingress
+- Name: ObjectMeta
+- Name: ReplicationController
+- Name: ReplicaSet
+- Name: Service
+- Name: Volume

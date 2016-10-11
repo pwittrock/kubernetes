@@ -40,5 +40,9 @@ Parameter    | Schema     | Description
 Parameter    | Schema     | Description
 ------------ | ---------- | -----------
 {{range $index, $param := $operation.RequestBody}}{{$param.Name}} | {{$param.Schema}} | {{$param.Description}}{{end}}
+
+### Response
+
+
 {{end}}
 {{end}}

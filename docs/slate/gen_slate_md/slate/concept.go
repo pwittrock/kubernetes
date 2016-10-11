@@ -14,7 +14,7 @@ See the License for the specific language governing permissions and
 limitations under the License.
 */
 
-package template
+package slate
 
 import (
 	"text/template"
@@ -25,10 +25,14 @@ type ConceptTemplate struct {
 }
 
 func New(path string) (*ConceptTemplate, error) {
-	t, err := template.New("concept.template").ParseFiles(path)
+	t, err := template.New("concept.template").ParseFiles(path + "/concept.template")
 	if err != nil { return nil, err }
 	temp := &ConceptTemplate{t}
 	return temp, nil
+}
+
+type IndexTemplateParams struct {
+	Includes []string
 }
 
 type ConceptTemplateParams struct {

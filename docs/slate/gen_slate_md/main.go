@@ -20,6 +20,7 @@ import (
 	"fmt"
 	"flag"
 	//"os"
+	"text/template"
 
 	"github.com/go-openapi/loads"
 
@@ -30,18 +31,81 @@ import (
 	"os"
 	"github.com/go-openapi/spec"
 	"regexp"
+	"os/exec"
 )
 
 var buildDir = flag.String("build-dir", "", "destination for generated files")
 var sourceDir = flag.String("source-dir", "", "source for swagger files")
 var templateDir = flag.String("template-dir", "", "")
-var conceptsList = flag.String("concepts", "v1.Pod,v1.Container,v1beta1.Deployment,v1.ObjectMeta", "comma-separated list of top level concepts")
+//var conceptsList = flag.String("concepts", "v1.Pod,v1.Container,v1beta1.Deployment,v1.ObjectMeta", "comma-separated list of top level concepts")
+var pkgDir = flag.String("pkg-dir", "../../pkg", "")
 
 func main() {
 	flag.Parse()
 
+	out, e := exec.Command("find", *pkgDir, "-name", "register.go", "-type", "f").CombinedOutput()
+	if e != nil {
+		fmt.Printf("Failed to find top level objects: %v %s", e, out)
+		os.Exit(1)
+	}
+	tl := []string{}
+	for _, f := range strings.Split(string(out), "\n") {
+		cmdLine := fmt.Sprintf("grep '&[A-Za-z]*{},' %s | sed 's/.*&//;s/{},//' | sort | uniq", f)
+		out, e := exec.Command("bash", "-c", cmdLine).CombinedOutput()
+		if e != nil {
+			fmt.Printf("Failed to find top level objects: %v", e)
+			os.Exit(1)
+		}
+		o := strings.TrimSpace(string(out))
+
+		re := regexp.MustCompile("/(v1[0-9a-z]*)/register.go$")
+		version := re.FindString(f)
+		if len(version) == 0 {
+			continue
+		}
+		version = strings.Replace(version, "/register.go", "", 1)
+		version = strings.Replace(version, "/", "", 1)
+		for _, a := range strings.Split(o, "\n") {
+			a = version + "." + strings.TrimSpace(a)
+			if len(a) == 0 {
+				continue
+			}
+			tl = append(tl, a)
+		}
+	}
+
+	t, err := template.New("index.template").ParseFiles(*templateDir + "/index.template")
+	if err != nil {
+		fmt.Printf("Failed to parse template: %v", err)
+		os.Exit(1)
+	}
+	t2, err := template.New("concept_lite.template").ParseFiles(*templateDir + "/concept_lite.template")
+	if err != nil {
+		fmt.Printf("Failed to parse template: %v", err)
+		os.Exit(1)
+	}
+
+	includes := []string{}
+	for _, i := range tl {
+		includes = append(includes, strings.ToLower(strings.Replace(i, ".", "_", 1)))
+	}
+
+
+	f, err := os.Create(*buildDir + "/index.html.md")
+	if err != nil {
+		fmt.Printf("Failed to open index: %v", err)
+		os.Exit(1)
+	}
+	defer f.Close()
+
+	err = t.Execute(f, slate.IndexTemplateParams{includes})
+	if err != nil {
+		fmt.Printf("Failed to parse template: %v", err)
+		os.Exit(1)
+	}
+
 	var specs []*loads.Document = []*loads.Document{}
-	err := filepath.Walk(*sourceDir, func(path string, info os.FileInfo, err error) error {
+	err = filepath.Walk(*sourceDir, func(path string, info os.FileInfo, err error) error {
 		ext := filepath.Ext(path)
 		if ext != ".json" {
 			return nil
@@ -58,16 +122,42 @@ func main() {
 		os.Exit(1)
 	}
 
-	topLevelConcepts := map[string]*template.ConceptTemplateParams{}
-	for _, concept := range strings.Split(*conceptsList, ",") {
-		topLevelConcepts[concept] = &template.ConceptTemplateParams{}
+	topLevelConcepts := map[string]*slate.ConceptTemplateParams{}
+	for _, concept := range tl {
+		topLevelConcepts[concept] = &slate.ConceptTemplateParams{}
 	}
+
+	reg := regexp.MustCompile("\\..*")
 
 	// Process concepts
 	conceptList := map[string]spec.Schema{}
 	for _, d := range specs {
 		for k, v := range d.Spec().Definitions {
 			conceptList[k] = v
+			for pn, pv := range v.Properties {
+				if len(pv.SchemaProps.Ref.GetPointer().String()) > 0 {
+					fmt.Printf("\t%s %v (%s)\n", pn, pv.SchemaProps.Ref.GetPointer(), pv.Description)
+				} else if pv.Type[0] == "array" {
+					if len(pv.Items.Schema.SchemaProps.Ref.GetPointer().String()) > 0 {
+						fmt.Printf("\t%s %v %v (%s)\n", pn, pv.Items.Schema.Ref.GetPointer(), pv.Type[0], pv.Description)
+					} else {
+						fmt.Printf("\t%s %v %v (%s)\n", pn, pv.Items.Schema.Type[0], pv.Type[0], pv.Description)
+					}
+				} else {
+					fmt.Printf("\t%s %v (%s)\n", pn, pv.Type[0], pv.Description)
+				}
+			}
+		}
+	}
+
+	for k, _ := range topLevelConcepts {
+		name := reg.FindString(k)
+		name = strings.Replace(name, ".", "", 1)
+		fmt.Printf("%s:\n", k)
+		if _, f :=topLevelConcepts[k]; f {
+			WriteConcept(t2, &slate.ConceptTemplateParams{
+				Name: name,
+			}, strings.ToLower(strings.Replace(k, ".", "_", 1)) + ".md")
 		}
 	}
 
@@ -76,12 +166,14 @@ func main() {
 	// Process endpoints
 	for _, d := range specs {
 		for path, pathItem := range d.Spec().Paths.Paths {
-			var concept *template.ConceptTemplateParams = nil
+			var concept *slate.ConceptTemplateParams = nil
 			for tlcName, ctp := range topLevelConcepts {
 				re := regexp.MustCompile(strings.Replace(strings.ToLower(tlcName), ".", "/(.*/)?", 1) + "(s)?[$/]")
+				//re := regexp.MustCompile("/" + strings.ToLower(tlcName) + "(s)?[$/]")
 
 				if re.Match([]byte(path)) {
 					concept = ctp
+					concept.Name = tlcName
 					break
 				}
 			}
@@ -103,7 +195,7 @@ func main() {
 			if concept == nil {
 				continue
 			}
-			fmt.Printf("%s %s\n", concept, path)
+			fmt.Printf("%s %s\n", concept.Name, path)
 			pathParams := []spec.Parameter{}
 			for _, p := range pathItem.Parameters {
 				pathParams = append(pathParams, p)
@@ -136,30 +228,44 @@ func main() {
 	//if err != nil { panic(err) }
 }
 
-func PrintOp(t string, op *spec.Operation, pathParams []spec.Parameter, c *template.ConceptTemplateParams) {
-	if op != nil {
-		fmt.Printf("\t%s: %s\n", t, op.Description)
-		fmt.Printf("\t\tPathParameters:\n")
-		for _, p := range pathParams {
-			if p.Type != "" {
-				fmt.Printf("\t\t-%s %s [%+v]\n", p.Name, p.Description, p.Type)
-			} else {
-				fmt.Printf("\t\t-%s %s [%+v]\n", p.Name, p.Description, p.Schema.SchemaProps.Ref.GetPointer())
-			}
-		}
-		fmt.Printf("\t\tQueryParameters:\n")
-		for _, p := range op.Parameters {
-			if p.Type != "" {
-				fmt.Printf("\t\t-%s %s [%+v]\n", p.Name, p.Description, p.Type)
-			} else {
-				fmt.Printf("\t\t-%s %s [%+v]\n", p.Name, p.Description, p.Schema.SchemaProps.Ref.GetPointer())
-			}
-		}
-		if r, f := op.Responses.ResponsesProps.StatusCodeResponses[200]; f && len(r.Schema.SchemaProps.Ref.GetPointer().String()) > 0 {
-			fmt.Printf("\t\tResponses:\n")
-			fmt.Printf("\t\t-%v\n", r.Schema.SchemaProps.Ref.GetPointer())
-		}
+func WriteConcept(t2 *template.Template, c *slate.ConceptTemplateParams, fName string) {
+	f2, err := os.Create(*buildDir + "/includes/_" + fName)
+	defer f2.Close()
+	if err != nil {
+		os.Stderr.WriteString(fmt.Sprintf("%v", err))
+		os.Exit(1)
 	}
+	t2.Execute(f2, slate.ConceptTemplateParams{Name: c.Name})
+	if err != nil {
+		os.Stderr.WriteString(fmt.Sprintf("%v", err))
+		os.Exit(1)
+	}
+}
+
+func PrintOp(t string, op *spec.Operation, pathParams []spec.Parameter, c *slate.ConceptTemplateParams) {
+	//if op != nil {
+	//	fmt.Printf("\t%s: %s\n", t, op.Description)
+	//	fmt.Printf("\t\tPathParameters:\n")
+	//	for _, p := range pathParams {
+	//		if p.Type != "" {
+	//			fmt.Printf("\t\t-%s %s [%+v]\n", p.Name, p.Description, p.Type)
+	//		} else {
+	//			fmt.Printf("\t\t-%s %s [%+v]\n", p.Name, p.Description, p.Schema.SchemaProps.Ref.GetPointer())
+	//		}
+	//	}
+	//	fmt.Printf("\t\tQueryParameters:\n")
+	//	for _, p := range op.Parameters {
+	//		if p.Type != "" {
+	//			fmt.Printf("\t\t-%s %s [%+v]\n", p.Name, p.Description, p.Type)
+	//		} else {
+	//			fmt.Printf("\t\t-%s %s [%+v]\n", p.Name, p.Description, p.Schema.SchemaProps.Ref.GetPointer())
+	//		}
+	//	}
+	//	if r, f := op.Responses.ResponsesProps.StatusCodeResponses[200]; f && len(r.Schema.SchemaProps.Ref.GetPointer().String()) > 0 {
+	//		fmt.Printf("\t\tResponses:\n")
+	//		fmt.Printf("\t\t-%v\n", r.Schema.SchemaProps.Ref.GetPointer())
+	//	}
+	//}
 }
 
 
@@ -177,29 +283,29 @@ func (c *Concepts) Set(value string) error {
 	return nil
 }
 
-func GetDeployment() template.ConceptTemplateParams {
-	return template.ConceptTemplateParams{
+func GetDeployment() slate.ConceptTemplateParams {
+	return slate.ConceptTemplateParams{
 		Name: "Deployment",
-		Fields: []template.ConceptField{
+		Fields: []slate.ConceptField{
 			{"apiVersion", "string", "Must be set to 'extensions/v1beta1'"},
 			{"kind", "string", "Must be set to 'extensions/v1beta1'"},
 		},
-		Operations: []template.Operation{
+		Operations: []slate.Operation{
 			{
 				"Create",
 				"Create a new Deployment",
 				"POST https://127.0.0.1:8001/apis/extensions/v1beta1/namespaces/{namespace}/deployments",
-				[]template.Example{
+				[]slate.Example{
 					{"shell", "Some Shell Request", "Some Shell Result"},
 					{"ruby", "Some Ruby Request", "Some Ruby Result"}},
-				[]template.PathParam{
+				[]slate.PathParam{
 					{"namespace", "string", "Object name and auth scope, such as for teams and projects"},
 				},
-				[]template.QueryParam{
+				[]slate.QueryParam{
 					{"pretty", "bool", "If 'true', then the output is pretty printed."},
 					{"labelSelector", "string", "A selector to restrict the list of returned objects by their labels. Defaults to everything."},
 				},
-				[]template.RequestBody{
+				[]slate.RequestBody{
 					{"body", "[Deployment](#Deployment)", "Deployment resource object"},
 				},
 			},
@@ -207,18 +313,18 @@ func GetDeployment() template.ConceptTemplateParams {
 				"Delete",
 				"Delete a Deployment",
 				"Delete https://127.0.0.1:8001/apis/extensions/v1beta1/namespaces/{namespace}/deployments/{name}",
-				[]template.Example{
+				[]slate.Example{
 					{"shell", "Some Shell Request", "Some Shell Result"},
 					{"ruby", "Some Ruby Request", "Some Ruby Result"}},
-				[]template.PathParam{
+				[]slate.PathParam{
 					{"namespace", "string", "Object name and auth scope, such as for teams and projects"},
 					{"name", "string", "name of the Deployment"},
 				},
-				[]template.QueryParam{
+				[]slate.QueryParam{
 					{"pretty", "bool", "If 'true', then the output is pretty printed."},
 					{"labelSelector", "string", "A selector to restrict the list of returned objects by their labels. Defaults to everything."},
 				},
-				[]template.RequestBody{
+				[]slate.RequestBody{
 				},
 			},
 		},

@@ -32,17 +32,27 @@ func New(path string) (*ConceptTemplate, error) {
 }
 
 type IndexTemplateParams struct {
-	Includes []string
+	ConceptIncludes []string
+	DefinitionIncludes []string
+}
+
+type Operations []Operation
+func (a Operations) Len() int           { return len(a) }
+func (a Operations) Swap(i, j int)      { a[i], a[j] = a[j], a[i] }
+func (a Operations) Less(i, j int) bool {
+	return a[i].Name < a[j].Name
 }
 
 type ConceptTemplateParams struct {
 	Name string
 	Fields []ConceptField
-	Operations []Operation
+	Operations Operations
+	SubConcepts []ConceptTemplateParams
 }
 
 type ConceptField struct {
 	Name string
+	Link string
 	Schema string
 	Description string
 }
@@ -55,6 +65,20 @@ type Operation struct {
 	PathParams []PathParam
 	QueryParams []QueryParam
 	RequestBody []RequestBody
+	HttpResponses HttpResponses
+}
+
+type HttpResponses []HttpResponse
+func (a HttpResponses) Len() int           { return len(a) }
+func (a HttpResponses) Swap(i, j int)      { a[i], a[j] = a[j], a[i] }
+func (a HttpResponses) Less(i, j int) bool {
+	return a[i].Code < a[j].Code
+}
+
+type HttpResponse struct {
+	Code string
+	Description string
+	Schema string
 }
 
 type Example struct {

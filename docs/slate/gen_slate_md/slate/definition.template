@@ -1,0 +1,13 @@
+
+## {{.Name}}
+
+Field        | Schema     | Description
+------------ | ---------- | -----------
+{{range $index, $field := .Fields}}{{$field.Name}} | {{$field.Link}} | {{$field.Description}}
+{{end}}
+
+{{range $index, $subconcept := .SubConcepts}}## {{$subconcept.Name}}
+Field        | Schema     | Description
+------------ | ---------- | -----------
+{{range $index, $field := $subconcept.Fields}}{{$field.Name}} | {{$field.Link}} | {{$field.Description}}
+{{end}}{{end}}

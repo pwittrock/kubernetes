@@ -8,7 +8,9 @@ language_tabs:
 toc_footers:
   - <a href='https://github.com/tripit/slate'>Documentation Powered by Slate</a>
 
-includes:{{range $index, $include := .Includes}}
+includes:{{range $index, $include := .ConceptIncludes}}
+  - {{$include}}{{end}}
+  - definitions{{range $index, $include := .DefinitionIncludes}}
   - {{$include}}{{end}}
 
 search: true

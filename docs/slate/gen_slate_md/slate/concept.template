@@ -1,18 +1,41 @@
+{{define "pathparams"}}{{if .PathParams }}### Path Parameters
 
-# {{.Name}}
-
-Field        | Schema     | Description
+Parameter    | Schema     | Description
 ------------ | ---------- | -----------
-{{range $index, $field := .Fields}}{{$field.Name}} | {{$field.Schema}} | {{$field.Description}}
-{{end}}
-{{range $index, $operation := .Operations}}## {{$operation.Name}}
-{{range $index, $example := $operation.Examples}}
+{{range $param := .PathParams}}{{$param.Name}} | {{$param.Schema}} | {{$param.Description}}
+{{end}}{{end}}{{end}}
+
+{{define "queryparams"}}{{if .QueryParams }}### Query Parameters
+
+Parameter    | Schema     | Description
+------------ | ---------- | -----------
+{{range $param := .QueryParams}}{{$param.Name}} | {{$param.Schema}} | {{$param.Description}}
+{{end}}{{end}}{{end}}
+
+{{define "requestbody"}}{{if .RequestBody}}### Request Body
+
+Parameter    | Schema     | Description
+------------ | ---------- | -----------
+{{range $param := .RequestBody}}{{$param.Name}} | {{$param.Schema}} | {{$param.Description}}
+{{end}}{{end}}{{end}}
+
+{{define "responsebody"}}{{if .HttpResponses}}### Response
+
+Code         | Schema     | Description
+------------ | ---------- | -----------
+{{range $i, $response := .HttpResponses}}{{$response.Code}} | {{$response.Schema}} | {{$response.Description}}
+{{end}}{{end}}{{end}}
+
+{{define "concept.template"}}# {{.Name}}s
+
+{{range $operation := .Operations}}## {{$operation.Name}}
+{{range $example := $operation.Examples}}
 ```{{$example.Lang}}
 {{$example.Request}}
 ```
 {{end}}
 > The above command returns JSON structured like this:
-{{range $index, $example := $operation.Examples}}
+{{range $example := $operation.Examples}}
 ```{{$example.Lang}}
 {{$example.Response}}
 ```
@@ -21,28 +44,12 @@ Field        | Schema     | Description
 
 ### HTTP Request
 
-{{$operation.HttpRequest}}
+`{{$operation.HttpRequest}}`
 
-{{if $operation.PathParams }}### Path Parameters
-
-Parameter    | Schema     | Description
------------- | ---------- | -----------
-{{range $index, $param := $operation.PathParams}}{{$param.Name}} | {{$param.Schema}} | {{$param.Description}}{{end}}{{end}}
-
-{{if $operation.QueryParams }}### Query Parameters
-
-Parameter    | Schema     | Description
------------- | ---------- | -----------
-{{range $index, $param := $operation.QueryParams}}{{$param.Name}} | {{$param.Schema}} | {{$param.Description}}{{end}}{{end}}
-
-{{if $operation.RequestBody }}### Request Body
-
-Parameter    | Schema     | Description
------------- | ---------- | -----------
-{{range $index, $param := $operation.RequestBody}}{{$param.Name}} | {{$param.Schema}} | {{$param.Description}}{{end}}
-
-### Response
-
+{{template "pathparams" $operation}}
+{{template "queryparams" $operation}}
+{{template "requestbody" $operation}}
+{{template "responsebody" $operation}}
 
 {{end}}
 {{end}}

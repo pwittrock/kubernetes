@@ -22,3 +22,6 @@ build/
 _yardoc
 doc/
 .idea/
+
+# Generated includes
+source/includes/_generated*

@@ -25,3 +25,4 @@ doc/
 
 # Generated includes
 source/includes/_generated*
+source/index.html.md

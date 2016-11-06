@@ -1,0 +1,95 @@
+-{{define "pathparams"}}{{if .PathParams }}### Path Parameters
+-
+-Parameter    | Schema     | Description
+------------- | ---------- | -----------
+-{{range $param := .PathParams}}{{$param.Name}} | {{$param.TypeLink}} | {{$param.Description}}
+-{{end}}{{end}}{{end}}
+-
+-{{define "queryparams"}}{{if .QueryParams }}### Query Parameters
+-
+-Parameter    | Schema     | Description
+------------- | ---------- | -----------
+-{{range $param := .QueryParams}}{{$param.Name}} | {{$param.TypeLink}} | {{$param.Description}}
+-{{end}}{{end}}{{end}}
+-
+-{{define "requestbody"}}{{if .RequestBody}}### Request Body
+-
+-Parameter    | Schema     | Description
+------------- | ---------- | -----------
+-{{range $param := .RequestBody}}{{$param.Name}} | {{$param.TypeLink}} | {{$param.Description}}
+-{{end}}{{end}}{{end}}
+-
+-{{define "responsebody"}}{{if .HttpResponses}}### Response
+-
+-Code         | Schema     | Description
+------------- | ---------- | -----------
+-{{range $i, $response := .HttpResponses}}{{$response.Code}} | {{$response.TypeLink}} | {{$response.Description}}
+-{{end}}{{end}}{{end}}
+
+
+{{define "concept.template"}}
+
+-----------
+
+# {{.Name}}
+
+{{.Definition.Description}}
+
+{{if .Definition.AppearsIn}}<aside class="notice">
+Appears In {{range $caller := .Definition.AppearsIn}}{{$caller.HrefLink}} {{end}}</aside>{{end}}
+
+Field        | Schema     | Description
+------------ | ---------- | -----------
+{{range $field := .Defintion.Fields}}{{$field.Name}} | {{$field.Link}} | {{$field.Description}}
+{{end}}{{if .Status}}
+
+### {{.Status.Name}}
+
+{{if .Status.Parents}}<aside class="notice">
+Callers {{range $caller := .Status.Parents}}{{$caller.HrefLink}} {{end}}</aside>{{end}}
+
+Field        | Schema     | Description
+------------ | ---------- | -----------
+{{range $field := .Status.Fields}}{{$field.Name}} | {{$field.Link}} | {{$field.Description}}
+{{end}}{{end}}{{if .Spec}}
+
+### {{.Spec.Name}}
+
+{{if .Spec.Parents}}<aside class="notice">
+Callers {{range $caller := .Spec.Parents}}{{$caller.HrefLink}} {{end}}</aside>{{end}}
+
+Field        | Schema     | Description
+------------ | ---------- | -----------
+{{range $field := .Spec.Fields}}{{$field.Name}} | {{$field.Link}} | {{$field.Description}}
+{{end}}{{end}}
+
+{{range $operation := .Operations}}
+
+-----------
+
+## {{$operation.Name}}
+{{range $example := $operation.Examples}}
+```{{$example.Lang}}
+{{$example.Request}}
+```
+{{end}}
+> Examples using curl coming soon...
+{{range $example := $operation.Examples}}
+```{{$example.Lang}}
+{{$example.Response}}
+```
+{{end}}
+{{$operation.Description}}
+
+### HTTP Request
+
+`{{$operation.HttpRequest}}`
+
+{{template "pathparams" $operation}}
+{{template "queryparams" $operation}}
+{{template "requestbody" $operation}}
+{{template "responsebody" $operation}}
+
+{{end}}
+
+{{end}}

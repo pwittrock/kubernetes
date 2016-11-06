@@ -1,0 +1,38 @@
+------------
+
+# {{.Command.Name}}
+
+{{.Command.Description}}
+
+### Usage
+
+`$ {{.Command.Usage}}`
+
+{{.Command.Example}}
+
+### Flags
+
+Name | Shorthand | Default | Usage
+---- | --------- | ------- | ----- {{range $option := .Command.Options}}
+{{$option.Name}} | {{$option.Shorthand}} | {{$option.DefaultValue}} | {{$option.Usage}} {{end}}
+
+{{range $sub := .SubCommands}}
+------------
+
+## {{$sub.Path}}
+
+{{$sub.Description}}
+
+### Usage
+
+`$ {{$sub.Usage}}`
+
+{{$sub.Example}}
+
+### Flags
+
+Name | Shorthand | Default | Usage
+---- | --------- | ------- | ----- {{range $option := $sub.Options}}
+{{$option.Name}} | {{$option.Shorthand}} | {{$option.DefaultValue}} | {{$option.Usage}} {{end}}
+
+{{end}}

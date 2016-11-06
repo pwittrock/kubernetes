@@ -1,0 +1,3576 @@
+{
+  "example_tabs": [
+    {
+      "display_name": "kubectl",
+      "syntax_type": "shell",
+      "hover_text": "Examples using kubectl"
+    },
+    {
+      "display_name": "curl",
+      "syntax_type": "shell",
+      "hover_text": "Examples using curl"
+    }
+  ],
+  "table_of_contents": {
+    "body_md_files": [
+      {
+        "display_name": "Workloads Apis",
+        "type": "ResourceType",
+        "link": "#workloads-apis",
+        "items": [
+          {
+            "display_name": "Container"
+          },
+          {
+            "display_name": "DaemonSet",
+            "items": [
+              {
+                "display_name": "Write Operations",
+                "type": "OperationCategory",
+                "link": "#write-operations-daemonset",
+                "items": [
+                  {
+                    "display_name": "Create",
+                    "type": "OperationType",
+                    "link": "#write-operations-create-daemonset"
+                  },
+                  {
+                    "display_name": "Replace",
+                    "type": "OperationType",
+                    "link": "#write-operations-replace-daemonset"
+                  },
+                  {
+                    "display_name": "Patch",
+                    "type": "OperationType",
+                    "link": "#write-operations-patch-daemonset"
+                  },
+                  {
+                    "display_name": "Delete",
+                    "type": "OperationType",
+                    "link": "#write-operations-delete-daemonset"
+                  }
+                ]
+              },
+              {
+                "display_name": "Read Operations",
+                "type": "OperationCategory",
+                "link": "#read-operations-daemonset",
+                "items": [
+                  {
+                    "display_name": "Read",
+                    "type": "OperationType",
+                    "link": "#read-operations-read-daemonset"
+                  },
+                  {
+                    "display_name": "List",
+                    "type": "OperationType",
+                    "link": "#read-operations-list-daemonset"
+                  },
+                  {
+                    "display_name": "Watch",
+                    "type": "OperationType",
+                    "link": "#read-operations-watch-daemonset"
+                  }
+                ]
+              },
+              {
+                "display_name": "Status \u0026 Collection Operations",
+                "type": "OperationCategory",
+                "link": "#status-\u0026-collection-operations-daemonset",
+                "items": [
+                  {
+                    "display_name": "Patch Status",
+                    "type": "OperationType",
+                    "link": "#status-\u0026-collection-operations-patch-status-daemonset"
+                  },
+                  {
+                    "display_name": "Read Status",
+                    "type": "OperationType",
+                    "link": "#status-\u0026-collection-operations-read-status-daemonset"
+                  },
+                  {
+                    "display_name": "Replace Status",
+                    "type": "OperationType",
+                    "link": "#status-\u0026-collection-operations-replace-status-daemonset"
+                  },
+                  {
+                    "display_name": "Delete Collection",
+                    "type": "OperationType",
+                    "link": "#status-\u0026-collection-operations-delete-collection-daemonset"
+                  },
+                  {
+                    "display_name": "List All Namespaces",
+                    "type": "OperationType",
+                    "link": "#status-\u0026-collection-operations-list-all-namespaces-daemonset"
+                  },
+                  {
+                    "display_name": "Watch List",
+                    "type": "OperationType",
+                    "link": "#status-\u0026-collection-operations-watch-list-daemonset"
+                  },
+                  {
+                    "display_name": "Watch List All Namespaces",
+                    "type": "OperationType",
+                    "link": "#status-\u0026-collection-operations-watch-list-all-namespaces-daemonset"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "display_name": "Deployment",
+            "items": [
+              {
+                "display_name": "Write Operations",
+                "type": "OperationCategory",
+                "link": "#write-operations-deployment",
+                "items": [
+                  {
+                    "display_name": "Create",
+                    "type": "OperationType",
+                    "link": "#write-operations-create-deployment"
+                  },
+                  {
+                    "display_name": "Replace",
+                    "type": "OperationType",
+                    "link": "#write-operations-replace-deployment"
+                  },
+                  {
+                    "display_name": "Patch",
+                    "type": "OperationType",
+                    "link": "#write-operations-patch-deployment"
+                  },
+                  {
+                    "display_name": "Delete",
+                    "type": "OperationType",
+                    "link": "#write-operations-delete-deployment"
+                  }
+                ]
+              },
+              {
+                "display_name": "Read Operations",
+                "type": "OperationCategory",
+                "link": "#read-operations-deployment",
+                "items": [
+                  {
+                    "display_name": "Read",
+                    "type": "OperationType",
+                    "link": "#read-operations-read-deployment"
+                  },
+                  {
+                    "display_name": "List",
+                    "type": "OperationType",
+                    "link": "#read-operations-list-deployment"
+                  },
+                  {
+                    "display_name": "Watch",
+                    "type": "OperationType",
+                    "link": "#read-operations-watch-deployment"
+                  }
+                ]
+              },
+              {
+                "display_name": "Status \u0026 Collection Operations",
+                "type": "OperationCategory",
+                "link": "#status-\u0026-collection-operations-deployment",
+                "items": [
+                  {
+                    "display_name": "Delete Collection",
+                    "type": "OperationType",
+                    "link": "#status-\u0026-collection-operations-delete-collection-deployment"
+                  },
+                  {
+                    "display_name": "List All Namespaces",
+                    "type": "OperationType",
+                    "link": "#status-\u0026-collection-operations-list-all-namespaces-deployment"
+                  },
+                  {
+                    "display_name": "Watch List All Namespaces",
+                    "type": "OperationType",
+                    "link": "#status-\u0026-collection-operations-watch-list-all-namespaces-deployment"
+                  }
+                ]
+              },
+              {
+                "display_name": "Misc Operations",
+                "type": "OperationCategory",
+                "link": "#misc-operations-deployment",
+                "items": [
+                  {
+                    "display_name": "Read Scale",
+                    "type": "OperationType",
+                    "link": "#misc-operations-read-scale-deployment"
+                  },
+                  {
+                    "display_name": "Replace Scale",
+                    "type": "OperationType",
+                    "link": "#misc-operations-replace-scale-deployment"
+                  },
+                  {
+                    "display_name": "Patch Scale",
+                    "type": "OperationType",
+                    "link": "#misc-operations-patch-scale-deployment"
+                  },
+                  {
+                    "display_name": "Rollback",
+                    "type": "OperationType",
+                    "link": "#misc-operations-rollback-deployment"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "display_name": "Job",
+            "items": [
+              {
+                "display_name": "Write Operations",
+                "type": "OperationCategory",
+                "link": "#write-operations-job",
+                "items": [
+                  {
+                    "display_name": "Create",
+                    "type": "OperationType",
+                    "link": "#write-operations-create-job"
+                  },
+                  {
+                    "display_name": "Replace",
+                    "type": "OperationType",
+                    "link": "#write-operations-replace-job"
+                  },
+                  {
+                    "display_name": "Patch",
+                    "type": "OperationType",
+                    "link": "#write-operations-patch-job"
+                  },
+                  {
+                    "display_name": "Delete",
+                    "type": "OperationType",
+                    "link": "#write-operations-delete-job"
+                  }
+                ]
+              },
+              {
+                "display_name": "Read Operations",
+                "type": "OperationCategory",
+                "link": "#read-operations-job",
+                "items": [
+                  {
+                    "display_name": "Read",
+                    "type": "OperationType",
+                    "link": "#read-operations-read-job"
+                  },
+                  {
+                    "display_name": "List",
+                    "type": "OperationType",
+                    "link": "#read-operations-list-job"
+                  },
+                  {
+                    "display_name": "Watch",
+                    "type": "OperationType",
+                    "link": "#read-operations-watch-job"
+                  }
+                ]
+              },
+              {
+                "display_name": "Status \u0026 Collection Operations",
+                "type": "OperationCategory",
+                "link": "#status-\u0026-collection-operations-job",
+                "items": [
+                  {
+                    "display_name": "Delete Collection",
+                    "type": "OperationType",
+                    "link": "#status-\u0026-collection-operations-delete-collection-job"
+                  },
+                  {
+                    "display_name": "List All Namespaces",
+                    "type": "OperationType",
+                    "link": "#status-\u0026-collection-operations-list-all-namespaces-job"
+                  },
+                  {
+                    "display_name": "Watch List All Namespaces",
+                    "type": "OperationType",
+                    "link": "#status-\u0026-collection-operations-watch-list-all-namespaces-job"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "display_name": "PetSet",
+            "items": [
+              {
+                "display_name": "Write Operations",
+                "type": "OperationCategory",
+                "link": "#write-operations-petset",
+                "items": [
+                  {
+                    "display_name": "Create",
+                    "type": "OperationType",
+                    "link": "#write-operations-create-petset"
+                  },
+                  {
+                    "display_name": "Replace",
+                    "type": "OperationType",
+                    "link": "#write-operations-replace-petset"
+                  },
+                  {
+                    "display_name": "Patch",
+                    "type": "OperationType",
+                    "link": "#write-operations-patch-petset"
+                  },
+                  {
+                    "display_name": "Delete",
+                    "type": "OperationType",
+                    "link": "#write-operations-delete-petset"
+                  }
+                ]
+              },
+              {
+                "display_name": "Read Operations",
+                "type": "OperationCategory",
+                "link": "#read-operations-petset",
+                "items": [
+                  {
+                    "display_name": "Read",
+                    "type": "OperationType",
+                    "link": "#read-operations-read-petset"
+                  },
+                  {
+                    "display_name": "List",
+                    "type": "OperationType",
+                    "link": "#read-operations-list-petset"
+                  },
+                  {
+                    "display_name": "Watch",
+                    "type": "OperationType",
+                    "link": "#read-operations-watch-petset"
+                  }
+                ]
+              },
+              {
+                "display_name": "Status \u0026 Collection Operations",
+                "type": "OperationCategory",
+                "link": "#status-\u0026-collection-operations-petset",
+                "items": [
+                  {
+                    "display_name": "Patch Status",
+                    "type": "OperationType",
+                    "link": "#status-\u0026-collection-operations-patch-status-petset"
+                  },
+                  {
+                    "display_name": "Read Status",
+                    "type": "OperationType",
+                    "link": "#status-\u0026-collection-operations-read-status-petset"
+                  },
+                  {
+                    "display_name": "Replace Status",
+                    "type": "OperationType",
+                    "link": "#status-\u0026-collection-operations-replace-status-petset"
+                  },
+                  {
+                    "display_name": "Delete Collection",
+                    "type": "OperationType",
+                    "link": "#status-\u0026-collection-operations-delete-collection-petset"
+                  },
+                  {
+                    "display_name": "List All Namespaces",
+                    "type": "OperationType",
+                    "link": "#status-\u0026-collection-operations-list-all-namespaces-petset"
+                  },
+                  {
+                    "display_name": "Watch List",
+                    "type": "OperationType",
+                    "link": "#status-\u0026-collection-operations-watch-list-petset"
+                  },
+                  {
+                    "display_name": "Watch List All Namespaces",
+                    "type": "OperationType",
+                    "link": "#status-\u0026-collection-operations-watch-list-all-namespaces-petset"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "display_name": "Pod",
+            "items": [
+              {
+                "display_name": "Write Operations",
+                "type": "OperationCategory",
+                "link": "#write-operations-pod",
+                "items": [
+                  {
+                    "display_name": "Create",
+                    "type": "OperationType",
+                    "link": "#write-operations-create-pod"
+                  },
+                  {
+                    "display_name": "Replace",
+                    "type": "OperationType",
+                    "link": "#write-operations-replace-pod"
+                  },
+                  {
+                    "display_name": "Patch",
+                    "type": "OperationType",
+                    "link": "#write-operations-patch-pod"
+                  },
+                  {
+                    "display_name": "Delete",
+                    "type": "OperationType",
+                    "link": "#write-operations-delete-pod"
+                  }
+                ]
+              },
+              {
+                "display_name": "Read Operations",
+                "type": "OperationCategory",
+                "link": "#read-operations-pod",
+                "items": [
+                  {
+                    "display_name": "Read",
+                    "type": "OperationType",
+                    "link": "#read-operations-read-pod"
+                  },
+                  {
+                    "display_name": "List",
+                    "type": "OperationType",
+                    "link": "#read-operations-list-pod"
+                  },
+                  {
+                    "display_name": "Watch",
+                    "type": "OperationType",
+                    "link": "#read-operations-watch-pod"
+                  }
+                ]
+              },
+              {
+                "display_name": "Status \u0026 Collection Operations",
+                "type": "OperationCategory",
+                "link": "#status-\u0026-collection-operations-pod",
+                "items": [
+                  {
+                    "display_name": "Delete Collection",
+                    "type": "OperationType",
+                    "link": "#status-\u0026-collection-operations-delete-collection-pod"
+                  },
+                  {
+                    "display_name": "List All Namespaces",
+                    "type": "OperationType",
+                    "link": "#status-\u0026-collection-operations-list-all-namespaces-pod"
+                  },
+                  {
+                    "display_name": "Watch List",
+                    "type": "OperationType",
+                    "link": "#status-\u0026-collection-operations-watch-list-pod"
+                  },
+                  {
+                    "display_name": "Watch List All Namespaces",
+                    "type": "OperationType",
+                    "link": "#status-\u0026-collection-operations-watch-list-all-namespaces-pod"
+                  }
+                ]
+              },
+              {
+                "display_name": "Misc Operations",
+                "type": "OperationCategory",
+                "link": "#misc-operations-pod",
+                "items": [
+                  {
+                    "display_name": "Read Log",
+                    "type": "OperationType",
+                    "link": "#misc-operations-read-log-pod"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "display_name": "ReplicaSet",
+            "items": [
+              {
+                "display_name": "Write Operations",
+                "type": "OperationCategory",
+                "link": "#write-operations-replicaset",
+                "items": [
+                  {
+                    "display_name": "Create",
+                    "type": "OperationType",
+                    "link": "#write-operations-create-replicaset"
+                  },
+                  {
+                    "display_name": "Replace",
+                    "type": "OperationType",
+                    "link": "#write-operations-replace-replicaset"
+                  },
+                  {
+                    "display_name": "Patch",
+                    "type": "OperationType",
+                    "link": "#write-operations-patch-replicaset"
+                  },
+                  {
+                    "display_name": "Delete",
+                    "type": "OperationType",
+                    "link": "#write-operations-delete-replicaset"
+                  }
+                ]
+              },
+              {
+                "display_name": "Read Operations",
+                "type": "OperationCategory",
+                "link": "#read-operations-replicaset",
+                "items": [
+                  {
+                    "display_name": "Read",
+                    "type": "OperationType",
+                    "link": "#read-operations-read-replicaset"
+                  },
+                  {
+                    "display_name": "List",
+                    "type": "OperationType",
+                    "link": "#read-operations-list-replicaset"
+                  },
+                  {
+                    "display_name": "Watch",
+                    "type": "OperationType",
+                    "link": "#read-operations-watch-replicaset"
+                  }
+                ]
+              },
+              {
+                "display_name": "Status \u0026 Collection Operations",
+                "type": "OperationCategory",
+                "link": "#status-\u0026-collection-operations-replicaset",
+                "items": [
+                  {
+                    "display_name": "Patch Status",
+                    "type": "OperationType",
+                    "link": "#status-\u0026-collection-operations-patch-status-replicaset"
+                  },
+                  {
+                    "display_name": "Read Status",
+                    "type": "OperationType",
+                    "link": "#status-\u0026-collection-operations-read-status-replicaset"
+                  },
+                  {
+                    "display_name": "Replace Status",
+                    "type": "OperationType",
+                    "link": "#status-\u0026-collection-operations-replace-status-replicaset"
+                  },
+                  {
+                    "display_name": "Delete Collection",
+                    "type": "OperationType",
+                    "link": "#status-\u0026-collection-operations-delete-collection-replicaset"
+                  },
+                  {
+                    "display_name": "List All Namespaces",
+                    "type": "OperationType",
+                    "link": "#status-\u0026-collection-operations-list-all-namespaces-replicaset"
+                  },
+                  {
+                    "display_name": "Watch List",
+                    "type": "OperationType",
+                    "link": "#status-\u0026-collection-operations-watch-list-replicaset"
+                  },
+                  {
+                    "display_name": "Watch List All Namespaces",
+                    "type": "OperationType",
+                    "link": "#status-\u0026-collection-operations-watch-list-all-namespaces-replicaset"
+                  }
+                ]
+              },
+              {
+                "display_name": "Misc Operations",
+                "type": "OperationCategory",
+                "link": "#misc-operations-replicaset",
+                "items": [
+                  {
+                    "display_name": "Read Scale",
+                    "type": "OperationType",
+                    "link": "#misc-operations-read-scale-replicaset"
+                  },
+                  {
+                    "display_name": "Replace Scale",
+                    "type": "OperationType",
+                    "link": "#misc-operations-replace-scale-replicaset"
+                  },
+                  {
+                    "display_name": "Patch Scale",
+                    "type": "OperationType",
+                    "link": "#misc-operations-patch-scale-replicaset"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "display_name": "ReplicationController",
+            "items": [
+              {
+                "display_name": "Write Operations",
+                "type": "OperationCategory",
+                "link": "#write-operations-replicationcontroller",
+                "items": [
+                  {
+                    "display_name": "Create",
+                    "type": "OperationType",
+                    "link": "#write-operations-create-replicationcontroller"
+                  },
+                  {
+                    "display_name": "Replace",
+                    "type": "OperationType",
+                    "link": "#write-operations-replace-replicationcontroller"
+                  },
+                  {
+                    "display_name": "Patch",
+                    "type": "OperationType",
+                    "link": "#write-operations-patch-replicationcontroller"
+                  },
+                  {
+                    "display_name": "Delete",
+                    "type": "OperationType",
+                    "link": "#write-operations-delete-replicationcontroller"
+                  }
+                ]
+              },
+              {
+                "display_name": "Read Operations",
+                "type": "OperationCategory",
+                "link": "#read-operations-replicationcontroller",
+                "items": [
+                  {
+                    "display_name": "Read",
+                    "type": "OperationType",
+                    "link": "#read-operations-read-replicationcontroller"
+                  },
+                  {
+                    "display_name": "List",
+                    "type": "OperationType",
+                    "link": "#read-operations-list-replicationcontroller"
+                  },
+                  {
+                    "display_name": "Watch",
+                    "type": "OperationType",
+                    "link": "#read-operations-watch-replicationcontroller"
+                  }
+                ]
+              },
+              {
+                "display_name": "Status \u0026 Collection Operations",
+                "type": "OperationCategory",
+                "link": "#status-\u0026-collection-operations-replicationcontroller",
+                "items": [
+                  {
+                    "display_name": "Delete Collection",
+                    "type": "OperationType",
+                    "link": "#status-\u0026-collection-operations-delete-collection-replicationcontroller"
+                  },
+                  {
+                    "display_name": "List All Namespaces",
+                    "type": "OperationType",
+                    "link": "#status-\u0026-collection-operations-list-all-namespaces-replicationcontroller"
+                  },
+                  {
+                    "display_name": "Watch List All Namespaces",
+                    "type": "OperationType",
+                    "link": "#status-\u0026-collection-operations-watch-list-all-namespaces-replicationcontroller"
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "display_name": "Service Apis",
+        "type": "ResourceType",
+        "link": "#service-apis",
+        "items": [
+          {
+            "display_name": "Endpoints",
+            "items": [
+              {
+                "display_name": "Write Operations",
+                "type": "OperationCategory",
+                "link": "#write-operations-endpoints",
+                "items": [
+                  {
+                    "display_name": "Create",
+                    "type": "OperationType",
+                    "link": "#write-operations-create-endpoints"
+                  },
+                  {
+                    "display_name": "Replace",
+                    "type": "OperationType",
+                    "link": "#write-operations-replace-endpoints"
+                  },
+                  {
+                    "display_name": "Patch",
+                    "type": "OperationType",
+                    "link": "#write-operations-patch-endpoints"
+                  },
+                  {
+                    "display_name": "Delete",
+                    "type": "OperationType",
+                    "link": "#write-operations-delete-endpoints"
+                  }
+                ]
+              },
+              {
+                "display_name": "Read Operations",
+                "type": "OperationCategory",
+                "link": "#read-operations-endpoints",
+                "items": [
+                  {
+                    "display_name": "Read",
+                    "type": "OperationType",
+                    "link": "#read-operations-read-endpoints"
+                  },
+                  {
+                    "display_name": "List",
+                    "type": "OperationType",
+                    "link": "#read-operations-list-endpoints"
+                  },
+                  {
+                    "display_name": "Watch",
+                    "type": "OperationType",
+                    "link": "#read-operations-watch-endpoints"
+                  }
+                ]
+              },
+              {
+                "display_name": "Status \u0026 Collection Operations",
+                "type": "OperationCategory",
+                "link": "#status-\u0026-collection-operations-endpoints",
+                "items": [
+                  {
+                    "display_name": "Delete Collection",
+                    "type": "OperationType",
+                    "link": "#status-\u0026-collection-operations-delete-collection-endpoints"
+                  },
+                  {
+                    "display_name": "List All Namespaces",
+                    "type": "OperationType",
+                    "link": "#status-\u0026-collection-operations-list-all-namespaces-endpoints"
+                  },
+                  {
+                    "display_name": "Watch List All Namespaces",
+                    "type": "OperationType",
+                    "link": "#status-\u0026-collection-operations-watch-list-all-namespaces-endpoints"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "display_name": "Ingress",
+            "items": [
+              {
+                "display_name": "Write Operations",
+                "type": "OperationCategory",
+                "link": "#write-operations-ingress",
+                "items": [
+                  {
+                    "display_name": "Create",
+                    "type": "OperationType",
+                    "link": "#write-operations-create-ingress"
+                  },
+                  {
+                    "display_name": "Replace",
+                    "type": "OperationType",
+                    "link": "#write-operations-replace-ingress"
+                  },
+                  {
+                    "display_name": "Patch",
+                    "type": "OperationType",
+                    "link": "#write-operations-patch-ingress"
+                  },
+                  {
+                    "display_name": "Delete",
+                    "type": "OperationType",
+                    "link": "#write-operations-delete-ingress"
+                  }
+                ]
+              },
+              {
+                "display_name": "Read Operations",
+                "type": "OperationCategory",
+                "link": "#read-operations-ingress",
+                "items": [
+                  {
+                    "display_name": "Read",
+                    "type": "OperationType",
+                    "link": "#read-operations-read-ingress"
+                  },
+                  {
+                    "display_name": "List",
+                    "type": "OperationType",
+                    "link": "#read-operations-list-ingress"
+                  },
+                  {
+                    "display_name": "Watch",
+                    "type": "OperationType",
+                    "link": "#read-operations-watch-ingress"
+                  }
+                ]
+              },
+              {
+                "display_name": "Status \u0026 Collection Operations",
+                "type": "OperationCategory",
+                "link": "#status-\u0026-collection-operations-ingress",
+                "items": [
+                  {
+                    "display_name": "Delete Collection",
+                    "type": "OperationType",
+                    "link": "#status-\u0026-collection-operations-delete-collection-ingress"
+                  },
+                  {
+                    "display_name": "List All Namespaces",
+                    "type": "OperationType",
+                    "link": "#status-\u0026-collection-operations-list-all-namespaces-ingress"
+                  },
+                  {
+                    "display_name": "Watch List",
+                    "type": "OperationType",
+                    "link": "#status-\u0026-collection-operations-watch-list-ingress"
+                  },
+                  {
+                    "display_name": "Watch List All Namespaces",
+                    "type": "OperationType",
+                    "link": "#status-\u0026-collection-operations-watch-list-all-namespaces-ingress"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "display_name": "Service",
+            "items": [
+              {
+                "display_name": "Write Operations",
+                "type": "OperationCategory",
+                "link": "#write-operations-service",
+                "items": [
+                  {
+                    "display_name": "Create",
+                    "type": "OperationType",
+                    "link": "#write-operations-create-service"
+                  },
+                  {
+                    "display_name": "Replace",
+                    "type": "OperationType",
+                    "link": "#write-operations-replace-service"
+                  },
+                  {
+                    "display_name": "Patch",
+                    "type": "OperationType",
+                    "link": "#write-operations-patch-service"
+                  },
+                  {
+                    "display_name": "Delete",
+                    "type": "OperationType",
+                    "link": "#write-operations-delete-service"
+                  }
+                ]
+              },
+              {
+                "display_name": "Read Operations",
+                "type": "OperationCategory",
+                "link": "#read-operations-service",
+                "items": [
+                  {
+                    "display_name": "Read",
+                    "type": "OperationType",
+                    "link": "#read-operations-read-service"
+                  },
+                  {
+                    "display_name": "List",
+                    "type": "OperationType",
+                    "link": "#read-operations-list-service"
+                  },
+                  {
+                    "display_name": "Watch",
+                    "type": "OperationType",
+                    "link": "#read-operations-watch-service"
+                  }
+                ]
+              },
+              {
+                "display_name": "Status \u0026 Collection Operations",
+                "type": "OperationCategory",
+                "link": "#status-\u0026-collection-operations-service",
+                "items": [
+                  {
+                    "display_name": "List All Namespaces",
+                    "type": "OperationType",
+                    "link": "#status-\u0026-collection-operations-list-all-namespaces-service"
+                  },
+                  {
+                    "display_name": "Watch List All Namespaces",
+                    "type": "OperationType",
+                    "link": "#status-\u0026-collection-operations-watch-list-all-namespaces-service"
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "display_name": "Config \u0026 Storage Apis",
+        "type": "ResourceType",
+        "link": "#config-\u0026-storage-apis",
+        "items": [
+          {
+            "display_name": "ConfigMap",
+            "items": [
+              {
+                "display_name": "Write Operations",
+                "type": "OperationCategory",
+                "link": "#write-operations-configmap",
+                "items": [
+                  {
+                    "display_name": "Create",
+                    "type": "OperationType",
+                    "link": "#write-operations-create-configmap"
+                  },
+                  {
+                    "display_name": "Replace",
+                    "type": "OperationType",
+                    "link": "#write-operations-replace-configmap"
+                  },
+                  {
+                    "display_name": "Patch",
+                    "type": "OperationType",
+                    "link": "#write-operations-patch-configmap"
+                  },
+                  {
+                    "display_name": "Delete",
+                    "type": "OperationType",
+                    "link": "#write-operations-delete-configmap"
+                  }
+                ]
+              },
+              {
+                "display_name": "Read Operations",
+                "type": "OperationCategory",
+                "link": "#read-operations-configmap",
+                "items": [
+                  {
+                    "display_name": "Read",
+                    "type": "OperationType",
+                    "link": "#read-operations-read-configmap"
+                  },
+                  {
+                    "display_name": "List",
+                    "type": "OperationType",
+                    "link": "#read-operations-list-configmap"
+                  },
+                  {
+                    "display_name": "Watch",
+                    "type": "OperationType",
+                    "link": "#read-operations-watch-configmap"
+                  }
+                ]
+              },
+              {
+                "display_name": "Status \u0026 Collection Operations",
+                "type": "OperationCategory",
+                "link": "#status-\u0026-collection-operations-configmap",
+                "items": [
+                  {
+                    "display_name": "Delete Collection",
+                    "type": "OperationType",
+                    "link": "#status-\u0026-collection-operations-delete-collection-configmap"
+                  },
+                  {
+                    "display_name": "List All Namespaces",
+                    "type": "OperationType",
+                    "link": "#status-\u0026-collection-operations-list-all-namespaces-configmap"
+                  },
+                  {
+                    "display_name": "Watch List",
+                    "type": "OperationType",
+                    "link": "#status-\u0026-collection-operations-watch-list-configmap"
+                  },
+                  {
+                    "display_name": "Watch List All Namespaces",
+                    "type": "OperationType",
+                    "link": "#status-\u0026-collection-operations-watch-list-all-namespaces-configmap"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "display_name": "Secret",
+            "items": [
+              {
+                "display_name": "Write Operations",
+                "type": "OperationCategory",
+                "link": "#write-operations-secret",
+                "items": [
+                  {
+                    "display_name": "Create",
+                    "type": "OperationType",
+                    "link": "#write-operations-create-secret"
+                  },
+                  {
+                    "display_name": "Replace",
+                    "type": "OperationType",
+                    "link": "#write-operations-replace-secret"
+                  },
+                  {
+                    "display_name": "Patch",
+                    "type": "OperationType",
+                    "link": "#write-operations-patch-secret"
+                  },
+                  {
+                    "display_name": "Delete",
+                    "type": "OperationType",
+                    "link": "#write-operations-delete-secret"
+                  }
+                ]
+              },
+              {
+                "display_name": "Read Operations",
+                "type": "OperationCategory",
+                "link": "#read-operations-secret",
+                "items": [
+                  {
+                    "display_name": "Read",
+                    "type": "OperationType",
+                    "link": "#read-operations-read-secret"
+                  },
+                  {
+                    "display_name": "List",
+                    "type": "OperationType",
+                    "link": "#read-operations-list-secret"
+                  },
+                  {
+                    "display_name": "Watch",
+                    "type": "OperationType",
+                    "link": "#read-operations-watch-secret"
+                  }
+                ]
+              },
+              {
+                "display_name": "Status \u0026 Collection Operations",
+                "type": "OperationCategory",
+                "link": "#status-\u0026-collection-operations-secret",
+                "items": [
+                  {
+                    "display_name": "Delete Collection",
+                    "type": "OperationType",
+                    "link": "#status-\u0026-collection-operations-delete-collection-secret"
+                  },
+                  {
+                    "display_name": "List All Namespaces",
+                    "type": "OperationType",
+                    "link": "#status-\u0026-collection-operations-list-all-namespaces-secret"
+                  },
+                  {
+                    "display_name": "Watch List All Namespaces",
+                    "type": "OperationType",
+                    "link": "#status-\u0026-collection-operations-watch-list-all-namespaces-secret"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "display_name": "PersistentVolumeClaim",
+            "items": [
+              {
+                "display_name": "Write Operations",
+                "type": "OperationCategory",
+                "link": "#write-operations-persistentvolumeclaim",
+                "items": [
+                  {
+                    "display_name": "Create",
+                    "type": "OperationType",
+                    "link": "#write-operations-create-persistentvolumeclaim"
+                  },
+                  {
+                    "display_name": "Replace",
+                    "type": "OperationType",
+                    "link": "#write-operations-replace-persistentvolumeclaim"
+                  },
+                  {
+                    "display_name": "Patch",
+                    "type": "OperationType",
+                    "link": "#write-operations-patch-persistentvolumeclaim"
+                  },
+                  {
+                    "display_name": "Delete",
+                    "type": "OperationType",
+                    "link": "#write-operations-delete-persistentvolumeclaim"
+                  }
+                ]
+              },
+              {
+                "display_name": "Read Operations",
+                "type": "OperationCategory",
+                "link": "#read-operations-persistentvolumeclaim",
+                "items": [
+                  {
+                    "display_name": "Read",
+                    "type": "OperationType",
+                    "link": "#read-operations-read-persistentvolumeclaim"
+                  },
+                  {
+                    "display_name": "List",
+                    "type": "OperationType",
+                    "link": "#read-operations-list-persistentvolumeclaim"
+                  },
+                  {
+                    "display_name": "Watch",
+                    "type": "OperationType",
+                    "link": "#read-operations-watch-persistentvolumeclaim"
+                  }
+                ]
+              },
+              {
+                "display_name": "Status \u0026 Collection Operations",
+                "type": "OperationCategory",
+                "link": "#status-\u0026-collection-operations-persistentvolumeclaim",
+                "items": [
+                  {
+                    "display_name": "Delete Collection",
+                    "type": "OperationType",
+                    "link": "#status-\u0026-collection-operations-delete-collection-persistentvolumeclaim"
+                  },
+                  {
+                    "display_name": "List All Namespaces",
+                    "type": "OperationType",
+                    "link": "#status-\u0026-collection-operations-list-all-namespaces-persistentvolumeclaim"
+                  },
+                  {
+                    "display_name": "Watch List",
+                    "type": "OperationType",
+                    "link": "#status-\u0026-collection-operations-watch-list-persistentvolumeclaim"
+                  },
+                  {
+                    "display_name": "Watch List All Namespaces",
+                    "type": "OperationType",
+                    "link": "#status-\u0026-collection-operations-watch-list-all-namespaces-persistentvolumeclaim"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "display_name": "StorageClass",
+            "items": [
+              {
+                "display_name": "Write Operations",
+                "type": "OperationCategory",
+                "link": "#write-operations-storageclass",
+                "items": [
+                  {
+                    "display_name": "Create",
+                    "type": "OperationType",
+                    "link": "#write-operations-create-storageclass"
+                  },
+                  {
+                    "display_name": "Replace",
+                    "type": "OperationType",
+                    "link": "#write-operations-replace-storageclass"
+                  },
+                  {
+                    "display_name": "Patch",
+                    "type": "OperationType",
+                    "link": "#write-operations-patch-storageclass"
+                  },
+                  {
+                    "display_name": "Delete",
+                    "type": "OperationType",
+                    "link": "#write-operations-delete-storageclass"
+                  }
+                ]
+              },
+              {
+                "display_name": "Read Operations",
+                "type": "OperationCategory",
+                "link": "#read-operations-storageclass",
+                "items": [
+                  {
+                    "display_name": "Read",
+                    "type": "OperationType",
+                    "link": "#read-operations-read-storageclass"
+                  },
+                  {
+                    "display_name": "List",
+                    "type": "OperationType",
+                    "link": "#read-operations-list-storageclass"
+                  },
+                  {
+                    "display_name": "Watch",
+                    "type": "OperationType",
+                    "link": "#read-operations-watch-storageclass"
+                  }
+                ]
+              },
+              {
+                "display_name": "Status \u0026 Collection Operations",
+                "type": "OperationCategory",
+                "link": "#status-\u0026-collection-operations-storageclass",
+                "items": [
+                  {
+                    "display_name": "Delete Collection",
+                    "type": "OperationType",
+                    "link": "#status-\u0026-collection-operations-delete-collection-storageclass"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "display_name": "Volume"
+          }
+        ]
+      },
+      {
+        "display_name": "Metadata Apis",
+        "type": "ResourceType",
+        "link": "#metadata-apis",
+        "items": [
+          {
+            "display_name": "Event",
+            "items": [
+              {
+                "display_name": "Write Operations",
+                "type": "OperationCategory",
+                "link": "#write-operations-event",
+                "items": [
+                  {
+                    "display_name": "Create",
+                    "type": "OperationType",
+                    "link": "#write-operations-create-event"
+                  },
+                  {
+                    "display_name": "Replace",
+                    "type": "OperationType",
+                    "link": "#write-operations-replace-event"
+                  },
+                  {
+                    "display_name": "Patch",
+                    "type": "OperationType",
+                    "link": "#write-operations-patch-event"
+                  },
+                  {
+                    "display_name": "Delete",
+                    "type": "OperationType",
+                    "link": "#write-operations-delete-event"
+                  }
+                ]
+              },
+              {
+                "display_name": "Read Operations",
+                "type": "OperationCategory",
+                "link": "#read-operations-event",
+                "items": [
+                  {
+                    "display_name": "Read",
+                    "type": "OperationType",
+                    "link": "#read-operations-read-event"
+                  },
+                  {
+                    "display_name": "List",
+                    "type": "OperationType",
+                    "link": "#read-operations-list-event"
+                  },
+                  {
+                    "display_name": "Watch",
+                    "type": "OperationType",
+                    "link": "#read-operations-watch-event"
+                  }
+                ]
+              },
+              {
+                "display_name": "Status \u0026 Collection Operations",
+                "type": "OperationCategory",
+                "link": "#status-\u0026-collection-operations-event",
+                "items": [
+                  {
+                    "display_name": "Delete Collection",
+                    "type": "OperationType",
+                    "link": "#status-\u0026-collection-operations-delete-collection-event"
+                  },
+                  {
+                    "display_name": "List All Namespaces",
+                    "type": "OperationType",
+                    "link": "#status-\u0026-collection-operations-list-all-namespaces-event"
+                  },
+                  {
+                    "display_name": "Watch List All Namespaces",
+                    "type": "OperationType",
+                    "link": "#status-\u0026-collection-operations-watch-list-all-namespaces-event"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "display_name": "LimitRange",
+            "items": [
+              {
+                "display_name": "Write Operations",
+                "type": "OperationCategory",
+                "link": "#write-operations-limitrange",
+                "items": [
+                  {
+                    "display_name": "Create",
+                    "type": "OperationType",
+                    "link": "#write-operations-create-limitrange"
+                  },
+                  {
+                    "display_name": "Replace",
+                    "type": "OperationType",
+                    "link": "#write-operations-replace-limitrange"
+                  },
+                  {
+                    "display_name": "Patch",
+                    "type": "OperationType",
+                    "link": "#write-operations-patch-limitrange"
+                  },
+                  {
+                    "display_name": "Delete",
+                    "type": "OperationType",
+                    "link": "#write-operations-delete-limitrange"
+                  }
+                ]
+              },
+              {
+                "display_name": "Read Operations",
+                "type": "OperationCategory",
+                "link": "#read-operations-limitrange",
+                "items": [
+                  {
+                    "display_name": "Read",
+                    "type": "OperationType",
+                    "link": "#read-operations-read-limitrange"
+                  },
+                  {
+                    "display_name": "List",
+                    "type": "OperationType",
+                    "link": "#read-operations-list-limitrange"
+                  },
+                  {
+                    "display_name": "Watch",
+                    "type": "OperationType",
+                    "link": "#read-operations-watch-limitrange"
+                  }
+                ]
+              },
+              {
+                "display_name": "Status \u0026 Collection Operations",
+                "type": "OperationCategory",
+                "link": "#status-\u0026-collection-operations-limitrange",
+                "items": [
+                  {
+                    "display_name": "Delete Collection",
+                    "type": "OperationType",
+                    "link": "#status-\u0026-collection-operations-delete-collection-limitrange"
+                  },
+                  {
+                    "display_name": "List All Namespaces",
+                    "type": "OperationType",
+                    "link": "#status-\u0026-collection-operations-list-all-namespaces-limitrange"
+                  },
+                  {
+                    "display_name": "Watch List",
+                    "type": "OperationType",
+                    "link": "#status-\u0026-collection-operations-watch-list-limitrange"
+                  },
+                  {
+                    "display_name": "Watch List All Namespaces",
+                    "type": "OperationType",
+                    "link": "#status-\u0026-collection-operations-watch-list-all-namespaces-limitrange"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "display_name": "HorizontalPodAutoscaler",
+            "items": [
+              {
+                "display_name": "Write Operations",
+                "type": "OperationCategory",
+                "link": "#write-operations-horizontalpodautoscaler",
+                "items": [
+                  {
+                    "display_name": "Create",
+                    "type": "OperationType",
+                    "link": "#write-operations-create-horizontalpodautoscaler"
+                  },
+                  {
+                    "display_name": "Replace",
+                    "type": "OperationType",
+                    "link": "#write-operations-replace-horizontalpodautoscaler"
+                  },
+                  {
+                    "display_name": "Patch",
+                    "type": "OperationType",
+                    "link": "#write-operations-patch-horizontalpodautoscaler"
+                  },
+                  {
+                    "display_name": "Delete",
+                    "type": "OperationType",
+                    "link": "#write-operations-delete-horizontalpodautoscaler"
+                  }
+                ]
+              },
+              {
+                "display_name": "Read Operations",
+                "type": "OperationCategory",
+                "link": "#read-operations-horizontalpodautoscaler",
+                "items": [
+                  {
+                    "display_name": "Read",
+                    "type": "OperationType",
+                    "link": "#read-operations-read-horizontalpodautoscaler"
+                  },
+                  {
+                    "display_name": "List",
+                    "type": "OperationType",
+                    "link": "#read-operations-list-horizontalpodautoscaler"
+                  },
+                  {
+                    "display_name": "Watch",
+                    "type": "OperationType",
+                    "link": "#read-operations-watch-horizontalpodautoscaler"
+                  }
+                ]
+              },
+              {
+                "display_name": "Status \u0026 Collection Operations",
+                "type": "OperationCategory",
+                "link": "#status-\u0026-collection-operations-horizontalpodautoscaler",
+                "items": [
+                  {
+                    "display_name": "Delete Collection",
+                    "type": "OperationType",
+                    "link": "#status-\u0026-collection-operations-delete-collection-horizontalpodautoscaler"
+                  },
+                  {
+                    "display_name": "List All Namespaces",
+                    "type": "OperationType",
+                    "link": "#status-\u0026-collection-operations-list-all-namespaces-horizontalpodautoscaler"
+                  },
+                  {
+                    "display_name": "Watch List All Namespaces",
+                    "type": "OperationType",
+                    "link": "#status-\u0026-collection-operations-watch-list-all-namespaces-horizontalpodautoscaler"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "display_name": "PodTemplate",
+            "items": [
+              {
+                "display_name": "Write Operations",
+                "type": "OperationCategory",
+                "link": "#write-operations-podtemplate",
+                "items": [
+                  {
+                    "display_name": "Create",
+                    "type": "OperationType",
+                    "link": "#write-operations-create-podtemplate"
+                  },
+                  {
+                    "display_name": "Replace",
+                    "type": "OperationType",
+                    "link": "#write-operations-replace-podtemplate"
+                  },
+                  {
+                    "display_name": "Patch",
+                    "type": "OperationType",
+                    "link": "#write-operations-patch-podtemplate"
+                  },
+                  {
+                    "display_name": "Delete",
+                    "type": "OperationType",
+                    "link": "#write-operations-delete-podtemplate"
+                  }
+                ]
+              },
+              {
+                "display_name": "Read Operations",
+                "type": "OperationCategory",
+                "link": "#read-operations-podtemplate",
+                "items": [
+                  {
+                    "display_name": "Read",
+                    "type": "OperationType",
+                    "link": "#read-operations-read-podtemplate"
+                  },
+                  {
+                    "display_name": "List",
+                    "type": "OperationType",
+                    "link": "#read-operations-list-podtemplate"
+                  },
+                  {
+                    "display_name": "Watch",
+                    "type": "OperationType",
+                    "link": "#read-operations-watch-podtemplate"
+                  }
+                ]
+              },
+              {
+                "display_name": "Status \u0026 Collection Operations",
+                "type": "OperationCategory",
+                "link": "#status-\u0026-collection-operations-podtemplate",
+                "items": [
+                  {
+                    "display_name": "Delete Collection",
+                    "type": "OperationType",
+                    "link": "#status-\u0026-collection-operations-delete-collection-podtemplate"
+                  },
+                  {
+                    "display_name": "List All Namespaces",
+                    "type": "OperationType",
+                    "link": "#status-\u0026-collection-operations-list-all-namespaces-podtemplate"
+                  },
+                  {
+                    "display_name": "Watch List All Namespaces",
+                    "type": "OperationType",
+                    "link": "#status-\u0026-collection-operations-watch-list-all-namespaces-podtemplate"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "display_name": "PodDisruptionBudget",
+            "items": [
+              {
+                "display_name": "Write Operations",
+                "type": "OperationCategory",
+                "link": "#write-operations-poddisruptionbudget",
+                "items": [
+                  {
+                    "display_name": "Create",
+                    "type": "OperationType",
+                    "link": "#write-operations-create-poddisruptionbudget"
+                  },
+                  {
+                    "display_name": "Replace",
+                    "type": "OperationType",
+                    "link": "#write-operations-replace-poddisruptionbudget"
+                  },
+                  {
+                    "display_name": "Patch",
+                    "type": "OperationType",
+                    "link": "#write-operations-patch-poddisruptionbudget"
+                  },
+                  {
+                    "display_name": "Delete",
+                    "type": "OperationType",
+                    "link": "#write-operations-delete-poddisruptionbudget"
+                  }
+                ]
+              },
+              {
+                "display_name": "Read Operations",
+                "type": "OperationCategory",
+                "link": "#read-operations-poddisruptionbudget",
+                "items": [
+                  {
+                    "display_name": "Read",
+                    "type": "OperationType",
+                    "link": "#read-operations-read-poddisruptionbudget"
+                  },
+                  {
+                    "display_name": "List",
+                    "type": "OperationType",
+                    "link": "#read-operations-list-poddisruptionbudget"
+                  },
+                  {
+                    "display_name": "Watch",
+                    "type": "OperationType",
+                    "link": "#read-operations-watch-poddisruptionbudget"
+                  }
+                ]
+              },
+              {
+                "display_name": "Status \u0026 Collection Operations",
+                "type": "OperationCategory",
+                "link": "#status-\u0026-collection-operations-poddisruptionbudget",
+                "items": [
+                  {
+                    "display_name": "Delete Collection",
+                    "type": "OperationType",
+                    "link": "#status-\u0026-collection-operations-delete-collection-poddisruptionbudget"
+                  },
+                  {
+                    "display_name": "List All Namespaces",
+                    "type": "OperationType",
+                    "link": "#status-\u0026-collection-operations-list-all-namespaces-poddisruptionbudget"
+                  },
+                  {
+                    "display_name": "Watch List",
+                    "type": "OperationType",
+                    "link": "#status-\u0026-collection-operations-watch-list-poddisruptionbudget"
+                  },
+                  {
+                    "display_name": "Watch List All Namespaces",
+                    "type": "OperationType",
+                    "link": "#status-\u0026-collection-operations-watch-list-all-namespaces-poddisruptionbudget"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "display_name": "Scale",
+            "items": [
+              {
+                "display_name": "Misc Operations",
+                "type": "OperationCategory",
+                "link": "#misc-operations-scale",
+                "items": [
+                  {
+                    "display_name": "Read Scale",
+                    "type": "OperationType",
+                    "link": "#misc-operations-read-scale-scale"
+                  },
+                  {
+                    "display_name": "Replace Scale",
+                    "type": "OperationType",
+                    "link": "#misc-operations-replace-scale-scale"
+                  },
+                  {
+                    "display_name": "Patch Scale",
+                    "type": "OperationType",
+                    "link": "#misc-operations-patch-scale-scale"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "display_name": "ThirdPartyResource",
+            "items": [
+              {
+                "display_name": "Write Operations",
+                "type": "OperationCategory",
+                "link": "#write-operations-thirdpartyresource",
+                "items": [
+                  {
+                    "display_name": "Create",
+                    "type": "OperationType",
+                    "link": "#write-operations-create-thirdpartyresource"
+                  },
+                  {
+                    "display_name": "Replace",
+                    "type": "OperationType",
+                    "link": "#write-operations-replace-thirdpartyresource"
+                  },
+                  {
+                    "display_name": "Patch",
+                    "type": "OperationType",
+                    "link": "#write-operations-patch-thirdpartyresource"
+                  },
+                  {
+                    "display_name": "Delete",
+                    "type": "OperationType",
+                    "link": "#write-operations-delete-thirdpartyresource"
+                  }
+                ]
+              },
+              {
+                "display_name": "Read Operations",
+                "type": "OperationCategory",
+                "link": "#read-operations-thirdpartyresource",
+                "items": [
+                  {
+                    "display_name": "Read",
+                    "type": "OperationType",
+                    "link": "#read-operations-read-thirdpartyresource"
+                  },
+                  {
+                    "display_name": "List",
+                    "type": "OperationType",
+                    "link": "#read-operations-list-thirdpartyresource"
+                  },
+                  {
+                    "display_name": "Watch",
+                    "type": "OperationType",
+                    "link": "#read-operations-watch-thirdpartyresource"
+                  }
+                ]
+              },
+              {
+                "display_name": "Status \u0026 Collection Operations",
+                "type": "OperationCategory",
+                "link": "#status-\u0026-collection-operations-thirdpartyresource",
+                "items": [
+                  {
+                    "display_name": "Delete Collection",
+                    "type": "OperationType",
+                    "link": "#status-\u0026-collection-operations-delete-collection-thirdpartyresource"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "display_name": "Eviction"
+          }
+        ]
+      },
+      {
+        "display_name": "Cluster Apis",
+        "type": "ResourceType",
+        "link": "#cluster-apis",
+        "items": [
+          {
+            "display_name": "Binding",
+            "items": [
+              {
+                "display_name": "Write Operations",
+                "type": "OperationCategory",
+                "link": "#write-operations-binding",
+                "items": [
+                  {
+                    "display_name": "Create",
+                    "type": "OperationType",
+                    "link": "#write-operations-create-binding"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "display_name": "CertificateSigningRequest",
+            "items": [
+              {
+                "display_name": "Write Operations",
+                "type": "OperationCategory",
+                "link": "#write-operations-certificatesigningrequest",
+                "items": [
+                  {
+                    "display_name": "Create",
+                    "type": "OperationType",
+                    "link": "#write-operations-create-certificatesigningrequest"
+                  },
+                  {
+                    "display_name": "Replace",
+                    "type": "OperationType",
+                    "link": "#write-operations-replace-certificatesigningrequest"
+                  },
+                  {
+                    "display_name": "Patch",
+                    "type": "OperationType",
+                    "link": "#write-operations-patch-certificatesigningrequest"
+                  },
+                  {
+                    "display_name": "Delete",
+                    "type": "OperationType",
+                    "link": "#write-operations-delete-certificatesigningrequest"
+                  }
+                ]
+              },
+              {
+                "display_name": "Read Operations",
+                "type": "OperationCategory",
+                "link": "#read-operations-certificatesigningrequest",
+                "items": [
+                  {
+                    "display_name": "Read",
+                    "type": "OperationType",
+                    "link": "#read-operations-read-certificatesigningrequest"
+                  },
+                  {
+                    "display_name": "List",
+                    "type": "OperationType",
+                    "link": "#read-operations-list-certificatesigningrequest"
+                  },
+                  {
+                    "display_name": "Watch",
+                    "type": "OperationType",
+                    "link": "#read-operations-watch-certificatesigningrequest"
+                  }
+                ]
+              },
+              {
+                "display_name": "Status \u0026 Collection Operations",
+                "type": "OperationCategory",
+                "link": "#status-\u0026-collection-operations-certificatesigningrequest",
+                "items": [
+                  {
+                    "display_name": "Replace Status",
+                    "type": "OperationType",
+                    "link": "#status-\u0026-collection-operations-replace-status-certificatesigningrequest"
+                  },
+                  {
+                    "display_name": "Delete Collection",
+                    "type": "OperationType",
+                    "link": "#status-\u0026-collection-operations-delete-collection-certificatesigningrequest"
+                  },
+                  {
+                    "display_name": "Watch List",
+                    "type": "OperationType",
+                    "link": "#status-\u0026-collection-operations-watch-list-certificatesigningrequest"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "display_name": "ClusterRole",
+            "items": [
+              {
+                "display_name": "Write Operations",
+                "type": "OperationCategory",
+                "link": "#write-operations-clusterrole",
+                "items": [
+                  {
+                    "display_name": "Create",
+                    "type": "OperationType",
+                    "link": "#write-operations-create-clusterrole"
+                  },
+                  {
+                    "display_name": "Replace",
+                    "type": "OperationType",
+                    "link": "#write-operations-replace-clusterrole"
+                  },
+                  {
+                    "display_name": "Patch",
+                    "type": "OperationType",
+                    "link": "#write-operations-patch-clusterrole"
+                  },
+                  {
+                    "display_name": "Delete",
+                    "type": "OperationType",
+                    "link": "#write-operations-delete-clusterrole"
+                  }
+                ]
+              },
+              {
+                "display_name": "Read Operations",
+                "type": "OperationCategory",
+                "link": "#read-operations-clusterrole",
+                "items": [
+                  {
+                    "display_name": "Read",
+                    "type": "OperationType",
+                    "link": "#read-operations-read-clusterrole"
+                  },
+                  {
+                    "display_name": "List",
+                    "type": "OperationType",
+                    "link": "#read-operations-list-clusterrole"
+                  },
+                  {
+                    "display_name": "Watch",
+                    "type": "OperationType",
+                    "link": "#read-operations-watch-clusterrole"
+                  }
+                ]
+              },
+              {
+                "display_name": "Status \u0026 Collection Operations",
+                "type": "OperationCategory",
+                "link": "#status-\u0026-collection-operations-clusterrole",
+                "items": [
+                  {
+                    "display_name": "Delete Collection",
+                    "type": "OperationType",
+                    "link": "#status-\u0026-collection-operations-delete-collection-clusterrole"
+                  },
+                  {
+                    "display_name": "Watch List",
+                    "type": "OperationType",
+                    "link": "#status-\u0026-collection-operations-watch-list-clusterrole"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "display_name": "ClusterRoleBinding",
+            "items": [
+              {
+                "display_name": "Write Operations",
+                "type": "OperationCategory",
+                "link": "#write-operations-clusterrolebinding",
+                "items": [
+                  {
+                    "display_name": "Create",
+                    "type": "OperationType",
+                    "link": "#write-operations-create-clusterrolebinding"
+                  },
+                  {
+                    "display_name": "Replace",
+                    "type": "OperationType",
+                    "link": "#write-operations-replace-clusterrolebinding"
+                  },
+                  {
+                    "display_name": "Patch",
+                    "type": "OperationType",
+                    "link": "#write-operations-patch-clusterrolebinding"
+                  },
+                  {
+                    "display_name": "Delete",
+                    "type": "OperationType",
+                    "link": "#write-operations-delete-clusterrolebinding"
+                  }
+                ]
+              },
+              {
+                "display_name": "Read Operations",
+                "type": "OperationCategory",
+                "link": "#read-operations-clusterrolebinding",
+                "items": [
+                  {
+                    "display_name": "Read",
+                    "type": "OperationType",
+                    "link": "#read-operations-read-clusterrolebinding"
+                  },
+                  {
+                    "display_name": "List",
+                    "type": "OperationType",
+                    "link": "#read-operations-list-clusterrolebinding"
+                  },
+                  {
+                    "display_name": "Watch",
+                    "type": "OperationType",
+                    "link": "#read-operations-watch-clusterrolebinding"
+                  }
+                ]
+              },
+              {
+                "display_name": "Status \u0026 Collection Operations",
+                "type": "OperationCategory",
+                "link": "#status-\u0026-collection-operations-clusterrolebinding",
+                "items": [
+                  {
+                    "display_name": "Delete Collection",
+                    "type": "OperationType",
+                    "link": "#status-\u0026-collection-operations-delete-collection-clusterrolebinding"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "display_name": "ComponentStatus",
+            "items": [
+              {
+                "display_name": "Read Operations",
+                "type": "OperationCategory",
+                "link": "#read-operations-componentstatus",
+                "items": [
+                  {
+                    "display_name": "Read",
+                    "type": "OperationType",
+                    "link": "#read-operations-read-componentstatus"
+                  },
+                  {
+                    "display_name": "List",
+                    "type": "OperationType",
+                    "link": "#read-operations-list-componentstatus"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "display_name": "LocalSubjectAccessReview",
+            "items": [
+              {
+                "display_name": "Write Operations",
+                "type": "OperationCategory",
+                "link": "#write-operations-localsubjectaccessreview",
+                "items": [
+                  {
+                    "display_name": "Create",
+                    "type": "OperationType",
+                    "link": "#write-operations-create-localsubjectaccessreview"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "display_name": "Namespace",
+            "items": [
+              {
+                "display_name": "Write Operations",
+                "type": "OperationCategory",
+                "link": "#write-operations-namespace",
+                "items": [
+                  {
+                    "display_name": "Create",
+                    "type": "OperationType",
+                    "link": "#write-operations-create-namespace"
+                  },
+                  {
+                    "display_name": "Replace",
+                    "type": "OperationType",
+                    "link": "#write-operations-replace-namespace"
+                  },
+                  {
+                    "display_name": "Patch",
+                    "type": "OperationType",
+                    "link": "#write-operations-patch-namespace"
+                  },
+                  {
+                    "display_name": "Delete",
+                    "type": "OperationType",
+                    "link": "#write-operations-delete-namespace"
+                  }
+                ]
+              },
+              {
+                "display_name": "Read Operations",
+                "type": "OperationCategory",
+                "link": "#read-operations-namespace",
+                "items": [
+                  {
+                    "display_name": "Read",
+                    "type": "OperationType",
+                    "link": "#read-operations-read-namespace"
+                  },
+                  {
+                    "display_name": "List",
+                    "type": "OperationType",
+                    "link": "#read-operations-list-namespace"
+                  },
+                  {
+                    "display_name": "Watch",
+                    "type": "OperationType",
+                    "link": "#read-operations-watch-namespace"
+                  }
+                ]
+              },
+              {
+                "display_name": "Status \u0026 Collection Operations",
+                "type": "OperationCategory",
+                "link": "#status-\u0026-collection-operations-namespace",
+                "items": [
+                  {
+                    "display_name": "Patch Status",
+                    "type": "OperationType",
+                    "link": "#status-\u0026-collection-operations-patch-status-namespace"
+                  },
+                  {
+                    "display_name": "Read Status",
+                    "type": "OperationType",
+                    "link": "#status-\u0026-collection-operations-read-status-namespace"
+                  },
+                  {
+                    "display_name": "Replace Status",
+                    "type": "OperationType",
+                    "link": "#status-\u0026-collection-operations-replace-status-namespace"
+                  },
+                  {
+                    "display_name": "Delete Collection",
+                    "type": "OperationType",
+                    "link": "#status-\u0026-collection-operations-delete-collection-namespace"
+                  },
+                  {
+                    "display_name": "Watch List",
+                    "type": "OperationType",
+                    "link": "#status-\u0026-collection-operations-watch-list-namespace"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "display_name": "Node",
+            "items": [
+              {
+                "display_name": "Write Operations",
+                "type": "OperationCategory",
+                "link": "#write-operations-node",
+                "items": [
+                  {
+                    "display_name": "Create",
+                    "type": "OperationType",
+                    "link": "#write-operations-create-node"
+                  },
+                  {
+                    "display_name": "Replace",
+                    "type": "OperationType",
+                    "link": "#write-operations-replace-node"
+                  },
+                  {
+                    "display_name": "Patch",
+                    "type": "OperationType",
+                    "link": "#write-operations-patch-node"
+                  },
+                  {
+                    "display_name": "Delete",
+                    "type": "OperationType",
+                    "link": "#write-operations-delete-node"
+                  }
+                ]
+              },
+              {
+                "display_name": "Read Operations",
+                "type": "OperationCategory",
+                "link": "#read-operations-node",
+                "items": [
+                  {
+                    "display_name": "Read",
+                    "type": "OperationType",
+                    "link": "#read-operations-read-node"
+                  },
+                  {
+                    "display_name": "List",
+                    "type": "OperationType",
+                    "link": "#read-operations-list-node"
+                  },
+                  {
+                    "display_name": "Watch",
+                    "type": "OperationType",
+                    "link": "#read-operations-watch-node"
+                  }
+                ]
+              },
+              {
+                "display_name": "Status \u0026 Collection Operations",
+                "type": "OperationCategory",
+                "link": "#status-\u0026-collection-operations-node",
+                "items": [
+                  {
+                    "display_name": "Patch Status",
+                    "type": "OperationType",
+                    "link": "#status-\u0026-collection-operations-patch-status-node"
+                  },
+                  {
+                    "display_name": "Read Status",
+                    "type": "OperationType",
+                    "link": "#status-\u0026-collection-operations-read-status-node"
+                  },
+                  {
+                    "display_name": "Replace Status",
+                    "type": "OperationType",
+                    "link": "#status-\u0026-collection-operations-replace-status-node"
+                  },
+                  {
+                    "display_name": "Delete Collection",
+                    "type": "OperationType",
+                    "link": "#status-\u0026-collection-operations-delete-collection-node"
+                  },
+                  {
+                    "display_name": "Watch List",
+                    "type": "OperationType",
+                    "link": "#status-\u0026-collection-operations-watch-list-node"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "display_name": "PersistentVolume",
+            "items": [
+              {
+                "display_name": "Write Operations",
+                "type": "OperationCategory",
+                "link": "#write-operations-persistentvolume",
+                "items": [
+                  {
+                    "display_name": "Create",
+                    "type": "OperationType",
+                    "link": "#write-operations-create-persistentvolume"
+                  },
+                  {
+                    "display_name": "Replace",
+                    "type": "OperationType",
+                    "link": "#write-operations-replace-persistentvolume"
+                  },
+                  {
+                    "display_name": "Patch",
+                    "type": "OperationType",
+                    "link": "#write-operations-patch-persistentvolume"
+                  },
+                  {
+                    "display_name": "Delete",
+                    "type": "OperationType",
+                    "link": "#write-operations-delete-persistentvolume"
+                  }
+                ]
+              },
+              {
+                "display_name": "Read Operations",
+                "type": "OperationCategory",
+                "link": "#read-operations-persistentvolume",
+                "items": [
+                  {
+                    "display_name": "Read",
+                    "type": "OperationType",
+                    "link": "#read-operations-read-persistentvolume"
+                  },
+                  {
+                    "display_name": "List",
+                    "type": "OperationType",
+                    "link": "#read-operations-list-persistentvolume"
+                  },
+                  {
+                    "display_name": "Watch",
+                    "type": "OperationType",
+                    "link": "#read-operations-watch-persistentvolume"
+                  }
+                ]
+              },
+              {
+                "display_name": "Status \u0026 Collection Operations",
+                "type": "OperationCategory",
+                "link": "#status-\u0026-collection-operations-persistentvolume",
+                "items": [
+                  {
+                    "display_name": "Patch Status",
+                    "type": "OperationType",
+                    "link": "#status-\u0026-collection-operations-patch-status-persistentvolume"
+                  },
+                  {
+                    "display_name": "Read Status",
+                    "type": "OperationType",
+                    "link": "#status-\u0026-collection-operations-read-status-persistentvolume"
+                  },
+                  {
+                    "display_name": "Replace Status",
+                    "type": "OperationType",
+                    "link": "#status-\u0026-collection-operations-replace-status-persistentvolume"
+                  },
+                  {
+                    "display_name": "Delete Collection",
+                    "type": "OperationType",
+                    "link": "#status-\u0026-collection-operations-delete-collection-persistentvolume"
+                  },
+                  {
+                    "display_name": "Watch List",
+                    "type": "OperationType",
+                    "link": "#status-\u0026-collection-operations-watch-list-persistentvolume"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "display_name": "ResourceQuota",
+            "items": [
+              {
+                "display_name": "Write Operations",
+                "type": "OperationCategory",
+                "link": "#write-operations-resourcequota",
+                "items": [
+                  {
+                    "display_name": "Create",
+                    "type": "OperationType",
+                    "link": "#write-operations-create-resourcequota"
+                  },
+                  {
+                    "display_name": "Replace",
+                    "type": "OperationType",
+                    "link": "#write-operations-replace-resourcequota"
+                  },
+                  {
+                    "display_name": "Patch",
+                    "type": "OperationType",
+                    "link": "#write-operations-patch-resourcequota"
+                  },
+                  {
+                    "display_name": "Delete",
+                    "type": "OperationType",
+                    "link": "#write-operations-delete-resourcequota"
+                  }
+                ]
+              },
+              {
+                "display_name": "Read Operations",
+                "type": "OperationCategory",
+                "link": "#read-operations-resourcequota",
+                "items": [
+                  {
+                    "display_name": "Read",
+                    "type": "OperationType",
+                    "link": "#read-operations-read-resourcequota"
+                  },
+                  {
+                    "display_name": "List",
+                    "type": "OperationType",
+                    "link": "#read-operations-list-resourcequota"
+                  },
+                  {
+                    "display_name": "Watch",
+                    "type": "OperationType",
+                    "link": "#read-operations-watch-resourcequota"
+                  }
+                ]
+              },
+              {
+                "display_name": "Status \u0026 Collection Operations",
+                "type": "OperationCategory",
+                "link": "#status-\u0026-collection-operations-resourcequota",
+                "items": [
+                  {
+                    "display_name": "Delete Collection",
+                    "type": "OperationType",
+                    "link": "#status-\u0026-collection-operations-delete-collection-resourcequota"
+                  },
+                  {
+                    "display_name": "List All Namespaces",
+                    "type": "OperationType",
+                    "link": "#status-\u0026-collection-operations-list-all-namespaces-resourcequota"
+                  },
+                  {
+                    "display_name": "Watch List",
+                    "type": "OperationType",
+                    "link": "#status-\u0026-collection-operations-watch-list-resourcequota"
+                  },
+                  {
+                    "display_name": "Watch List All Namespaces",
+                    "type": "OperationType",
+                    "link": "#status-\u0026-collection-operations-watch-list-all-namespaces-resourcequota"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "display_name": "Role",
+            "items": [
+              {
+                "display_name": "Write Operations",
+                "type": "OperationCategory",
+                "link": "#write-operations-role",
+                "items": [
+                  {
+                    "display_name": "Create",
+                    "type": "OperationType",
+                    "link": "#write-operations-create-role"
+                  },
+                  {
+                    "display_name": "Replace",
+                    "type": "OperationType",
+                    "link": "#write-operations-replace-role"
+                  },
+                  {
+                    "display_name": "Patch",
+                    "type": "OperationType",
+                    "link": "#write-operations-patch-role"
+                  },
+                  {
+                    "display_name": "Delete",
+                    "type": "OperationType",
+                    "link": "#write-operations-delete-role"
+                  }
+                ]
+              },
+              {
+                "display_name": "Read Operations",
+                "type": "OperationCategory",
+                "link": "#read-operations-role",
+                "items": [
+                  {
+                    "display_name": "Read",
+                    "type": "OperationType",
+                    "link": "#read-operations-read-role"
+                  },
+                  {
+                    "display_name": "List",
+                    "type": "OperationType",
+                    "link": "#read-operations-list-role"
+                  },
+                  {
+                    "display_name": "Watch",
+                    "type": "OperationType",
+                    "link": "#read-operations-watch-role"
+                  }
+                ]
+              },
+              {
+                "display_name": "Status \u0026 Collection Operations",
+                "type": "OperationCategory",
+                "link": "#status-\u0026-collection-operations-role",
+                "items": [
+                  {
+                    "display_name": "Delete Collection",
+                    "type": "OperationType",
+                    "link": "#status-\u0026-collection-operations-delete-collection-role"
+                  },
+                  {
+                    "display_name": "List All Namespaces",
+                    "type": "OperationType",
+                    "link": "#status-\u0026-collection-operations-list-all-namespaces-role"
+                  },
+                  {
+                    "display_name": "Watch List",
+                    "type": "OperationType",
+                    "link": "#status-\u0026-collection-operations-watch-list-role"
+                  },
+                  {
+                    "display_name": "Watch List All Namespaces",
+                    "type": "OperationType",
+                    "link": "#status-\u0026-collection-operations-watch-list-all-namespaces-role"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "display_name": "RoleBinding",
+            "items": [
+              {
+                "display_name": "Write Operations",
+                "type": "OperationCategory",
+                "link": "#write-operations-rolebinding",
+                "items": [
+                  {
+                    "display_name": "Create",
+                    "type": "OperationType",
+                    "link": "#write-operations-create-rolebinding"
+                  },
+                  {
+                    "display_name": "Replace",
+                    "type": "OperationType",
+                    "link": "#write-operations-replace-rolebinding"
+                  },
+                  {
+                    "display_name": "Patch",
+                    "type": "OperationType",
+                    "link": "#write-operations-patch-rolebinding"
+                  },
+                  {
+                    "display_name": "Delete",
+                    "type": "OperationType",
+                    "link": "#write-operations-delete-rolebinding"
+                  }
+                ]
+              },
+              {
+                "display_name": "Read Operations",
+                "type": "OperationCategory",
+                "link": "#read-operations-rolebinding",
+                "items": [
+                  {
+                    "display_name": "Read",
+                    "type": "OperationType",
+                    "link": "#read-operations-read-rolebinding"
+                  },
+                  {
+                    "display_name": "List",
+                    "type": "OperationType",
+                    "link": "#read-operations-list-rolebinding"
+                  },
+                  {
+                    "display_name": "Watch",
+                    "type": "OperationType",
+                    "link": "#read-operations-watch-rolebinding"
+                  }
+                ]
+              },
+              {
+                "display_name": "Status \u0026 Collection Operations",
+                "type": "OperationCategory",
+                "link": "#status-\u0026-collection-operations-rolebinding",
+                "items": [
+                  {
+                    "display_name": "Delete Collection",
+                    "type": "OperationType",
+                    "link": "#status-\u0026-collection-operations-delete-collection-rolebinding"
+                  },
+                  {
+                    "display_name": "List All Namespaces",
+                    "type": "OperationType",
+                    "link": "#status-\u0026-collection-operations-list-all-namespaces-rolebinding"
+                  },
+                  {
+                    "display_name": "Watch List",
+                    "type": "OperationType",
+                    "link": "#status-\u0026-collection-operations-watch-list-rolebinding"
+                  },
+                  {
+                    "display_name": "Watch List All Namespaces",
+                    "type": "OperationType",
+                    "link": "#status-\u0026-collection-operations-watch-list-all-namespaces-rolebinding"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "display_name": "SelfSubjectAccessReview",
+            "items": [
+              {
+                "display_name": "Write Operations",
+                "type": "OperationCategory",
+                "link": "#write-operations-selfsubjectaccessreview",
+                "items": [
+                  {
+                    "display_name": "Create",
+                    "type": "OperationType",
+                    "link": "#write-operations-create-selfsubjectaccessreview"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "display_name": "ServiceAccount",
+            "items": [
+              {
+                "display_name": "Write Operations",
+                "type": "OperationCategory",
+                "link": "#write-operations-serviceaccount",
+                "items": [
+                  {
+                    "display_name": "Create",
+                    "type": "OperationType",
+                    "link": "#write-operations-create-serviceaccount"
+                  },
+                  {
+                    "display_name": "Replace",
+                    "type": "OperationType",
+                    "link": "#write-operations-replace-serviceaccount"
+                  },
+                  {
+                    "display_name": "Patch",
+                    "type": "OperationType",
+                    "link": "#write-operations-patch-serviceaccount"
+                  },
+                  {
+                    "display_name": "Delete",
+                    "type": "OperationType",
+                    "link": "#write-operations-delete-serviceaccount"
+                  }
+                ]
+              },
+              {
+                "display_name": "Read Operations",
+                "type": "OperationCategory",
+                "link": "#read-operations-serviceaccount",
+                "items": [
+                  {
+                    "display_name": "Read",
+                    "type": "OperationType",
+                    "link": "#read-operations-read-serviceaccount"
+                  },
+                  {
+                    "display_name": "List",
+                    "type": "OperationType",
+                    "link": "#read-operations-list-serviceaccount"
+                  },
+                  {
+                    "display_name": "Watch",
+                    "type": "OperationType",
+                    "link": "#read-operations-watch-serviceaccount"
+                  }
+                ]
+              },
+              {
+                "display_name": "Status \u0026 Collection Operations",
+                "type": "OperationCategory",
+                "link": "#status-\u0026-collection-operations-serviceaccount",
+                "items": [
+                  {
+                    "display_name": "Delete Collection",
+                    "type": "OperationType",
+                    "link": "#status-\u0026-collection-operations-delete-collection-serviceaccount"
+                  },
+                  {
+                    "display_name": "List All Namespaces",
+                    "type": "OperationType",
+                    "link": "#status-\u0026-collection-operations-list-all-namespaces-serviceaccount"
+                  },
+                  {
+                    "display_name": "Watch List All Namespaces",
+                    "type": "OperationType",
+                    "link": "#status-\u0026-collection-operations-watch-list-all-namespaces-serviceaccount"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "display_name": "SubjectAccessReview",
+            "items": [
+              {
+                "display_name": "Write Operations",
+                "type": "OperationCategory",
+                "link": "#write-operations-subjectaccessreview",
+                "items": [
+                  {
+                    "display_name": "Create",
+                    "type": "OperationType",
+                    "link": "#write-operations-create-subjectaccessreview"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "display_name": "TokenReview",
+            "items": [
+              {
+                "display_name": "Write Operations",
+                "type": "OperationCategory",
+                "link": "#write-operations-tokenreview",
+                "items": [
+                  {
+                    "display_name": "Create",
+                    "type": "OperationType",
+                    "link": "#write-operations-create-tokenreview"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "display_name": "NetworkPolicy",
+            "items": [
+              {
+                "display_name": "Write Operations",
+                "type": "OperationCategory",
+                "link": "#write-operations-networkpolicy",
+                "items": [
+                  {
+                    "display_name": "Create",
+                    "type": "OperationType",
+                    "link": "#write-operations-create-networkpolicy"
+                  },
+                  {
+                    "display_name": "Replace",
+                    "type": "OperationType",
+                    "link": "#write-operations-replace-networkpolicy"
+                  },
+                  {
+                    "display_name": "Patch",
+                    "type": "OperationType",
+                    "link": "#write-operations-patch-networkpolicy"
+                  },
+                  {
+                    "display_name": "Delete",
+                    "type": "OperationType",
+                    "link": "#write-operations-delete-networkpolicy"
+                  }
+                ]
+              },
+              {
+                "display_name": "Read Operations",
+                "type": "OperationCategory",
+                "link": "#read-operations-networkpolicy",
+                "items": [
+                  {
+                    "display_name": "Read",
+                    "type": "OperationType",
+                    "link": "#read-operations-read-networkpolicy"
+                  },
+                  {
+                    "display_name": "List",
+                    "type": "OperationType",
+                    "link": "#read-operations-list-networkpolicy"
+                  },
+                  {
+                    "display_name": "Watch",
+                    "type": "OperationType",
+                    "link": "#read-operations-watch-networkpolicy"
+                  }
+                ]
+              },
+              {
+                "display_name": "Status \u0026 Collection Operations",
+                "type": "OperationCategory",
+                "link": "#status-\u0026-collection-operations-networkpolicy",
+                "items": [
+                  {
+                    "display_name": "Delete Collection",
+                    "type": "OperationType",
+                    "link": "#status-\u0026-collection-operations-delete-collection-networkpolicy"
+                  },
+                  {
+                    "display_name": "List All Namespaces",
+                    "type": "OperationType",
+                    "link": "#status-\u0026-collection-operations-list-all-namespaces-networkpolicy"
+                  },
+                  {
+                    "display_name": "Watch List",
+                    "type": "OperationType",
+                    "link": "#status-\u0026-collection-operations-watch-list-networkpolicy"
+                  },
+                  {
+                    "display_name": "Watch List All Namespaces",
+                    "type": "OperationType",
+                    "link": "#status-\u0026-collection-operations-watch-list-all-namespaces-networkpolicy"
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "display_name": "Definitions",
+        "type": "DefinitionCategory",
+        "link": "#definitions",
+        "items": [
+          {
+            "display_name": "APIGroup",
+            "type": "DefinitionType",
+            "link": "#apigroup"
+          },
+          {
+            "display_name": "APIResource",
+            "type": "DefinitionType",
+            "link": "#apiresource"
+          },
+          {
+            "display_name": "APIVersion",
+            "type": "DefinitionType",
+            "link": "#apiversion"
+          },
+          {
+            "display_name": "APIVersions",
+            "type": "DefinitionType",
+            "link": "#apiversions"
+          },
+          {
+            "display_name": "AttachedVolume",
+            "type": "DefinitionType",
+            "link": "#attachedvolume"
+          },
+          {
+            "display_name": "CPUTargetUtilization",
+            "type": "DefinitionType",
+            "link": "#cputargetutilization"
+          },
+          {
+            "display_name": "Capabilities",
+            "type": "DefinitionType",
+            "link": "#capabilities"
+          },
+          {
+            "display_name": "CertificateSigningRequestCondition",
+            "type": "DefinitionType",
+            "link": "#certificatesigningrequestcondition"
+          },
+          {
+            "display_name": "ComponentCondition",
+            "type": "DefinitionType",
+            "link": "#componentcondition"
+          },
+          {
+            "display_name": "ConfigMapKeySelector",
+            "type": "DefinitionType",
+            "link": "#configmapkeyselector"
+          },
+          {
+            "display_name": "ContainerImage",
+            "type": "DefinitionType",
+            "link": "#containerimage"
+          },
+          {
+            "display_name": "ContainerPort",
+            "type": "DefinitionType",
+            "link": "#containerport"
+          },
+          {
+            "display_name": "ContainerState",
+            "type": "DefinitionType",
+            "link": "#containerstate"
+          },
+          {
+            "display_name": "ContainerStateRunning",
+            "type": "DefinitionType",
+            "link": "#containerstaterunning"
+          },
+          {
+            "display_name": "ContainerStateTerminated",
+            "type": "DefinitionType",
+            "link": "#containerstateterminated"
+          },
+          {
+            "display_name": "ContainerStateWaiting",
+            "type": "DefinitionType",
+            "link": "#containerstatewaiting"
+          },
+          {
+            "display_name": "CrossVersionObjectReference",
+            "type": "DefinitionType",
+            "link": "#crossversionobjectreference"
+          },
+          {
+            "display_name": "DaemonEndpoint",
+            "type": "DefinitionType",
+            "link": "#daemonendpoint"
+          },
+          {
+            "display_name": "DeleteOptions",
+            "type": "DefinitionType",
+            "link": "#deleteoptions"
+          },
+          {
+            "display_name": "EndpointAddress",
+            "type": "DefinitionType",
+            "link": "#endpointaddress"
+          },
+          {
+            "display_name": "EndpointPort",
+            "type": "DefinitionType",
+            "link": "#endpointport"
+          },
+          {
+            "display_name": "EndpointSubset",
+            "type": "DefinitionType",
+            "link": "#endpointsubset"
+          },
+          {
+            "display_name": "EnvVar",
+            "type": "DefinitionType",
+            "link": "#envvar"
+          },
+          {
+            "display_name": "EnvVarSource",
+            "type": "DefinitionType",
+            "link": "#envvarsource"
+          },
+          {
+            "display_name": "EventSource",
+            "type": "DefinitionType",
+            "link": "#eventsource"
+          },
+          {
+            "display_name": "ExecAction",
+            "type": "DefinitionType",
+            "link": "#execaction"
+          },
+          {
+            "display_name": "GroupVersionForDiscovery",
+            "type": "DefinitionType",
+            "link": "#groupversionfordiscovery"
+          },
+          {
+            "display_name": "HTTPGetAction",
+            "type": "DefinitionType",
+            "link": "#httpgetaction"
+          },
+          {
+            "display_name": "HTTPHeader",
+            "type": "DefinitionType",
+            "link": "#httpheader"
+          },
+          {
+            "display_name": "Handler",
+            "type": "DefinitionType",
+            "link": "#handler"
+          },
+          {
+            "display_name": "Info",
+            "type": "DefinitionType",
+            "link": "#info"
+          },
+          {
+            "display_name": "IngressBackend",
+            "type": "DefinitionType",
+            "link": "#ingressbackend"
+          },
+          {
+            "display_name": "IngressRule",
+            "type": "DefinitionType",
+            "link": "#ingressrule"
+          },
+          {
+            "display_name": "IngressTLS",
+            "type": "DefinitionType",
+            "link": "#ingresstls"
+          },
+          {
+            "display_name": "IntOrString",
+            "type": "DefinitionType",
+            "link": "#intorstring"
+          },
+          {
+            "display_name": "JobCondition",
+            "type": "DefinitionType",
+            "link": "#jobcondition"
+          },
+          {
+            "display_name": "LabelSelector",
+            "type": "DefinitionType",
+            "link": "#labelselector"
+          },
+          {
+            "display_name": "LabelSelectorRequirement",
+            "type": "DefinitionType",
+            "link": "#labelselectorrequirement"
+          },
+          {
+            "display_name": "Lifecycle",
+            "type": "DefinitionType",
+            "link": "#lifecycle"
+          },
+          {
+            "display_name": "LimitRangeItem",
+            "type": "DefinitionType",
+            "link": "#limitrangeitem"
+          },
+          {
+            "display_name": "ListMeta",
+            "type": "DefinitionType",
+            "link": "#listmeta"
+          },
+          {
+            "display_name": "LoadBalancerIngress",
+            "type": "DefinitionType",
+            "link": "#loadbalanceringress"
+          },
+          {
+            "display_name": "LoadBalancerStatus",
+            "type": "DefinitionType",
+            "link": "#loadbalancerstatus"
+          },
+          {
+            "display_name": "LocalObjectReference",
+            "type": "DefinitionType",
+            "link": "#localobjectreference"
+          },
+          {
+            "display_name": "NetworkPolicyIngressRule",
+            "type": "DefinitionType",
+            "link": "#networkpolicyingressrule"
+          },
+          {
+            "display_name": "NetworkPolicyPeer",
+            "type": "DefinitionType",
+            "link": "#networkpolicypeer"
+          },
+          {
+            "display_name": "NetworkPolicyPort",
+            "type": "DefinitionType",
+            "link": "#networkpolicyport"
+          },
+          {
+            "display_name": "NodeAddress",
+            "type": "DefinitionType",
+            "link": "#nodeaddress"
+          },
+          {
+            "display_name": "NodeCondition",
+            "type": "DefinitionType",
+            "link": "#nodecondition"
+          },
+          {
+            "display_name": "NodeDaemonEndpoints",
+            "type": "DefinitionType",
+            "link": "#nodedaemonendpoints"
+          },
+          {
+            "display_name": "NodeSystemInfo",
+            "type": "DefinitionType",
+            "link": "#nodesysteminfo"
+          },
+          {
+            "display_name": "NonResourceAttributes",
+            "type": "DefinitionType",
+            "link": "#nonresourceattributes"
+          },
+          {
+            "display_name": "ObjectFieldSelector",
+            "type": "DefinitionType",
+            "link": "#objectfieldselector"
+          },
+          {
+            "display_name": "ObjectMeta",
+            "type": "DefinitionType",
+            "link": "#objectmeta"
+          },
+          {
+            "display_name": "ObjectReference",
+            "type": "DefinitionType",
+            "link": "#objectreference"
+          },
+          {
+            "display_name": "OwnerReference",
+            "type": "DefinitionType",
+            "link": "#ownerreference"
+          },
+          {
+            "display_name": "Patch",
+            "type": "DefinitionType",
+            "link": "#patch"
+          },
+          {
+            "display_name": "PodCondition",
+            "type": "DefinitionType",
+            "link": "#podcondition"
+          },
+          {
+            "display_name": "PodSecurityContext",
+            "type": "DefinitionType",
+            "link": "#podsecuritycontext"
+          },
+          {
+            "display_name": "PolicyRule",
+            "type": "DefinitionType",
+            "link": "#policyrule"
+          },
+          {
+            "display_name": "Preconditions",
+            "type": "DefinitionType",
+            "link": "#preconditions"
+          },
+          {
+            "display_name": "Probe",
+            "type": "DefinitionType",
+            "link": "#probe"
+          },
+          {
+            "display_name": "Quantity",
+            "type": "DefinitionType",
+            "link": "#quantity"
+          },
+          {
+            "display_name": "RawExtension",
+            "type": "DefinitionType",
+            "link": "#rawextension"
+          },
+          {
+            "display_name": "ReplicaSetCondition",
+            "type": "DefinitionType",
+            "link": "#replicasetcondition"
+          },
+          {
+            "display_name": "ReplicationControllerCondition",
+            "type": "DefinitionType",
+            "link": "#replicationcontrollercondition"
+          },
+          {
+            "display_name": "ResourceAttributes",
+            "type": "DefinitionType",
+            "link": "#resourceattributes"
+          },
+          {
+            "display_name": "ResourceFieldSelector",
+            "type": "DefinitionType",
+            "link": "#resourcefieldselector"
+          },
+          {
+            "display_name": "ResourceRequirements",
+            "type": "DefinitionType",
+            "link": "#resourcerequirements"
+          },
+          {
+            "display_name": "RoleRef",
+            "type": "DefinitionType",
+            "link": "#roleref"
+          },
+          {
+            "display_name": "RollbackConfig",
+            "type": "DefinitionType",
+            "link": "#rollbackconfig"
+          },
+          {
+            "display_name": "SELinuxOptions",
+            "type": "DefinitionType",
+            "link": "#selinuxoptions"
+          },
+          {
+            "display_name": "SecretKeySelector",
+            "type": "DefinitionType",
+            "link": "#secretkeyselector"
+          },
+          {
+            "display_name": "SecurityContext",
+            "type": "DefinitionType",
+            "link": "#securitycontext"
+          },
+          {
+            "display_name": "ServerAddressByClientCIDR",
+            "type": "DefinitionType",
+            "link": "#serveraddressbyclientcidr"
+          },
+          {
+            "display_name": "ServicePort",
+            "type": "DefinitionType",
+            "link": "#serviceport"
+          },
+          {
+            "display_name": "Status",
+            "type": "DefinitionType",
+            "link": "#status"
+          },
+          {
+            "display_name": "StatusCause",
+            "type": "DefinitionType",
+            "link": "#statuscause"
+          },
+          {
+            "display_name": "StatusDetails",
+            "type": "DefinitionType",
+            "link": "#statusdetails"
+          },
+          {
+            "display_name": "Subject",
+            "type": "DefinitionType",
+            "link": "#subject"
+          },
+          {
+            "display_name": "SubresourceReference",
+            "type": "DefinitionType",
+            "link": "#subresourcereference"
+          },
+          {
+            "display_name": "TCPSocketAction",
+            "type": "DefinitionType",
+            "link": "#tcpsocketaction"
+          },
+          {
+            "display_name": "Time",
+            "type": "DefinitionType",
+            "link": "#time"
+          },
+          {
+            "display_name": "UserInfo",
+            "type": "DefinitionType",
+            "link": "#userinfo"
+          },
+          {
+            "display_name": "VolumeMount",
+            "type": "DefinitionType",
+            "link": "#volumemount"
+          }
+        ]
+      }
+    ]
+  },
+  "body_md_files": [
+    {
+      "path": "includes/_overview.md"
+    },
+    {
+      "path": "includes/_workloads.md"
+    },
+    {
+      "path": "includes/_generated_container_v1_concept.md"
+    },
+    {
+      "path": "includes/_generated_daemonset_v1beta1_concept.md"
+    },
+    {
+      "path": "includes/_generated_deployment_v1beta1_concept.md"
+    },
+    {
+      "path": "includes/_generated_job_v1_concept.md"
+    },
+    {
+      "path": "includes/_generated_petset_v1alpha1_concept.md"
+    },
+    {
+      "path": "includes/_generated_pod_v1_concept.md"
+    },
+    {
+      "path": "includes/_generated_replicaset_v1beta1_concept.md"
+    },
+    {
+      "path": "includes/_generated_replicationcontroller_v1_concept.md"
+    },
+    {
+      "path": "includes/_servicediscovery.md"
+    },
+    {
+      "path": "includes/_generated_endpoints_v1_concept.md"
+    },
+    {
+      "path": "includes/_generated_ingress_v1beta1_concept.md"
+    },
+    {
+      "path": "includes/_generated_service_v1_concept.md"
+    },
+    {
+      "path": "includes/_config.md"
+    },
+    {
+      "path": "includes/_generated_configmap_v1_concept.md"
+    },
+    {
+      "path": "includes/_generated_secret_v1_concept.md"
+    },
+    {
+      "path": "includes/_generated_persistentvolumeclaim_v1_concept.md"
+    },
+    {
+      "path": "includes/_generated_storageclass_v1beta1_concept.md"
+    },
+    {
+      "path": "includes/_generated_volume_v1_concept.md"
+    },
+    {
+      "path": "includes/_meta.md"
+    },
+    {
+      "path": "includes/_generated_event_v1_concept.md"
+    },
+    {
+      "path": "includes/_generated_limitrange_v1_concept.md"
+    },
+    {
+      "path": "includes/_generated_horizontalpodautoscaler_v1_concept.md"
+    },
+    {
+      "path": "includes/_generated_podtemplate_v1_concept.md"
+    },
+    {
+      "path": "includes/_generated_poddisruptionbudget_v1alpha1_concept.md"
+    },
+    {
+      "path": "includes/_generated_scale_v1_concept.md"
+    },
+    {
+      "path": "includes/_generated_thirdpartyresource_v1beta1_concept.md"
+    },
+    {
+      "path": "includes/_generated_eviction_v1alpha1_concept.md"
+    },
+    {
+      "path": "includes/_cluster.md"
+    },
+    {
+      "path": "includes/_generated_binding_v1_concept.md"
+    },
+    {
+      "path": "includes/_generated_certificatesigningrequest_v1alpha1_concept.md"
+    },
+    {
+      "path": "includes/_generated_clusterrole_v1alpha1_concept.md"
+    },
+    {
+      "path": "includes/_generated_clusterrolebinding_v1alpha1_concept.md"
+    },
+    {
+      "path": "includes/_generated_componentstatus_v1_concept.md"
+    },
+    {
+      "path": "includes/_generated_localsubjectaccessreview_v1beta1_concept.md"
+    },
+    {
+      "path": "includes/_generated_namespace_v1_concept.md"
+    },
+    {
+      "path": "includes/_generated_node_v1_concept.md"
+    },
+    {
+      "path": "includes/_generated_persistentvolume_v1_concept.md"
+    },
+    {
+      "path": "includes/_generated_resourcequota_v1_concept.md"
+    },
+    {
+      "path": "includes/_generated_role_v1alpha1_concept.md"
+    },
+    {
+      "path": "includes/_generated_rolebinding_v1alpha1_concept.md"
+    },
+    {
+      "path": "includes/_generated_selfsubjectaccessreview_v1beta1_concept.md"
+    },
+    {
+      "path": "includes/_generated_serviceaccount_v1_concept.md"
+    },
+    {
+      "path": "includes/_generated_subjectaccessreview_v1beta1_concept.md"
+    },
+    {
+      "path": "includes/_generated_tokenreview_v1beta1_concept.md"
+    },
+    {
+      "path": "includes/_generated_networkpolicy_v1beta1_concept.md"
+    },
+    {
+      "path": "includes/_definitions.md"
+    },
+    {
+      "path": "includes/_generated_apigroup_unversioned_definition.md"
+    },
+    {
+      "path": "includes/_generated_apiresource_unversioned_definition.md"
+    },
+    {
+      "path": "includes/_generated_apiversion_v1beta1_definition.md"
+    },
+    {
+      "path": "includes/_generated_apiversions_unversioned_definition.md"
+    },
+    {
+      "path": "includes/_generated_attachedvolume_v1_definition.md"
+    },
+    {
+      "path": "includes/_generated_cputargetutilization_v1beta1_definition.md"
+    },
+    {
+      "path": "includes/_generated_capabilities_v1_definition.md"
+    },
+    {
+      "path": "includes/_generated_certificatesigningrequestcondition_v1alpha1_definition.md"
+    },
+    {
+      "path": "includes/_generated_componentcondition_v1_definition.md"
+    },
+    {
+      "path": "includes/_generated_configmapkeyselector_v1_definition.md"
+    },
+    {
+      "path": "includes/_generated_containerimage_v1_definition.md"
+    },
+    {
+      "path": "includes/_generated_containerport_v1_definition.md"
+    },
+    {
+      "path": "includes/_generated_containerstate_v1_definition.md"
+    },
+    {
+      "path": "includes/_generated_containerstaterunning_v1_definition.md"
+    },
+    {
+      "path": "includes/_generated_containerstateterminated_v1_definition.md"
+    },
+    {
+      "path": "includes/_generated_containerstatewaiting_v1_definition.md"
+    },
+    {
+      "path": "includes/_generated_crossversionobjectreference_v1_definition.md"
+    },
+    {
+      "path": "includes/_generated_daemonendpoint_v1_definition.md"
+    },
+    {
+      "path": "includes/_generated_deleteoptions_v1_definition.md"
+    },
+    {
+      "path": "includes/_generated_endpointaddress_v1_definition.md"
+    },
+    {
+      "path": "includes/_generated_endpointport_v1_definition.md"
+    },
+    {
+      "path": "includes/_generated_endpointsubset_v1_definition.md"
+    },
+    {
+      "path": "includes/_generated_envvar_v1_definition.md"
+    },
+    {
+      "path": "includes/_generated_envvarsource_v1_definition.md"
+    },
+    {
+      "path": "includes/_generated_eventsource_v1_definition.md"
+    },
+    {
+      "path": "includes/_generated_execaction_v1_definition.md"
+    },
+    {
+      "path": "includes/_generated_groupversionfordiscovery_unversioned_definition.md"
+    },
+    {
+      "path": "includes/_generated_httpgetaction_v1_definition.md"
+    },
+    {
+      "path": "includes/_generated_httpheader_v1_definition.md"
+    },
+    {
+      "path": "includes/_generated_handler_v1_definition.md"
+    },
+    {
+      "path": "includes/_generated_info_version_definition.md"
+    },
+    {
+      "path": "includes/_generated_ingressbackend_v1beta1_definition.md"
+    },
+    {
+      "path": "includes/_generated_ingressrule_v1beta1_definition.md"
+    },
+    {
+      "path": "includes/_generated_ingresstls_v1beta1_definition.md"
+    },
+    {
+      "path": "includes/_generated_intorstring_intstr_definition.md"
+    },
+    {
+      "path": "includes/_generated_jobcondition_v1_definition.md"
+    },
+    {
+      "path": "includes/_generated_labelselector_v1_definition.md"
+    },
+    {
+      "path": "includes/_generated_labelselectorrequirement_v1_definition.md"
+    },
+    {
+      "path": "includes/_generated_lifecycle_v1_definition.md"
+    },
+    {
+      "path": "includes/_generated_limitrangeitem_v1_definition.md"
+    },
+    {
+      "path": "includes/_generated_listmeta_unversioned_definition.md"
+    },
+    {
+      "path": "includes/_generated_loadbalanceringress_v1_definition.md"
+    },
+    {
+      "path": "includes/_generated_loadbalancerstatus_v1_definition.md"
+    },
+    {
+      "path": "includes/_generated_localobjectreference_v1_definition.md"
+    },
+    {
+      "path": "includes/_generated_networkpolicyingressrule_v1beta1_definition.md"
+    },
+    {
+      "path": "includes/_generated_networkpolicypeer_v1beta1_definition.md"
+    },
+    {
+      "path": "includes/_generated_networkpolicyport_v1beta1_definition.md"
+    },
+    {
+      "path": "includes/_generated_nodeaddress_v1_definition.md"
+    },
+    {
+      "path": "includes/_generated_nodecondition_v1_definition.md"
+    },
+    {
+      "path": "includes/_generated_nodedaemonendpoints_v1_definition.md"
+    },
+    {
+      "path": "includes/_generated_nodesysteminfo_v1_definition.md"
+    },
+    {
+      "path": "includes/_generated_nonresourceattributes_v1beta1_definition.md"
+    },
+    {
+      "path": "includes/_generated_objectfieldselector_v1_definition.md"
+    },
+    {
+      "path": "includes/_generated_objectmeta_v1_definition.md"
+    },
+    {
+      "path": "includes/_generated_objectreference_v1_definition.md"
+    },
+    {
+      "path": "includes/_generated_ownerreference_v1_definition.md"
+    },
+    {
+      "path": "includes/_generated_patch_unversioned_definition.md"
+    },
+    {
+      "path": "includes/_generated_podcondition_v1_definition.md"
+    },
+    {
+      "path": "includes/_generated_podsecuritycontext_v1_definition.md"
+    },
+    {
+      "path": "includes/_generated_policyrule_v1alpha1_definition.md"
+    },
+    {
+      "path": "includes/_generated_preconditions_v1_definition.md"
+    },
+    {
+      "path": "includes/_generated_probe_v1_definition.md"
+    },
+    {
+      "path": "includes/_generated_quantity_resource_definition.md"
+    },
+    {
+      "path": "includes/_generated_rawextension_runtime_definition.md"
+    },
+    {
+      "path": "includes/_generated_replicasetcondition_v1beta1_definition.md"
+    },
+    {
+      "path": "includes/_generated_replicationcontrollercondition_v1_definition.md"
+    },
+    {
+      "path": "includes/_generated_resourceattributes_v1beta1_definition.md"
+    },
+    {
+      "path": "includes/_generated_resourcefieldselector_v1_definition.md"
+    },
+    {
+      "path": "includes/_generated_resourcerequirements_v1_definition.md"
+    },
+    {
+      "path": "includes/_generated_roleref_v1alpha1_definition.md"
+    },
+    {
+      "path": "includes/_generated_rollbackconfig_v1beta1_definition.md"
+    },
+    {
+      "path": "includes/_generated_selinuxoptions_v1_definition.md"
+    },
+    {
+      "path": "includes/_generated_secretkeyselector_v1_definition.md"
+    },
+    {
+      "path": "includes/_generated_securitycontext_v1_definition.md"
+    },
+    {
+      "path": "includes/_generated_serveraddressbyclientcidr_unversioned_definition.md"
+    },
+    {
+      "path": "includes/_generated_serviceport_v1_definition.md"
+    },
+    {
+      "path": "includes/_generated_status_unversioned_definition.md"
+    },
+    {
+      "path": "includes/_generated_statuscause_unversioned_definition.md"
+    },
+    {
+      "path": "includes/_generated_statusdetails_unversioned_definition.md"
+    },
+    {
+      "path": "includes/_generated_subject_v1alpha1_definition.md"
+    },
+    {
+      "path": "includes/_generated_subresourcereference_v1beta1_definition.md"
+    },
+    {
+      "path": "includes/_generated_tcpsocketaction_v1_definition.md"
+    },
+    {
+      "path": "includes/_generated_time_unversioned_definition.md"
+    },
+    {
+      "path": "includes/_generated_userinfo_v1beta1_definition.md"
+    },
+    {
+      "path": "includes/_generated_volumemount_v1_definition.md"
+    },
+    {
+      "path": "includes/_oldversions.md"
+    },
+    {
+      "path": "includes/_generated_event_versioned_concept.md"
+    },
+    {
+      "path": "includes/_generated_horizontalpodautoscaler_v1beta1_concept.md"
+    },
+    {
+      "path": "includes/_generated_job_v1beta1_concept.md"
+    },
+    {
+      "path": "includes/_generated_jobcondition_v1beta1_concept.md"
+    },
+    {
+      "path": "includes/_generated_labelselector_v1beta1_concept.md"
+    },
+    {
+      "path": "includes/_generated_labelselector_unversioned_concept.md"
+    },
+    {
+      "path": "includes/_generated_labelselectorrequirement_v1beta1_concept.md"
+    },
+    {
+      "path": "includes/_generated_labelselectorrequirement_unversioned_concept.md"
+    },
+    {
+      "path": "includes/_generated_scale_v1beta1_concept.md"
+    }
+  ]
+}

@@ -1,0 +1,181 @@
+example_location: "gen_open_api/examples"
+api_groups:
+  - "Apps"
+  - "Autoscaling"
+  - "Authorization"
+  - "Authentication"
+  - "Certificates"
+  - "Core"
+  - "Extensions"
+  - "Batch"
+  - "Storage"
+  - "RbacAuthorization"
+  - "Policy"
+inline_definitions:
+  - name: Spec
+    match: ${resource}Spec
+  - name: Status
+    match: ${resource}Status
+  - name: List
+    match: ${resource}List
+  - name: DeploymentStrategy
+    match: ${resource}Strategy
+  - name: DeploymentRollback
+    match: ${resource}Rollback
+  - name: RollingUpdateDeployment
+    match: RollingUpdate${resource}
+  - name: EventSource
+    match: ${resource}Source
+resource_categories:
+  - name: "Workloads Apis"
+    include: "workloads"
+    resources:
+    - name: Container
+      version: v1
+      description_warning: "Containers are never created directly by users, and are created within a <a href=\"#pod-v1\">Pod</a>, usually through a Controller object.  See <a href=\"#deployment-v1beta1\">Deployment</a>, <a href=\"#job-v1\">Job</a>, or <a href=\"#petset-v1alpha1\">PetSet</a>"
+    - name: DaemonSet
+      version: v1beta1
+    - name: Deployment
+      version: v1beta1
+    - name: Job
+      version: v1
+    - name: PetSet
+      version: v1alpha1
+    - name: Pod
+      version: v1
+      description_warning: "Pods are not meant to be created directly by users, and instead are generally created through a controller such as <a href=\"#deployment-v1beta1\">Deployment</a>, <a href=\"#job-v1\">Job</a>, or <a href=\"#petset-v1alpha1\">PetSet</a>.  Controllers manage the creation and deletion of Pods using a <a href=\"#podtemplate-v1\">PodTemplate</a> and will ensure Pods are recreated in the event of Machine failure."
+    - name: ReplicaSet
+      version: v1beta1
+      description_warning: "In most cases it is better to create a <a href=\"#deployment-v1beta1\">Deployment</a> instead as it will create new ReplicaSets and manage rolling out changes to them."
+    - name: ReplicationController
+      version: v1
+      description_warning: "In most cases it is better to create a <a href=\"#deployment-v1beta1\">Deployment</a> instead for new Workloads."
+  - name: "Service Apis"
+    include: "servicediscovery"
+    resources:
+    - name: Endpoints
+      version: v1
+      description_warning: "Endpoints are created by <a href=\"#service-v1\">Services</a> not directly by users."
+    - name: Ingress
+      version: v1beta1
+    - name: Service
+      version: v1
+  - name: "Config & Storage Apis"
+    include: "config"
+    resources:
+    - name: ConfigMap
+      version: v1
+    - name: Secret
+      version: v1
+    - name: PersistentVolumeClaim
+      version: v1
+      description_note: "A <a href=\"#persistentvolume-v1\">PersistentVolume</a> must be allocated in the cluster to use this."
+    - name: StorageClass
+      version: v1beta1
+    - name: Volume
+      version: v1
+  - name: "Metadata Apis"
+    include: "meta"
+    resources:
+    - name: Event
+      version: v1
+    - name: LimitRange
+      version: v1
+    - name: HorizontalPodAutoscaler
+      version: v1
+    - name: PodTemplate
+      version: v1
+    - name: PodDisruptionBudget
+      version: v1alpha1
+    - name: Scale
+      version: v1
+    - name: ThirdPartyResource
+      version: v1beta1
+    - name: Eviction
+      version: v1alpha1
+  - name: "Cluster Apis"
+    include: "cluster"
+    resources:
+    - name: Binding
+      version: v1
+    - name: CertificateSigningRequest
+      version: v1alpha1
+    - name: ClusterRole
+      version: v1alpha1
+    - name: ClusterRoleBinding
+      version: v1alpha1
+    - name: ComponentStatus
+      version: v1
+    - name: LocalSubjectAccessReview
+      version: v1beta1
+    - name: Namespace
+      version: v1
+    - name: Node
+      version: v1
+    - name: PersistentVolume
+      version: v1
+      description_note: "These are assigned to <a href=\"#pod-v1\">Pods</a> using <a href=\"#persistentvolumeclaim-v1\">PersistentVolumeClaims</a>."
+    - name: ResourceQuota
+      version: v1
+    - name: Role
+      version: v1alpha1
+    - name: RoleBinding
+      version: v1alpha1
+    - name: SelfSubjectAccessReview
+      version: v1beta1
+    - name: ServiceAccount
+      version: v1
+    - name: SubjectAccessReview
+      version: v1beta1
+    - name: TokenReview
+      version: v1beta1
+    - name: NetworkPolicy
+      version: v1beta1
+operation_categories:
+  - name: "Write Operations"
+    operation_types:
+      - name: Create
+        match: create${group}${version}(Namespaced)?${resource}
+      - name: Replace
+        match: replace${group}${version}(Namespaced)?${resource}
+      - name: Patch
+        match: patch${group}${version}(Namespaced)?${resource}
+      - name: Delete
+        match: delete${group}${version}(Namespaced)?${resource}
+  - name: "Read Operations"
+    operation_types:
+      - name: Read
+        match: read${group}${version}(Namespaced)?${resource}
+      - name: List
+        match: list${group}${version}(Namespaced)?${resource}
+      - name: Watch
+        match: watch${group}${version}(Namespaced)?${resource}
+  - name: "Status & Collection Operations"
+    operation_types:
+      - name: Patch Status
+        match: patch${group}${version}(Namespaced)?${resource}Status
+      - name: Read Status
+        match: read${group}${version}(Namespaced)?${resource}Status
+      - name: Replace Status
+        match: replace${group}${version}(Namespaced)?${resource}Status
+      - name: Delete Collection
+        match: delete${group}${version}Collection(Namespaced)?${resource}
+      - name: List All Namespaces
+        match: list${group}${version}(Namespaced)?${resource}ForAllNamespaces
+      - name: Watch List
+        match: watch${group}${version}(Namespaced)?${resource}List
+      - name: Watch List All Namespaces
+        match: watch${group}${version}(Namespaced)?${resource}ListForAllNamespaces
+  - name: "Misc Operations"
+    default: true
+    operation_types:
+      - name: Read Scale
+        match: read${group}${version}(Namespaced)?${resource}Scale
+      - name: Replace Scale
+        match: replace${group}${version}(Namespaced)?${resource}Scale
+      - name: Patch Scale
+        match: patch${group}${version}(Namespaced)?${resource}Scale
+      - name: Rollback
+        match: create${group}${version}(Namespaced)?${resource}RollbackRollback
+      - name: Read Log
+        match: read${group}${version}(Namespaced)?${resource}Log

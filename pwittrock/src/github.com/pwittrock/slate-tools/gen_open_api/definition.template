@@ -1,0 +1,20 @@
+{{define "definition.template"}}## {{.Name}} {{.Version}}
+
+Group        | Version     | Kind
+------------ | ---------- | -----------
+{{.GroupDisplayName}} | {{.Version}} | {{.Name}}
+
+> Example yaml coming soon...
+
+{{if .OtherVersions}}<aside class="notice">Other api versions of this object exist: {{range $v := .OtherVersions}}{{$v.VersionLink}} {{end}}</aside>{{end}}
+
+{{.Description}}
+
+{{if .AppearsIn}}<aside class="notice">
+Appears In {{range $appearsin := .AppearsIn}} {{$appearsin.HrefLink}} {{end}}</aside>{{end}}
+
+Field        | Schema     | Description
+------------ | ---------- | -----------
+{{range $field := .Fields}}{{$field.Name}} | {{$field.Link}} | {{$field.Description}}
+{{end}}
+{{end}}

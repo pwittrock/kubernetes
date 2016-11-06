@@ -1,0 +1,14 @@
+  .tocify-header ul[category="false"]  {
+    .tocify-item>a {
+      padding-left: $main-padding - 4px;
+      color: #FF0000 !important;
+    }
+  }
+
+
+  .tocify-header ul[category="true"] {
+    .tocify-item>a {
+      padding-left: $main-padding - 4px;
+      color: #FF0000 !important;
+    }
+  }

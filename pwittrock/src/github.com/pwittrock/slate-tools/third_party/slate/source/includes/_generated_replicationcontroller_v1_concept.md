@@ -3,17 +3,54 @@
 -----------
 # ReplicationController v1
 
+ > ReplicationController Config to run 3 nginx instances. 
+
+```shell
+apiVersion: v1
+kind: ReplicationController
+metadata:
+  name: replicationcontroller-example
+spec:
+  replicas: 3
+  template:
+    metadata:
+      labels:
+        app: nginx
+    spec:
+      containers:
+      - name: nginx
+        image: nginx:1.10
+
+```
+
+
+```yaml
+apiVersion: v1
+kind: ReplicationController
+metadata:
+  name: replicationcontroller-example
+spec:
+  replicas: 3
+  template:
+    metadata:
+      labels:
+        app: nginx
+    spec:
+      containers:
+      - name: nginx
+        image: nginx:1.10
+
+```
+
+
 Group        | Version     | Kind
 ------------ | ---------- | -----------
 Core | v1 | ReplicationController
-
 
 <aside class="warning">In most cases it is better to create a <a href="#deployment-v1beta1">Deployment</a> instead for new Workloads.</aside>
 
 
 
-
-> Example yaml coming soon...
 
 
 ReplicationController represents the configuration of a replication controller.

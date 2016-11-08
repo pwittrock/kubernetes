@@ -3,6 +3,8 @@
 -----------
 # APIResourceList unversioned
 
+
+
 Group        | Version     | Kind
 ------------ | ---------- | -----------
 Core | unversioned | APIResourceList
@@ -11,9 +13,6 @@ Core | unversioned | APIResourceList
 
 
 
-
-
-> Example yaml coming soon...
 
 
 APIResourceList is a list of APIResource, it is used to expose the name of the resources supported in a specific group and version, and if the resource is namespaced.

@@ -3,6 +3,8 @@
 -----------
 # IngressStatus v1beta1
 
+
+
 Group        | Version     | Kind
 ------------ | ---------- | -----------
 Extensions | v1beta1 | IngressStatus
@@ -11,9 +13,6 @@ Extensions | v1beta1 | IngressStatus
 
 
 
-
-
-> Example yaml coming soon...
 
 
 IngressStatus describe the current state of the Ingress.

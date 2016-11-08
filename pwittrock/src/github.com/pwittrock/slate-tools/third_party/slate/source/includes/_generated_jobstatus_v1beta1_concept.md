@@ -3,6 +3,8 @@
 -----------
 # JobStatus v1beta1
 
+
+
 Group        | Version     | Kind
 ------------ | ---------- | -----------
 Extensions | v1beta1 | JobStatus
@@ -10,10 +12,7 @@ Extensions | v1beta1 | JobStatus
 
 
 
-
 <aside class="notice">Other api versions of this object exist: <a href="#jobstatus-v1">v1</a> </aside>
-
-> Example yaml coming soon...
 
 
 JobStatus represents the current state of a Job.

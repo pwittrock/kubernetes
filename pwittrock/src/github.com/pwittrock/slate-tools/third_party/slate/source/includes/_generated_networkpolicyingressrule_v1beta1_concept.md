@@ -3,6 +3,8 @@
 -----------
 # NetworkPolicyIngressRule v1beta1
 
+
+
 Group        | Version     | Kind
 ------------ | ---------- | -----------
 Core | v1beta1 | NetworkPolicyIngressRule
@@ -11,9 +13,6 @@ Core | v1beta1 | NetworkPolicyIngressRule
 
 
 
-
-
-> Example yaml coming soon...
 
 
 This NetworkPolicyIngressRule matches traffic if and only if the traffic matches both ports AND from.

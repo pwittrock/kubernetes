@@ -3,6 +3,8 @@
 -----------
 # LocalSubjectAccessReview v1beta1
 
+
+
 Group        | Version     | Kind
 ------------ | ---------- | -----------
 Authorization | v1beta1 | LocalSubjectAccessReview
@@ -11,9 +13,6 @@ Authorization | v1beta1 | LocalSubjectAccessReview
 
 
 
-
-
-> Example yaml coming soon...
 
 
 LocalSubjectAccessReview checks whether or not a user or group can perform an action in a given namespace. Having a namespace scoped resource makes it much easier to grant namespace scoped policy that includes permissions checking.

@@ -3,6 +3,8 @@
 -----------
 # EventSource v1
 
+
+
 Group        | Version     | Kind
 ------------ | ---------- | -----------
 Core | v1 | EventSource
@@ -11,9 +13,6 @@ Core | v1 | EventSource
 
 
 
-
-
-> Example yaml coming soon...
 
 
 EventSource contains information for an event.

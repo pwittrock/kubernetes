@@ -3,6 +3,8 @@
 -----------
 # APIGroup unversioned
 
+
+
 Group        | Version     | Kind
 ------------ | ---------- | -----------
 Core | unversioned | APIGroup
@@ -11,9 +13,6 @@ Core | unversioned | APIGroup
 
 
 
-
-
-> Example yaml coming soon...
 
 
 APIGroup contains the name, the supported versions, and the preferred version of a group.

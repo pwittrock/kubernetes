@@ -2,7 +2,7 @@
 
 Group        | Version     | Kind
 ------------ | ---------- | -----------
-Core | v1alpha1 | PetSetList
+Apps | v1alpha1 | PetSetList
 
 > Example yaml coming soon...
 

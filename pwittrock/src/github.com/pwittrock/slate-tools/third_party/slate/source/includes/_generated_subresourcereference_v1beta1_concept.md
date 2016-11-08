@@ -3,6 +3,8 @@
 -----------
 # SubresourceReference v1beta1
 
+
+
 Group        | Version     | Kind
 ------------ | ---------- | -----------
 Core | v1beta1 | SubresourceReference
@@ -11,9 +13,6 @@ Core | v1beta1 | SubresourceReference
 
 
 
-
-
-> Example yaml coming soon...
 
 
 SubresourceReference contains enough information to let you inspect or modify the referred subresource.

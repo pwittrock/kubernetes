@@ -3,6 +3,8 @@
 -----------
 # ResourceQuotaSpec v1
 
+
+
 Group        | Version     | Kind
 ------------ | ---------- | -----------
 Core | v1 | ResourceQuotaSpec
@@ -11,9 +13,6 @@ Core | v1 | ResourceQuotaSpec
 
 
 
-
-
-> Example yaml coming soon...
 
 
 ResourceQuotaSpec defines the desired hard limits to enforce for Quota.

@@ -3,6 +3,8 @@
 -----------
 # SubjectAccessReviewSpec v1beta1
 
+
+
 Group        | Version     | Kind
 ------------ | ---------- | -----------
 Core | v1beta1 | SubjectAccessReviewSpec
@@ -11,9 +13,6 @@ Core | v1beta1 | SubjectAccessReviewSpec
 
 
 
-
-
-> Example yaml coming soon...
 
 
 SubjectAccessReviewSpec is a description of the access request.  Exactly one of ResourceAuthorizationAttributes and NonResourceAuthorizationAttributes must be set

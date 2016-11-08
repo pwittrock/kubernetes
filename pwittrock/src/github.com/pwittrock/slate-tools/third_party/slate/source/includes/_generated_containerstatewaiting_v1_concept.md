@@ -3,6 +3,8 @@
 -----------
 # ContainerStateWaiting v1
 
+
+
 Group        | Version     | Kind
 ------------ | ---------- | -----------
 Core | v1 | ContainerStateWaiting
@@ -11,9 +13,6 @@ Core | v1 | ContainerStateWaiting
 
 
 
-
-
-> Example yaml coming soon...
 
 
 ContainerStateWaiting is a waiting state of a container.

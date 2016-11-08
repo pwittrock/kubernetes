@@ -3,6 +3,8 @@
 -----------
 # ConfigMap v1
 
+
+
 Group        | Version     | Kind
 ------------ | ---------- | -----------
 Core | v1 | ConfigMap
@@ -11,9 +13,6 @@ Core | v1 | ConfigMap
 
 
 
-
-
-> Example yaml coming soon...
 
 
 ConfigMap holds configuration data for pods to consume.

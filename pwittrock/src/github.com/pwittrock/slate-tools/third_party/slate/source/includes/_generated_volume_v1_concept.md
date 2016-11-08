@@ -3,6 +3,8 @@
 -----------
 # Volume v1
 
+
+
 Group        | Version     | Kind
 ------------ | ---------- | -----------
 Core | v1 | Volume
@@ -11,9 +13,6 @@ Core | v1 | Volume
 
 
 
-
-
-> Example yaml coming soon...
 
 
 Volume represents a named volume in a pod that may be accessed by any container in the pod.

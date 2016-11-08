@@ -3,6 +3,8 @@
 -----------
 # ContainerStatus v1
 
+
+
 Group        | Version     | Kind
 ------------ | ---------- | -----------
 Core | v1 | ContainerStatus
@@ -11,9 +13,6 @@ Core | v1 | ContainerStatus
 
 
 
-
-
-> Example yaml coming soon...
 
 
 ContainerStatus contains details for the current status of this container.

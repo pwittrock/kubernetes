@@ -3,6 +3,8 @@
 -----------
 # JobSpec v1
 
+
+
 Group        | Version     | Kind
 ------------ | ---------- | -----------
 Core | v1 | JobSpec
@@ -10,10 +12,7 @@ Core | v1 | JobSpec
 
 
 
-
 <aside class="notice">Other api versions of this object exist: <a href="#jobspec-v1beta1">v1beta1</a> </aside>
-
-> Example yaml coming soon...
 
 
 JobSpec describes how the job execution will look like.

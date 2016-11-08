@@ -3,6 +3,8 @@
 -----------
 # LabelSelectorRequirement v1beta1
 
+
+
 Group        | Version     | Kind
 ------------ | ---------- | -----------
 Core | v1beta1 | LabelSelectorRequirement
@@ -10,10 +12,7 @@ Core | v1beta1 | LabelSelectorRequirement
 
 
 
-
 <aside class="notice">Other api versions of this object exist: <a href="#labelselectorrequirement-v1">v1</a> <a href="#labelselectorrequirement-unversioned">unversioned</a> </aside>
-
-> Example yaml coming soon...
 
 
 A label selector requirement is a selector that contains values, a key, and an operator that relates the key and values.

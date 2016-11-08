@@ -3,6 +3,8 @@
 -----------
 # RollingUpdateDeployment v1beta1
 
+
+
 Group        | Version     | Kind
 ------------ | ---------- | -----------
 Core | v1beta1 | RollingUpdateDeployment
@@ -11,9 +13,6 @@ Core | v1beta1 | RollingUpdateDeployment
 
 
 
-
-
-> Example yaml coming soon...
 
 
 Spec to control the desired behavior of rolling update.

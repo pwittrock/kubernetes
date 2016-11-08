@@ -3,6 +3,8 @@
 -----------
 # ResourceAttributes v1beta1
 
+
+
 Group        | Version     | Kind
 ------------ | ---------- | -----------
 Core | v1beta1 | ResourceAttributes
@@ -11,9 +13,6 @@ Core | v1beta1 | ResourceAttributes
 
 
 
-
-
-> Example yaml coming soon...
 
 
 ResourceAttributes includes the authorization attributes available for resource requests to the Authorizer interface

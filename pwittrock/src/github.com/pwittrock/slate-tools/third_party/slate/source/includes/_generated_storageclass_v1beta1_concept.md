@@ -3,6 +3,8 @@
 -----------
 # StorageClass v1beta1
 
+
+
 Group        | Version     | Kind
 ------------ | ---------- | -----------
 Storage | v1beta1 | StorageClass
@@ -11,9 +13,6 @@ Storage | v1beta1 | StorageClass
 
 
 
-
-
-> Example yaml coming soon...
 
 
 StorageClass describes the parameters for a class of storage for which PersistentVolumes can be dynamically provisioned.

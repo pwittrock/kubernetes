@@ -3,6 +3,8 @@
 -----------
 # DaemonSetSpec v1beta1
 
+
+
 Group        | Version     | Kind
 ------------ | ---------- | -----------
 Core | v1beta1 | DaemonSetSpec
@@ -11,9 +13,6 @@ Core | v1beta1 | DaemonSetSpec
 
 
 
-
-
-> Example yaml coming soon...
 
 
 DaemonSetSpec is the specification of a daemon set.

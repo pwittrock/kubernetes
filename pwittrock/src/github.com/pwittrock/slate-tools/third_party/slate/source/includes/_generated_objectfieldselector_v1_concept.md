@@ -3,6 +3,8 @@
 -----------
 # ObjectFieldSelector v1
 
+
+
 Group        | Version     | Kind
 ------------ | ---------- | -----------
 Core | v1 | ObjectFieldSelector
@@ -11,9 +13,6 @@ Core | v1 | ObjectFieldSelector
 
 
 
-
-
-> Example yaml coming soon...
 
 
 ObjectFieldSelector selects an APIVersioned field of an object.

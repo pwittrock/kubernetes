@@ -3,6 +3,8 @@
 -----------
 # EndpointsList v1
 
+
+
 Group        | Version     | Kind
 ------------ | ---------- | -----------
 Core | v1 | EndpointsList
@@ -11,9 +13,6 @@ Core | v1 | EndpointsList
 
 
 
-
-
-> Example yaml coming soon...
 
 
 EndpointsList is a list of endpoints.

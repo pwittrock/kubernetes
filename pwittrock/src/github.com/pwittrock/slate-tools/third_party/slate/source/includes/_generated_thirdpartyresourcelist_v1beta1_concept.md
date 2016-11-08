@@ -3,6 +3,8 @@
 -----------
 # ThirdPartyResourceList v1beta1
 
+
+
 Group        | Version     | Kind
 ------------ | ---------- | -----------
 Extensions | v1beta1 | ThirdPartyResourceList
@@ -11,9 +13,6 @@ Extensions | v1beta1 | ThirdPartyResourceList
 
 
 
-
-
-> Example yaml coming soon...
 
 
 ThirdPartyResourceList is a list of ThirdPartyResources.

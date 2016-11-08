@@ -3,6 +3,8 @@
 -----------
 # HorizontalPodAutoscaler v1
 
+
+
 Group        | Version     | Kind
 ------------ | ---------- | -----------
 Autoscaling | v1 | HorizontalPodAutoscaler
@@ -10,10 +12,7 @@ Autoscaling | v1 | HorizontalPodAutoscaler
 
 
 
-
 <aside class="notice">Other api versions of this object exist: <a href="#horizontalpodautoscaler-v1beta1">v1beta1</a> </aside>
-
-> Example yaml coming soon...
 
 
 configuration of a horizontal pod autoscaler.
@@ -515,6 +514,187 @@ Code         | Schema     | Description
 ## <strong>Status & Collection Operations</strong>
 
 See supported operations below...
+
+## Patch Status
+
+> Execute
+
+```shell
+
+
+
+```
+
+
+
+```yaml
+
+
+
+```
+
+> Returns
+
+```shell
+
+
+
+```
+
+
+```yaml
+
+
+
+```
+
+
+
+partially update status of the specified HorizontalPodAutoscaler
+
+### HTTP Request
+
+`PATCH /apis/autoscaling/v1/namespaces/{namespace}/horizontalpodautoscalers/{name}/status`
+
+### Path Parameters
+
+Parameter    | Schema     | Description
+------------ | ---------- | -----------
+name |  | name of the HorizontalPodAutoscaler
+namespace |  | object name and auth scope, such as for teams and projects
+pretty |  | If 'true', then the output is pretty printed.
+
+### Query Parameters
+
+Parameter    | Schema     | Description
+------------ | ---------- | -----------
+body | [Patch](#patch-unversioned) | 
+
+### Response
+
+Code         | Schema     | Description
+------------ | ---------- | -----------
+200 | [HorizontalPodAutoscaler](#horizontalpodautoscaler-v1) | OK
+
+
+## Read Status
+
+> Execute
+
+```shell
+
+
+
+```
+
+
+
+```yaml
+
+
+
+```
+
+> Returns
+
+```shell
+
+
+
+```
+
+
+```yaml
+
+
+
+```
+
+
+
+read status of the specified HorizontalPodAutoscaler
+
+### HTTP Request
+
+`GET /apis/autoscaling/v1/namespaces/{namespace}/horizontalpodautoscalers/{name}/status`
+
+### Path Parameters
+
+Parameter    | Schema     | Description
+------------ | ---------- | -----------
+name |  | name of the HorizontalPodAutoscaler
+namespace |  | object name and auth scope, such as for teams and projects
+pretty |  | If 'true', then the output is pretty printed.
+
+
+### Response
+
+Code         | Schema     | Description
+------------ | ---------- | -----------
+200 | [HorizontalPodAutoscaler](#horizontalpodautoscaler-v1) | OK
+
+
+## Replace Status
+
+> Execute
+
+```shell
+
+
+
+```
+
+
+
+```yaml
+
+
+
+```
+
+> Returns
+
+```shell
+
+
+
+```
+
+
+```yaml
+
+
+
+```
+
+
+
+replace status of the specified HorizontalPodAutoscaler
+
+### HTTP Request
+
+`PUT /apis/autoscaling/v1/namespaces/{namespace}/horizontalpodautoscalers/{name}/status`
+
+### Path Parameters
+
+Parameter    | Schema     | Description
+------------ | ---------- | -----------
+name |  | name of the HorizontalPodAutoscaler
+namespace |  | object name and auth scope, such as for teams and projects
+pretty |  | If 'true', then the output is pretty printed.
+
+### Query Parameters
+
+Parameter    | Schema     | Description
+------------ | ---------- | -----------
+body | [HorizontalPodAutoscaler](#horizontalpodautoscaler-v1) | 
+
+### Response
+
+Code         | Schema     | Description
+------------ | ---------- | -----------
+200 | [HorizontalPodAutoscaler](#horizontalpodautoscaler-v1) | OK
+
 
 ## Delete Collection
 

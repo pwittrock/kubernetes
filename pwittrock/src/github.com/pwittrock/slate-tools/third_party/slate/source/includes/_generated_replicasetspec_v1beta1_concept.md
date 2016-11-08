@@ -3,6 +3,8 @@
 -----------
 # ReplicaSetSpec v1beta1
 
+
+
 Group        | Version     | Kind
 ------------ | ---------- | -----------
 Core | v1beta1 | ReplicaSetSpec
@@ -11,9 +13,6 @@ Core | v1beta1 | ReplicaSetSpec
 
 
 
-
-
-> Example yaml coming soon...
 
 
 ReplicaSetSpec is the specification of a ReplicaSet.

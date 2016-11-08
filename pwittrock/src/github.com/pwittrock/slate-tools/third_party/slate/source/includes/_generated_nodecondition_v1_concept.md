@@ -3,6 +3,8 @@
 -----------
 # NodeCondition v1
 
+
+
 Group        | Version     | Kind
 ------------ | ---------- | -----------
 Core | v1 | NodeCondition
@@ -11,9 +13,6 @@ Core | v1 | NodeCondition
 
 
 
-
-
-> Example yaml coming soon...
 
 
 NodeCondition contains condition information for a node.

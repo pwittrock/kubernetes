@@ -3,6 +3,8 @@
 -----------
 # ContainerPort v1
 
+
+
 Group        | Version     | Kind
 ------------ | ---------- | -----------
 Core | v1 | ContainerPort
@@ -11,9 +13,6 @@ Core | v1 | ContainerPort
 
 
 
-
-
-> Example yaml coming soon...
 
 
 ContainerPort represents a network port in a single container.

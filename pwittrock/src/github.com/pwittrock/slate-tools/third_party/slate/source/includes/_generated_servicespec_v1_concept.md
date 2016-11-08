@@ -3,6 +3,8 @@
 -----------
 # ServiceSpec v1
 
+
+
 Group        | Version     | Kind
 ------------ | ---------- | -----------
 Core | v1 | ServiceSpec
@@ -11,9 +13,6 @@ Core | v1 | ServiceSpec
 
 
 
-
-
-> Example yaml coming soon...
 
 
 ServiceSpec describes the attributes that a user creates on a service.

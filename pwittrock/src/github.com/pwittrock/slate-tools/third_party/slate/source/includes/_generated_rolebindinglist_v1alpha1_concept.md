@@ -3,6 +3,8 @@
 -----------
 # RoleBindingList v1alpha1
 
+
+
 Group        | Version     | Kind
 ------------ | ---------- | -----------
 Core | v1alpha1 | RoleBindingList
@@ -11,9 +13,6 @@ Core | v1alpha1 | RoleBindingList
 
 
 
-
-
-> Example yaml coming soon...
 
 
 RoleBindingList is a collection of RoleBindings

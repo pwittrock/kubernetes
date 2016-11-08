@@ -2,7 +2,7 @@
 
 Group        | Version     | Kind
 ------------ | ---------- | -----------
-Core | v1beta1 | DaemonSetList
+Extensions | v1beta1 | DaemonSetList
 
 > Example yaml coming soon...
 

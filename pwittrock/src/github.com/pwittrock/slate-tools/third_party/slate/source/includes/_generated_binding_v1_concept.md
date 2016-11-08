@@ -3,6 +3,8 @@
 -----------
 # Binding v1
 
+
+
 Group        | Version     | Kind
 ------------ | ---------- | -----------
 Core | v1 | Binding
@@ -11,9 +13,6 @@ Core | v1 | Binding
 
 
 
-
-
-> Example yaml coming soon...
 
 
 Binding ties one object to another. For example, a pod is bound to a node by a scheduler.

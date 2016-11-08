@@ -3,6 +3,8 @@
 -----------
 # Event versioned
 
+
+
 Group        | Version     | Kind
 ------------ | ---------- | -----------
 Core | versioned | Event
@@ -10,10 +12,7 @@ Core | versioned | Event
 
 
 
-
 <aside class="notice">Other api versions of this object exist: <a href="#event-v1">v1</a> </aside>
-
-> Example yaml coming soon...
 
 
 Event represents a single event to a watched resource.

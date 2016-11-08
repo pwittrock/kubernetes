@@ -3,6 +3,8 @@
 -----------
 # APIGroupList unversioned
 
+
+
 Group        | Version     | Kind
 ------------ | ---------- | -----------
 Core | unversioned | APIGroupList
@@ -11,9 +13,6 @@ Core | unversioned | APIGroupList
 
 
 
-
-
-> Example yaml coming soon...
 
 
 APIGroupList is a list of APIGroup, to allow clients to discover the API at /apis.

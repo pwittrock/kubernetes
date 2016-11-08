@@ -3,6 +3,8 @@
 -----------
 # ExecAction v1
 
+
+
 Group        | Version     | Kind
 ------------ | ---------- | -----------
 Core | v1 | ExecAction
@@ -11,9 +13,6 @@ Core | v1 | ExecAction
 
 
 
-
-
-> Example yaml coming soon...
 
 
 ExecAction describes a "run in container" action.

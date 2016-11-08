@@ -3,6 +3,8 @@
 -----------
 # TokenReviewStatus v1beta1
 
+
+
 Group        | Version     | Kind
 ------------ | ---------- | -----------
 Core | v1beta1 | TokenReviewStatus
@@ -11,9 +13,6 @@ Core | v1beta1 | TokenReviewStatus
 
 
 
-
-
-> Example yaml coming soon...
 
 
 TokenReviewStatus is the result of the token authentication request.

@@ -3,17 +3,30 @@
 -----------
 # Container v1
 
+ > Container Config to run nginx (must be embedded in a PodSpec to run). 
+
+```shell
+name: nginx
+image: nginx:1.10
+
+```
+
+
+```yaml
+name: nginx
+image: nginx:1.10
+
+```
+
+
 Group        | Version     | Kind
 ------------ | ---------- | -----------
 Core | v1 | Container
-
 
 <aside class="warning">Containers are never created directly by users, and are created within a <a href="#pod-v1">Pod</a>, usually through a Controller object.  See <a href="#deployment-v1beta1">Deployment</a>, <a href="#job-v1">Job</a>, or <a href="#petset-v1alpha1">PetSet</a></aside>
 
 
 
-
-> Example yaml coming soon...
 
 
 A single application container that you want to run within a pod.

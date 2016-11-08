@@ -3,6 +3,8 @@
 -----------
 # ContainerImage v1
 
+
+
 Group        | Version     | Kind
 ------------ | ---------- | -----------
 Core | v1 | ContainerImage
@@ -11,9 +13,6 @@ Core | v1 | ContainerImage
 
 
 
-
-
-> Example yaml coming soon...
 
 
 Describe a container image

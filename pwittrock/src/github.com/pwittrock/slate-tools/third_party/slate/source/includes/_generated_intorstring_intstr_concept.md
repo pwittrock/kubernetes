@@ -3,6 +3,8 @@
 -----------
 # IntOrString intstr
 
+
+
 Group        | Version     | Kind
 ------------ | ---------- | -----------
 Core | intstr | IntOrString
@@ -11,9 +13,6 @@ Core | intstr | IntOrString
 
 
 
-
-
-> Example yaml coming soon...
 
 
 

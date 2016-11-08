@@ -3,6 +3,8 @@
 -----------
 # SubjectAccessReviewStatus v1beta1
 
+
+
 Group        | Version     | Kind
 ------------ | ---------- | -----------
 Core | v1beta1 | SubjectAccessReviewStatus
@@ -11,9 +13,6 @@ Core | v1beta1 | SubjectAccessReviewStatus
 
 
 
-
-
-> Example yaml coming soon...
 
 
 SubjectAccessReviewStatus

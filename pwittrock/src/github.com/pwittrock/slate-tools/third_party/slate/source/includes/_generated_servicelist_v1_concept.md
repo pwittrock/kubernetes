@@ -3,6 +3,8 @@
 -----------
 # ServiceList v1
 
+
+
 Group        | Version     | Kind
 ------------ | ---------- | -----------
 Core | v1 | ServiceList
@@ -11,9 +13,6 @@ Core | v1 | ServiceList
 
 
 
-
-
-> Example yaml coming soon...
 
 
 ServiceList holds a list of services.

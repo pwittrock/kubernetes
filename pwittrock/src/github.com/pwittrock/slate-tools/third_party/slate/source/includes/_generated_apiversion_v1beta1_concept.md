@@ -3,6 +3,8 @@
 -----------
 # APIVersion v1beta1
 
+
+
 Group        | Version     | Kind
 ------------ | ---------- | -----------
 Core | v1beta1 | APIVersion
@@ -11,9 +13,6 @@ Core | v1beta1 | APIVersion
 
 
 
-
-
-> Example yaml coming soon...
 
 
 An APIVersion represents a single concrete version of an object model.

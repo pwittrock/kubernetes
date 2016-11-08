@@ -3,6 +3,8 @@
 -----------
 # DeploymentSpec v1beta1
 
+
+
 Group        | Version     | Kind
 ------------ | ---------- | -----------
 Core | v1beta1 | DeploymentSpec
@@ -11,9 +13,6 @@ Core | v1beta1 | DeploymentSpec
 
 
 
-
-
-> Example yaml coming soon...
 
 
 DeploymentSpec is the specification of the desired behavior of the Deployment.

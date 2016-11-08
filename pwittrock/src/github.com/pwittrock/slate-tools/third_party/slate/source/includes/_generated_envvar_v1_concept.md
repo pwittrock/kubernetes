@@ -3,6 +3,8 @@
 -----------
 # EnvVar v1
 
+
+
 Group        | Version     | Kind
 ------------ | ---------- | -----------
 Core | v1 | EnvVar
@@ -11,9 +13,6 @@ Core | v1 | EnvVar
 
 
 
-
-
-> Example yaml coming soon...
 
 
 EnvVar represents an environment variable present in a Container.

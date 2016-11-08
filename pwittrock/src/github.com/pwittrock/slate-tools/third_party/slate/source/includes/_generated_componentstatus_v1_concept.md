@@ -3,6 +3,8 @@
 -----------
 # ComponentStatus v1
 
+
+
 Group        | Version     | Kind
 ------------ | ---------- | -----------
 Core | v1 | ComponentStatus
@@ -11,9 +13,6 @@ Core | v1 | ComponentStatus
 
 
 
-
-
-> Example yaml coming soon...
 
 
 ComponentStatus (and ComponentStatusList) holds the cluster validation info.

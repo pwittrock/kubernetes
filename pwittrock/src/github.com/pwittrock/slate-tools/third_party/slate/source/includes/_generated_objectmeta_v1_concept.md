@@ -3,6 +3,8 @@
 -----------
 # ObjectMeta v1
 
+
+
 Group        | Version     | Kind
 ------------ | ---------- | -----------
 Core | v1 | ObjectMeta
@@ -11,9 +13,6 @@ Core | v1 | ObjectMeta
 
 
 
-
-
-> Example yaml coming soon...
 
 
 ObjectMeta is metadata that all persisted resources must have, which includes all objects users must create.

@@ -2,7 +2,7 @@
 
 Group        | Version     | Kind
 ------------ | ---------- | -----------
-Core | v1alpha1 | PodDisruptionBudgetList
+Policy | v1alpha1 | PodDisruptionBudgetList
 
 > Example yaml coming soon...
 

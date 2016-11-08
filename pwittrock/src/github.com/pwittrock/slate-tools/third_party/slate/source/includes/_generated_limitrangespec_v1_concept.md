@@ -3,6 +3,8 @@
 -----------
 # LimitRangeSpec v1
 
+
+
 Group        | Version     | Kind
 ------------ | ---------- | -----------
 Core | v1 | LimitRangeSpec
@@ -11,9 +13,6 @@ Core | v1 | LimitRangeSpec
 
 
 
-
-
-> Example yaml coming soon...
 
 
 LimitRangeSpec defines a min/max usage limit for resources that match on kind.

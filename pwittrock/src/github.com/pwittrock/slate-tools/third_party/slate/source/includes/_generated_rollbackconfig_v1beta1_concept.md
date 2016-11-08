@@ -3,6 +3,8 @@
 -----------
 # RollbackConfig v1beta1
 
+
+
 Group        | Version     | Kind
 ------------ | ---------- | -----------
 Core | v1beta1 | RollbackConfig
@@ -11,9 +13,6 @@ Core | v1beta1 | RollbackConfig
 
 
 
-
-
-> Example yaml coming soon...
 
 
 

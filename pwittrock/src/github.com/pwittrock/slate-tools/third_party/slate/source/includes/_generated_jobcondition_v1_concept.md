@@ -3,6 +3,8 @@
 -----------
 # JobCondition v1
 
+
+
 Group        | Version     | Kind
 ------------ | ---------- | -----------
 Core | v1 | JobCondition
@@ -10,10 +12,7 @@ Core | v1 | JobCondition
 
 
 
-
 <aside class="notice">Other api versions of this object exist: <a href="#jobcondition-v1beta1">v1beta1</a> </aside>
-
-> Example yaml coming soon...
 
 
 JobCondition describes current state of a job.

@@ -3,6 +3,8 @@
 -----------
 # PolicyRule v1alpha1
 
+
+
 Group        | Version     | Kind
 ------------ | ---------- | -----------
 Core | v1alpha1 | PolicyRule
@@ -11,9 +13,6 @@ Core | v1alpha1 | PolicyRule
 
 
 
-
-
-> Example yaml coming soon...
 
 
 PolicyRule holds information that describes a policy rule, but does not contain information about who the rule applies to or which namespace the rule applies to.

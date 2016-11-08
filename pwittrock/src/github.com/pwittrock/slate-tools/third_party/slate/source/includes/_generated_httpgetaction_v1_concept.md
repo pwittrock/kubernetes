@@ -3,6 +3,8 @@
 -----------
 # HTTPGetAction v1
 
+
+
 Group        | Version     | Kind
 ------------ | ---------- | -----------
 Core | v1 | HTTPGetAction
@@ -11,9 +13,6 @@ Core | v1 | HTTPGetAction
 
 
 
-
-
-> Example yaml coming soon...
 
 
 HTTPGetAction describes an action based on HTTP Get requests.

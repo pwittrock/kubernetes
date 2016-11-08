@@ -3,6 +3,8 @@
 -----------
 # NetworkPolicyPort v1beta1
 
+
+
 Group        | Version     | Kind
 ------------ | ---------- | -----------
 Core | v1beta1 | NetworkPolicyPort
@@ -11,9 +13,6 @@ Core | v1beta1 | NetworkPolicyPort
 
 
 
-
-
-> Example yaml coming soon...
 
 
 

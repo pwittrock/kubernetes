@@ -3,6 +3,8 @@
 -----------
 # DeploymentStrategy v1beta1
 
+
+
 Group        | Version     | Kind
 ------------ | ---------- | -----------
 Core | v1beta1 | DeploymentStrategy
@@ -11,9 +13,6 @@ Core | v1beta1 | DeploymentStrategy
 
 
 
-
-
-> Example yaml coming soon...
 
 
 DeploymentStrategy describes how to replace existing pods with new ones.

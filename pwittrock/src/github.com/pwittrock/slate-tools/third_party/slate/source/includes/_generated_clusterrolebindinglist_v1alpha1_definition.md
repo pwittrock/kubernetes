@@ -2,7 +2,7 @@
 
 Group        | Version     | Kind
 ------------ | ---------- | -----------
-RbacAuthorization | v1alpha1 | ClusterRoleBindingList
+Core | v1alpha1 | ClusterRoleBindingList
 
 > Example yaml coming soon...
 

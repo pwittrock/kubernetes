@@ -3,6 +3,8 @@
 -----------
 # EndpointSubset v1
 
+
+
 Group        | Version     | Kind
 ------------ | ---------- | -----------
 Core | v1 | EndpointSubset
@@ -11,9 +13,6 @@ Core | v1 | EndpointSubset
 
 
 
-
-
-> Example yaml coming soon...
 
 
 EndpointSubset is a group of addresses with a common set of ports. The expanded set of endpoints is the Cartesian product of Addresses x Ports. For example, given:

@@ -3,17 +3,16 @@
 -----------
 # Endpoints v1
 
+
+
 Group        | Version     | Kind
 ------------ | ---------- | -----------
 Core | v1 | Endpoints
-
 
 <aside class="warning">Endpoints are created by <a href="#service-v1">Services</a> not directly by users.</aside>
 
 
 
-
-> Example yaml coming soon...
 
 
 Endpoints is a collection of endpoints that implement the actual service. Example:

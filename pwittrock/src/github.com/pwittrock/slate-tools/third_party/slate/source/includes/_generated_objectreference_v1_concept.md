@@ -3,6 +3,8 @@
 -----------
 # ObjectReference v1
 
+
+
 Group        | Version     | Kind
 ------------ | ---------- | -----------
 Core | v1 | ObjectReference
@@ -11,9 +13,6 @@ Core | v1 | ObjectReference
 
 
 
-
-
-> Example yaml coming soon...
 
 
 ObjectReference contains enough information to let you inspect or modify the referred object.

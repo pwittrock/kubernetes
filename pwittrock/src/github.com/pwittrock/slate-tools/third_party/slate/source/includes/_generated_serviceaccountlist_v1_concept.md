@@ -3,6 +3,8 @@
 -----------
 # ServiceAccountList v1
 
+
+
 Group        | Version     | Kind
 ------------ | ---------- | -----------
 Core | v1 | ServiceAccountList
@@ -11,9 +13,6 @@ Core | v1 | ServiceAccountList
 
 
 
-
-
-> Example yaml coming soon...
 
 
 ServiceAccountList is a list of ServiceAccount objects

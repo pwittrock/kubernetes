@@ -3,6 +3,8 @@
 -----------
 # PetSetSpec v1alpha1
 
+
+
 Group        | Version     | Kind
 ------------ | ---------- | -----------
 Core | v1alpha1 | PetSetSpec
@@ -11,9 +13,6 @@ Core | v1alpha1 | PetSetSpec
 
 
 
-
-
-> Example yaml coming soon...
 
 
 A PetSetSpec is the specification of a PetSet.

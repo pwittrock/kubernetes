@@ -3,6 +3,8 @@
 -----------
 # ContainerState v1
 
+
+
 Group        | Version     | Kind
 ------------ | ---------- | -----------
 Core | v1 | ContainerState
@@ -11,9 +13,6 @@ Core | v1 | ContainerState
 
 
 
-
-
-> Example yaml coming soon...
 
 
 ContainerState holds a possible state of container. Only one of its members may be specified. If none of them is specified, the default one is ContainerStateWaiting.

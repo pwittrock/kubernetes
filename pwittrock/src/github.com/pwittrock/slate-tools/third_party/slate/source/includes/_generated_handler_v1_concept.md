@@ -3,6 +3,8 @@
 -----------
 # Handler v1
 
+
+
 Group        | Version     | Kind
 ------------ | ---------- | -----------
 Core | v1 | Handler
@@ -11,9 +13,6 @@ Core | v1 | Handler
 
 
 
-
-
-> Example yaml coming soon...
 
 
 Handler defines a specific action that should be taken

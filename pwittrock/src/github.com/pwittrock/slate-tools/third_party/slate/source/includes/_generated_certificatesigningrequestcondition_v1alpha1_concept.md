@@ -3,6 +3,8 @@
 -----------
 # CertificateSigningRequestCondition v1alpha1
 
+
+
 Group        | Version     | Kind
 ------------ | ---------- | -----------
 Core | v1alpha1 | CertificateSigningRequestCondition
@@ -11,9 +13,6 @@ Core | v1alpha1 | CertificateSigningRequestCondition
 
 
 
-
-
-> Example yaml coming soon...
 
 
 

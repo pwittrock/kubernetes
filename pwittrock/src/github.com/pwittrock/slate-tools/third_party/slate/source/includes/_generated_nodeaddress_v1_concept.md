@@ -3,6 +3,8 @@
 -----------
 # NodeAddress v1
 
+
+
 Group        | Version     | Kind
 ------------ | ---------- | -----------
 Core | v1 | NodeAddress
@@ -11,9 +13,6 @@ Core | v1 | NodeAddress
 
 
 
-
-
-> Example yaml coming soon...
 
 
 NodeAddress contains information for the node's address.

@@ -3,6 +3,8 @@
 -----------
 # LabelSelector v1beta1
 
+
+
 Group        | Version     | Kind
 ------------ | ---------- | -----------
 Core | v1beta1 | LabelSelector
@@ -10,10 +12,7 @@ Core | v1beta1 | LabelSelector
 
 
 
-
 <aside class="notice">Other api versions of this object exist: <a href="#labelselector-v1">v1</a> <a href="#labelselector-unversioned">unversioned</a> </aside>
-
-> Example yaml coming soon...
 
 
 A label selector is a label query over a set of resources. The result of matchLabels and matchExpressions are ANDed. An empty label selector matches all objects. A null label selector matches no objects.

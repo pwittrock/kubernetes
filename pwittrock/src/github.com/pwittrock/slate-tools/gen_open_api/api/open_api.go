@@ -22,8 +22,6 @@ import (
 	"path/filepath"
 
 	"github.com/go-openapi/loads"
-	"io/ioutil"
-	"strings"
 )
 
 // Loads all of the open-api documents
@@ -46,17 +44,4 @@ func LoadOpenApiSpec(dir string) []*loads.Document {
 		os.Exit(1)
 	}
 	return docs
-}
-
-
-func (config *Config) GetDefExampleFile(d *Definition) string {
-	return strings.Replace(strings.ToLower(filepath.Join(config.ExampleLocation, d.Name+".yaml")), " ", "_", -1)
-}
-
-func (config *Config) ReadDefExample(d *Definition) {
-	exfn := config.GetDefExampleFile(d)
-	req, err := ioutil.ReadFile(exfn)
-	if err == nil && len(req) > 0 {
-		d.Example = string(exfn)
-	}
 }

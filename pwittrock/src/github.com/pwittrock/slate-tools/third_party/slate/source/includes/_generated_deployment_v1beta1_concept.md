@@ -3,6 +3,48 @@
 -----------
 # Deployment v1beta1
 
+ > Deployment Config to run 3 nginx instances (max rollback set to 10 revisions). 
+
+```shell
+apiVersion: extensions/v1beta1
+kind: Deployment
+metadata:
+  name: deployment-example
+spec:
+  replicas: 3
+  revisionHistoryLimit: 10
+  template:
+    metadata:
+      labels:
+        app: nginx
+    spec:
+      containers:
+      - name: nginx
+        image: nginx:1.10
+
+```
+
+
+```yaml
+apiVersion: extensions/v1beta1
+kind: Deployment
+metadata:
+  name: deployment-example
+spec:
+  replicas: 3
+  revisionHistoryLimit: 10
+  template:
+    metadata:
+      labels:
+        app: nginx
+    spec:
+      containers:
+      - name: nginx
+        image: nginx:1.10
+
+```
+
+
 Group        | Version     | Kind
 ------------ | ---------- | -----------
 Extensions | v1beta1 | Deployment
@@ -11,9 +53,6 @@ Extensions | v1beta1 | Deployment
 
 
 
-
-
-> Example yaml coming soon...
 
 
 Deployment enables declarative updates for Pods and ReplicaSets.

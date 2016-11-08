@@ -3,6 +3,8 @@
 -----------
 # NodeSystemInfo v1
 
+
+
 Group        | Version     | Kind
 ------------ | ---------- | -----------
 Core | v1 | NodeSystemInfo
@@ -11,9 +13,6 @@ Core | v1 | NodeSystemInfo
 
 
 
-
-
-> Example yaml coming soon...
 
 
 NodeSystemInfo is a set of ids/uuids to uniquely identify the node.

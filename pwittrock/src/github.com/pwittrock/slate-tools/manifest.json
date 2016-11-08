@@ -79,21 +79,6 @@
                 "link": "#status-\u0026-collection-operations-daemonset",
                 "items": [
                   {
-                    "display_name": "Patch Status",
-                    "type": "OperationType",
-                    "link": "#status-\u0026-collection-operations-patch-status-daemonset"
-                  },
-                  {
-                    "display_name": "Read Status",
-                    "type": "OperationType",
-                    "link": "#status-\u0026-collection-operations-read-status-daemonset"
-                  },
-                  {
-                    "display_name": "Replace Status",
-                    "type": "OperationType",
-                    "link": "#status-\u0026-collection-operations-replace-status-daemonset"
-                  },
-                  {
                     "display_name": "Delete Collection",
                     "type": "OperationType",
                     "link": "#status-\u0026-collection-operations-delete-collection-daemonset"
@@ -102,11 +87,6 @@
                     "display_name": "List All Namespaces",
                     "type": "OperationType",
                     "link": "#status-\u0026-collection-operations-list-all-namespaces-daemonset"
-                  },
-                  {
-                    "display_name": "Watch List",
-                    "type": "OperationType",
-                    "link": "#status-\u0026-collection-operations-watch-list-daemonset"
                   },
                   {
                     "display_name": "Watch List All Namespaces",
@@ -354,21 +334,6 @@
                 "link": "#status-\u0026-collection-operations-petset",
                 "items": [
                   {
-                    "display_name": "Patch Status",
-                    "type": "OperationType",
-                    "link": "#status-\u0026-collection-operations-patch-status-petset"
-                  },
-                  {
-                    "display_name": "Read Status",
-                    "type": "OperationType",
-                    "link": "#status-\u0026-collection-operations-read-status-petset"
-                  },
-                  {
-                    "display_name": "Replace Status",
-                    "type": "OperationType",
-                    "link": "#status-\u0026-collection-operations-replace-status-petset"
-                  },
-                  {
                     "display_name": "Delete Collection",
                     "type": "OperationType",
                     "link": "#status-\u0026-collection-operations-delete-collection-petset"
@@ -377,11 +342,6 @@
                     "display_name": "List All Namespaces",
                     "type": "OperationType",
                     "link": "#status-\u0026-collection-operations-list-all-namespaces-petset"
-                  },
-                  {
-                    "display_name": "Watch List",
-                    "type": "OperationType",
-                    "link": "#status-\u0026-collection-operations-watch-list-petset"
                   },
                   {
                     "display_name": "Watch List All Namespaces",
@@ -450,6 +410,21 @@
                 "link": "#status-\u0026-collection-operations-pod",
                 "items": [
                   {
+                    "display_name": "Patch Status",
+                    "type": "OperationType",
+                    "link": "#status-\u0026-collection-operations-patch-status-pod"
+                  },
+                  {
+                    "display_name": "Read Status",
+                    "type": "OperationType",
+                    "link": "#status-\u0026-collection-operations-read-status-pod"
+                  },
+                  {
+                    "display_name": "Replace Status",
+                    "type": "OperationType",
+                    "link": "#status-\u0026-collection-operations-replace-status-pod"
+                  },
+                  {
                     "display_name": "Delete Collection",
                     "type": "OperationType",
                     "link": "#status-\u0026-collection-operations-delete-collection-pod"
@@ -458,11 +433,6 @@
                     "display_name": "List All Namespaces",
                     "type": "OperationType",
                     "link": "#status-\u0026-collection-operations-list-all-namespaces-pod"
-                  },
-                  {
-                    "display_name": "Watch List",
-                    "type": "OperationType",
-                    "link": "#status-\u0026-collection-operations-watch-list-pod"
                   },
                   {
                     "display_name": "Watch List All Namespaces",
@@ -830,11 +800,6 @@
                     "link": "#status-\u0026-collection-operations-list-all-namespaces-ingress"
                   },
                   {
-                    "display_name": "Watch List",
-                    "type": "OperationType",
-                    "link": "#status-\u0026-collection-operations-watch-list-ingress"
-                  },
-                  {
                     "display_name": "Watch List All Namespaces",
                     "type": "OperationType",
                     "link": "#status-\u0026-collection-operations-watch-list-all-namespaces-ingress"
@@ -900,6 +865,21 @@
                 "type": "OperationCategory",
                 "link": "#status-\u0026-collection-operations-service",
                 "items": [
+                  {
+                    "display_name": "Patch Status",
+                    "type": "OperationType",
+                    "link": "#status-\u0026-collection-operations-patch-status-service"
+                  },
+                  {
+                    "display_name": "Read Status",
+                    "type": "OperationType",
+                    "link": "#status-\u0026-collection-operations-read-status-service"
+                  },
+                  {
+                    "display_name": "Replace Status",
+                    "type": "OperationType",
+                    "link": "#status-\u0026-collection-operations-replace-status-service"
+                  },
                   {
                     "display_name": "List All Namespaces",
                     "type": "OperationType",
@@ -1070,6 +1050,11 @@
                     "link": "#status-\u0026-collection-operations-list-all-namespaces-secret"
                   },
                   {
+                    "display_name": "Watch List",
+                    "type": "OperationType",
+                    "link": "#status-\u0026-collection-operations-watch-list-secret"
+                  },
+                  {
                     "display_name": "Watch List All Namespaces",
                     "type": "OperationType",
                     "link": "#status-\u0026-collection-operations-watch-list-all-namespaces-secret"
@@ -1136,6 +1121,21 @@
                 "link": "#status-\u0026-collection-operations-persistentvolumeclaim",
                 "items": [
                   {
+                    "display_name": "Patch Status",
+                    "type": "OperationType",
+                    "link": "#status-\u0026-collection-operations-patch-status-persistentvolumeclaim"
+                  },
+                  {
+                    "display_name": "Read Status",
+                    "type": "OperationType",
+                    "link": "#status-\u0026-collection-operations-read-status-persistentvolumeclaim"
+                  },
+                  {
+                    "display_name": "Replace Status",
+                    "type": "OperationType",
+                    "link": "#status-\u0026-collection-operations-replace-status-persistentvolumeclaim"
+                  },
+                  {
                     "display_name": "Delete Collection",
                     "type": "OperationType",
                     "link": "#status-\u0026-collection-operations-delete-collection-persistentvolumeclaim"
@@ -1144,11 +1144,6 @@
                     "display_name": "List All Namespaces",
                     "type": "OperationType",
                     "link": "#status-\u0026-collection-operations-list-all-namespaces-persistentvolumeclaim"
-                  },
-                  {
-                    "display_name": "Watch List",
-                    "type": "OperationType",
-                    "link": "#status-\u0026-collection-operations-watch-list-persistentvolumeclaim"
                   },
                   {
                     "display_name": "Watch List All Namespaces",
@@ -1303,6 +1298,11 @@
                     "link": "#status-\u0026-collection-operations-list-all-namespaces-event"
                   },
                   {
+                    "display_name": "Watch List",
+                    "type": "OperationType",
+                    "link": "#status-\u0026-collection-operations-watch-list-event"
+                  },
+                  {
                     "display_name": "Watch List All Namespaces",
                     "type": "OperationType",
                     "link": "#status-\u0026-collection-operations-watch-list-all-namespaces-event"
@@ -1449,6 +1449,21 @@
                 "type": "OperationCategory",
                 "link": "#status-\u0026-collection-operations-horizontalpodautoscaler",
                 "items": [
+                  {
+                    "display_name": "Patch Status",
+                    "type": "OperationType",
+                    "link": "#status-\u0026-collection-operations-patch-status-horizontalpodautoscaler"
+                  },
+                  {
+                    "display_name": "Read Status",
+                    "type": "OperationType",
+                    "link": "#status-\u0026-collection-operations-read-status-horizontalpodautoscaler"
+                  },
+                  {
+                    "display_name": "Replace Status",
+                    "type": "OperationType",
+                    "link": "#status-\u0026-collection-operations-replace-status-horizontalpodautoscaler"
+                  },
                   {
                     "display_name": "Delete Collection",
                     "type": "OperationType",
@@ -1602,6 +1617,21 @@
                 "link": "#status-\u0026-collection-operations-poddisruptionbudget",
                 "items": [
                   {
+                    "display_name": "Patch Status",
+                    "type": "OperationType",
+                    "link": "#status-\u0026-collection-operations-patch-status-poddisruptionbudget"
+                  },
+                  {
+                    "display_name": "Read Status",
+                    "type": "OperationType",
+                    "link": "#status-\u0026-collection-operations-read-status-poddisruptionbudget"
+                  },
+                  {
+                    "display_name": "Replace Status",
+                    "type": "OperationType",
+                    "link": "#status-\u0026-collection-operations-replace-status-poddisruptionbudget"
+                  },
+                  {
                     "display_name": "Delete Collection",
                     "type": "OperationType",
                     "link": "#status-\u0026-collection-operations-delete-collection-poddisruptionbudget"
@@ -1610,11 +1640,6 @@
                     "display_name": "List All Namespaces",
                     "type": "OperationType",
                     "link": "#status-\u0026-collection-operations-list-all-namespaces-poddisruptionbudget"
-                  },
-                  {
-                    "display_name": "Watch List",
-                    "type": "OperationType",
-                    "link": "#status-\u0026-collection-operations-watch-list-poddisruptionbudget"
                   },
                   {
                     "display_name": "Watch List All Namespaces",
@@ -1811,11 +1836,6 @@
                     "display_name": "Delete Collection",
                     "type": "OperationType",
                     "link": "#status-\u0026-collection-operations-delete-collection-certificatesigningrequest"
-                  },
-                  {
-                    "display_name": "Watch List",
-                    "type": "OperationType",
-                    "link": "#status-\u0026-collection-operations-watch-list-certificatesigningrequest"
                   }
                 ]
               }
@@ -1882,11 +1902,6 @@
                     "display_name": "Delete Collection",
                     "type": "OperationType",
                     "link": "#status-\u0026-collection-operations-delete-collection-clusterrole"
-                  },
-                  {
-                    "display_name": "Watch List",
-                    "type": "OperationType",
-                    "link": "#status-\u0026-collection-operations-watch-list-clusterrole"
                   }
                 ]
               }
@@ -1953,6 +1968,11 @@
                     "display_name": "Delete Collection",
                     "type": "OperationType",
                     "link": "#status-\u0026-collection-operations-delete-collection-clusterrolebinding"
+                  },
+                  {
+                    "display_name": "Watch List",
+                    "type": "OperationType",
+                    "link": "#status-\u0026-collection-operations-watch-list-clusterrolebinding"
                   }
                 ]
               }
@@ -2073,11 +2093,6 @@
                     "display_name": "Delete Collection",
                     "type": "OperationType",
                     "link": "#status-\u0026-collection-operations-delete-collection-namespace"
-                  },
-                  {
-                    "display_name": "Watch List",
-                    "type": "OperationType",
-                    "link": "#status-\u0026-collection-operations-watch-list-namespace"
                   }
                 ]
               }
@@ -2141,29 +2156,9 @@
                 "link": "#status-\u0026-collection-operations-node",
                 "items": [
                   {
-                    "display_name": "Patch Status",
-                    "type": "OperationType",
-                    "link": "#status-\u0026-collection-operations-patch-status-node"
-                  },
-                  {
-                    "display_name": "Read Status",
-                    "type": "OperationType",
-                    "link": "#status-\u0026-collection-operations-read-status-node"
-                  },
-                  {
-                    "display_name": "Replace Status",
-                    "type": "OperationType",
-                    "link": "#status-\u0026-collection-operations-replace-status-node"
-                  },
-                  {
                     "display_name": "Delete Collection",
                     "type": "OperationType",
                     "link": "#status-\u0026-collection-operations-delete-collection-node"
-                  },
-                  {
-                    "display_name": "Watch List",
-                    "type": "OperationType",
-                    "link": "#status-\u0026-collection-operations-watch-list-node"
                   }
                 ]
               }
@@ -2313,6 +2308,21 @@
                 "link": "#status-\u0026-collection-operations-resourcequota",
                 "items": [
                   {
+                    "display_name": "Patch Status",
+                    "type": "OperationType",
+                    "link": "#status-\u0026-collection-operations-patch-status-resourcequota"
+                  },
+                  {
+                    "display_name": "Read Status",
+                    "type": "OperationType",
+                    "link": "#status-\u0026-collection-operations-read-status-resourcequota"
+                  },
+                  {
+                    "display_name": "Replace Status",
+                    "type": "OperationType",
+                    "link": "#status-\u0026-collection-operations-replace-status-resourcequota"
+                  },
+                  {
                     "display_name": "Delete Collection",
                     "type": "OperationType",
                     "link": "#status-\u0026-collection-operations-delete-collection-resourcequota"
@@ -2321,11 +2331,6 @@
                     "display_name": "List All Namespaces",
                     "type": "OperationType",
                     "link": "#status-\u0026-collection-operations-list-all-namespaces-resourcequota"
-                  },
-                  {
-                    "display_name": "Watch List",
-                    "type": "OperationType",
-                    "link": "#status-\u0026-collection-operations-watch-list-resourcequota"
                   },
                   {
                     "display_name": "Watch List All Namespaces",
@@ -2402,11 +2407,6 @@
                     "display_name": "List All Namespaces",
                     "type": "OperationType",
                     "link": "#status-\u0026-collection-operations-list-all-namespaces-role"
-                  },
-                  {
-                    "display_name": "Watch List",
-                    "type": "OperationType",
-                    "link": "#status-\u0026-collection-operations-watch-list-role"
                   },
                   {
                     "display_name": "Watch List All Namespaces",
@@ -2691,11 +2691,6 @@
                     "display_name": "List All Namespaces",
                     "type": "OperationType",
                     "link": "#status-\u0026-collection-operations-list-all-namespaces-networkpolicy"
-                  },
-                  {
-                    "display_name": "Watch List",
-                    "type": "OperationType",
-                    "link": "#status-\u0026-collection-operations-watch-list-networkpolicy"
                   },
                   {
                     "display_name": "Watch List All Namespaces",

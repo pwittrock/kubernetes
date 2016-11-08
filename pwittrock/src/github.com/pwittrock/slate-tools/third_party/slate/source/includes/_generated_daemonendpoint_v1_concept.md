@@ -3,6 +3,8 @@
 -----------
 # DaemonEndpoint v1
 
+
+
 Group        | Version     | Kind
 ------------ | ---------- | -----------
 Core | v1 | DaemonEndpoint
@@ -11,9 +13,6 @@ Core | v1 | DaemonEndpoint
 
 
 
-
-
-> Example yaml coming soon...
 
 
 DaemonEndpoint contains information about a single Daemon endpoint.

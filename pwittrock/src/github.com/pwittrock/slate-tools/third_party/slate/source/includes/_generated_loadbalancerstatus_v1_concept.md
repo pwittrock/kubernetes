@@ -3,6 +3,8 @@
 -----------
 # LoadBalancerStatus v1
 
+
+
 Group        | Version     | Kind
 ------------ | ---------- | -----------
 Core | v1 | LoadBalancerStatus
@@ -11,9 +13,6 @@ Core | v1 | LoadBalancerStatus
 
 
 
-
-
-> Example yaml coming soon...
 
 
 LoadBalancerStatus represents the status of a load-balancer.

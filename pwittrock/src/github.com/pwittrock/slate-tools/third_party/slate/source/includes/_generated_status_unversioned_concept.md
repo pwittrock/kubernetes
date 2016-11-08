@@ -3,6 +3,8 @@
 -----------
 # Status unversioned
 
+
+
 Group        | Version     | Kind
 ------------ | ---------- | -----------
 Core | unversioned | Status
@@ -11,9 +13,6 @@ Core | unversioned | Status
 
 
 
-
-
-> Example yaml coming soon...
 
 
 Status is a return value for calls that don't return other objects.

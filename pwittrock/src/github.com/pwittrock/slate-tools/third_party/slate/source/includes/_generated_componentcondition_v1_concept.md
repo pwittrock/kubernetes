@@ -3,6 +3,8 @@
 -----------
 # ComponentCondition v1
 
+
+
 Group        | Version     | Kind
 ------------ | ---------- | -----------
 Core | v1 | ComponentCondition
@@ -11,9 +13,6 @@ Core | v1 | ComponentCondition
 
 
 
-
-
-> Example yaml coming soon...
 
 
 Information about the condition of a component.

@@ -3,6 +3,8 @@
 -----------
 # Preconditions v1
 
+
+
 Group        | Version     | Kind
 ------------ | ---------- | -----------
 Core | v1 | Preconditions
@@ -11,9 +13,6 @@ Core | v1 | Preconditions
 
 
 
-
-
-> Example yaml coming soon...
 
 
 Preconditions must be fulfilled before an operation (update, delete, etc.) is carried out.

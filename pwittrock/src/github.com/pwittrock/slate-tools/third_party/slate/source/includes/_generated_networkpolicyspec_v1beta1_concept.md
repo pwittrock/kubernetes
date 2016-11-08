@@ -3,6 +3,8 @@
 -----------
 # NetworkPolicySpec v1beta1
 
+
+
 Group        | Version     | Kind
 ------------ | ---------- | -----------
 Core | v1beta1 | NetworkPolicySpec
@@ -11,9 +13,6 @@ Core | v1beta1 | NetworkPolicySpec
 
 
 
-
-
-> Example yaml coming soon...
 
 
 

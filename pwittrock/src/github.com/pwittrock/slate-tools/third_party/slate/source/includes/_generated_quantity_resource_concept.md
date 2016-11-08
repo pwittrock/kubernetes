@@ -3,6 +3,8 @@
 -----------
 # Quantity resource
 
+
+
 Group        | Version     | Kind
 ------------ | ---------- | -----------
 Core | resource | Quantity
@@ -11,9 +13,6 @@ Core | resource | Quantity
 
 
 
-
-
-> Example yaml coming soon...
 
 
 

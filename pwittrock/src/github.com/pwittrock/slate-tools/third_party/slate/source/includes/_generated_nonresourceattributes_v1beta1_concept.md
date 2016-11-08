@@ -3,6 +3,8 @@
 -----------
 # NonResourceAttributes v1beta1
 
+
+
 Group        | Version     | Kind
 ------------ | ---------- | -----------
 Core | v1beta1 | NonResourceAttributes
@@ -11,9 +13,6 @@ Core | v1beta1 | NonResourceAttributes
 
 
 
-
-
-> Example yaml coming soon...
 
 
 NonResourceAttributes includes the authorization attributes available for non-resource requests to the Authorizer interface

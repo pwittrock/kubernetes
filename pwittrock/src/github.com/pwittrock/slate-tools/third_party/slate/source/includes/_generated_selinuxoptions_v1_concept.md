@@ -3,6 +3,8 @@
 -----------
 # SELinuxOptions v1
 
+
+
 Group        | Version     | Kind
 ------------ | ---------- | -----------
 Core | v1 | SELinuxOptions
@@ -11,9 +13,6 @@ Core | v1 | SELinuxOptions
 
 
 
-
-
-> Example yaml coming soon...
 
 
 SELinuxOptions are the labels to be applied to the container

@@ -3,6 +3,8 @@
 -----------
 # EnvVarSource v1
 
+
+
 Group        | Version     | Kind
 ------------ | ---------- | -----------
 Core | v1 | EnvVarSource
@@ -11,9 +13,6 @@ Core | v1 | EnvVarSource
 
 
 
-
-
-> Example yaml coming soon...
 
 
 EnvVarSource represents a source for the value of an EnvVar.

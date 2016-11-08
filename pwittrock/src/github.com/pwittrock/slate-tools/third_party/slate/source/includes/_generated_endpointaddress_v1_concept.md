@@ -3,6 +3,8 @@
 -----------
 # EndpointAddress v1
 
+
+
 Group        | Version     | Kind
 ------------ | ---------- | -----------
 Core | v1 | EndpointAddress
@@ -11,9 +13,6 @@ Core | v1 | EndpointAddress
 
 
 
-
-
-> Example yaml coming soon...
 
 
 EndpointAddress is a tuple that describes single IP address.

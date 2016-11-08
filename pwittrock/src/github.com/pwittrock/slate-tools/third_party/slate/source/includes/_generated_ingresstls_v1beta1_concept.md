@@ -3,6 +3,8 @@
 -----------
 # IngressTLS v1beta1
 
+
+
 Group        | Version     | Kind
 ------------ | ---------- | -----------
 Core | v1beta1 | IngressTLS
@@ -11,9 +13,6 @@ Core | v1beta1 | IngressTLS
 
 
 
-
-
-> Example yaml coming soon...
 
 
 IngressTLS describes the transport layer security associated with an Ingress.

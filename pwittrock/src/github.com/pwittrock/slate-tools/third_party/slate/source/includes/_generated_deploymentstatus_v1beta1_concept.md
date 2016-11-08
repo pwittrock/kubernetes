@@ -3,6 +3,8 @@
 -----------
 # DeploymentStatus v1beta1
 
+
+
 Group        | Version     | Kind
 ------------ | ---------- | -----------
 Extensions | v1beta1 | DeploymentStatus
@@ -11,9 +13,6 @@ Extensions | v1beta1 | DeploymentStatus
 
 
 
-
-
-> Example yaml coming soon...
 
 
 DeploymentStatus is the most recently observed status of the Deployment.

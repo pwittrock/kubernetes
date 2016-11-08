@@ -3,6 +3,8 @@
 -----------
 # ContainerStateTerminated v1
 
+
+
 Group        | Version     | Kind
 ------------ | ---------- | -----------
 Core | v1 | ContainerStateTerminated
@@ -11,9 +13,6 @@ Core | v1 | ContainerStateTerminated
 
 
 
-
-
-> Example yaml coming soon...
 
 
 ContainerStateTerminated is a terminated state of a container.

@@ -3,6 +3,8 @@
 -----------
 # PodTemplateSpec v1
 
+
+
 Group        | Version     | Kind
 ------------ | ---------- | -----------
 Core | v1 | PodTemplateSpec
@@ -11,9 +13,6 @@ Core | v1 | PodTemplateSpec
 
 
 
-
-
-> Example yaml coming soon...
 
 
 PodTemplateSpec describes the data a pod should have when created from a template

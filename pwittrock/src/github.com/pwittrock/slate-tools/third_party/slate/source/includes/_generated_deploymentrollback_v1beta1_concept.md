@@ -3,6 +3,8 @@
 -----------
 # DeploymentRollback v1beta1
 
+
+
 Group        | Version     | Kind
 ------------ | ---------- | -----------
 Core | v1beta1 | DeploymentRollback
@@ -11,9 +13,6 @@ Core | v1beta1 | DeploymentRollback
 
 
 
-
-
-> Example yaml coming soon...
 
 
 DeploymentRollback stores the information required to rollback a deployment.

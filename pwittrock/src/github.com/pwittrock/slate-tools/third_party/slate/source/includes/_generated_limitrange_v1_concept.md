@@ -3,6 +3,8 @@
 -----------
 # LimitRange v1
 
+
+
 Group        | Version     | Kind
 ------------ | ---------- | -----------
 Core | v1 | LimitRange
@@ -11,9 +13,6 @@ Core | v1 | LimitRange
 
 
 
-
-
-> Example yaml coming soon...
 
 
 LimitRange sets resource usage limits for each kind of resource in a Namespace.

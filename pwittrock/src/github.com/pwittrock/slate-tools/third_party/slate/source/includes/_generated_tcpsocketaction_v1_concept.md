@@ -3,6 +3,8 @@
 -----------
 # TCPSocketAction v1
 
+
+
 Group        | Version     | Kind
 ------------ | ---------- | -----------
 Core | v1 | TCPSocketAction
@@ -11,9 +13,6 @@ Core | v1 | TCPSocketAction
 
 
 
-
-
-> Example yaml coming soon...
 
 
 TCPSocketAction describes an action based on opening a socket

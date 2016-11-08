@@ -25,6 +25,7 @@ import (
 
 type ExampleProvider interface {
 	GetType() string
+	GetSample(d *Definition) string
 	GetRequest(o *Operation) string
 	GetResponse(o *Operation) string
 }
@@ -37,6 +38,10 @@ var ExampleProviders = []ExampleProvider{
 var _ ExampleProvider = &CurlExample{}
 
 type CurlExample struct {
+}
+
+func (ce CurlExample) GetSample(d *Definition) string {
+	return d.Sample.Sample
 }
 
 func (ce CurlExample) GetType() string {
@@ -109,6 +114,10 @@ func (ce CurlExample) GetResponse(o *Operation) string {
 var _ ExampleProvider = &KubectlExample{}
 
 type KubectlExample struct{}
+
+func (ke KubectlExample) GetSample(d *Definition) string {
+	return d.Sample.Sample
+}
 
 func (ke KubectlExample) GetType() string {
 	return "shell"

@@ -3,6 +3,8 @@
 -----------
 # ReplicaSetList v1beta1
 
+
+
 Group        | Version     | Kind
 ------------ | ---------- | -----------
 Core | v1beta1 | ReplicaSetList
@@ -11,9 +13,6 @@ Core | v1beta1 | ReplicaSetList
 
 
 
-
-
-> Example yaml coming soon...
 
 
 ReplicaSetList is a collection of ReplicaSets.

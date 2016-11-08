@@ -2,7 +2,7 @@
 
 Group        | Version     | Kind
 ------------ | ---------- | -----------
-Autoscaling | v1 | HorizontalPodAutoscalerStatus
+Core | v1 | HorizontalPodAutoscalerStatus
 
 > Example yaml coming soon...
 

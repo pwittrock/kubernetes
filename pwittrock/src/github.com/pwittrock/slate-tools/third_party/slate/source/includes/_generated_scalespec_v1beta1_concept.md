@@ -3,6 +3,8 @@
 -----------
 # ScaleSpec v1beta1
 
+
+
 Group        | Version     | Kind
 ------------ | ---------- | -----------
 Core | v1beta1 | ScaleSpec
@@ -10,10 +12,7 @@ Core | v1beta1 | ScaleSpec
 
 
 
-
 <aside class="notice">Other api versions of this object exist: <a href="#scalespec-v1">v1</a> </aside>
-
-> Example yaml coming soon...
 
 
 describes the attributes of a scale subresource

@@ -3,6 +3,8 @@
 -----------
 # StorageClassList v1beta1
 
+
+
 Group        | Version     | Kind
 ------------ | ---------- | -----------
 Storage | v1beta1 | StorageClassList
@@ -11,9 +13,6 @@ Storage | v1beta1 | StorageClassList
 
 
 
-
-
-> Example yaml coming soon...
 
 
 StorageClassList is a collection of storage classes.

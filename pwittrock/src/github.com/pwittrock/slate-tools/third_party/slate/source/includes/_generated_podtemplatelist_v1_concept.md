@@ -3,6 +3,8 @@
 -----------
 # PodTemplateList v1
 
+
+
 Group        | Version     | Kind
 ------------ | ---------- | -----------
 Core | v1 | PodTemplateList
@@ -11,9 +13,6 @@ Core | v1 | PodTemplateList
 
 
 
-
-
-> Example yaml coming soon...
 
 
 PodTemplateList is a list of PodTemplates.

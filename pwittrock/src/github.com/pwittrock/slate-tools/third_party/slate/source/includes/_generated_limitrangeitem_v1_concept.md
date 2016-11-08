@@ -3,6 +3,8 @@
 -----------
 # LimitRangeItem v1
 
+
+
 Group        | Version     | Kind
 ------------ | ---------- | -----------
 Core | v1 | LimitRangeItem
@@ -11,9 +13,6 @@ Core | v1 | LimitRangeItem
 
 
 
-
-
-> Example yaml coming soon...
 
 
 LimitRangeItem defines a min/max usage limit for any resource that matches on kind.

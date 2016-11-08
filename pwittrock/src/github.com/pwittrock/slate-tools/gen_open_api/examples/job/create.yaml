@@ -1,14 +1,14 @@
-name: pi
+name: example-job
 namespace: default
 request: |
   apiVersion: batch/v1
   kind: Job
   metadata:
-    name: pi
+    name: example-job
   spec:
     template:
       metadata:
-        name: pi
+        name: example-job
       spec:
         containers:
         - name: pi
@@ -20,9 +20,9 @@ response: |
     "kind": "Job",
     "apiVersion": "batch/v1",
     "metadata": {
-      "name": "pi",
+      "name": "example-job",
       "namespace": "default",
-      "selfLink": "/apis/batch/v1/namespaces/default/jobs/pi",
+      "selfLink": "/apis/batch/v1/namespaces/default/jobs/example-job",
       "uid": "d93a3569-a2be-11e6-a008-fa043d458cc7",
       "resourceVersion": "7479",
       "creationTimestamp": "2016-11-04T18:45:25Z"
@@ -37,11 +37,11 @@ response: |
       },
       "template": {
         "metadata": {
-          "name": "pi",
+          "name": "example-job",
           "creationTimestamp": null,
           "labels": {
             "controller-uid": "d93a3569-a2be-11e6-a008-fa043d458cc7",
-            "job-name": "pi"
+            "job-name": "example-job"
           }
         },
         "spec": {

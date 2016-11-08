@@ -3,6 +3,8 @@
 -----------
 # PodSecurityContext v1
 
+
+
 Group        | Version     | Kind
 ------------ | ---------- | -----------
 Core | v1 | PodSecurityContext
@@ -11,9 +13,6 @@ Core | v1 | PodSecurityContext
 
 
 
-
-
-> Example yaml coming soon...
 
 
 PodSecurityContext holds pod-level security attributes and common container settings. Some fields are also present in container.securityContext.  Field values of container.securityContext take precedence over field values of PodSecurityContext.

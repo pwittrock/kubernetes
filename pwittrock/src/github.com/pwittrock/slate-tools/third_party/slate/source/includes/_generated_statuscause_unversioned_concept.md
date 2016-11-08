@@ -3,6 +3,8 @@
 -----------
 # StatusCause unversioned
 
+
+
 Group        | Version     | Kind
 ------------ | ---------- | -----------
 Core | unversioned | StatusCause
@@ -11,9 +13,6 @@ Core | unversioned | StatusCause
 
 
 
-
-
-> Example yaml coming soon...
 
 
 StatusCause provides more information about an api.Status failure, including cases when multiple errors are encountered.

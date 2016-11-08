@@ -3,6 +3,8 @@
 -----------
 # Time unversioned
 
+
+
 Group        | Version     | Kind
 ------------ | ---------- | -----------
 Core | unversioned | Time
@@ -11,9 +13,6 @@ Core | unversioned | Time
 
 
 
-
-
-> Example yaml coming soon...
 
 
 

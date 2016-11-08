@@ -3,6 +3,8 @@
 -----------
 # JobStatus v1
 
+
+
 Group        | Version     | Kind
 ------------ | ---------- | -----------
 Batch | v1 | JobStatus
@@ -10,10 +12,7 @@ Batch | v1 | JobStatus
 
 
 
-
 <aside class="notice">Other api versions of this object exist: <a href="#jobstatus-v1beta1">v1beta1</a> </aside>
-
-> Example yaml coming soon...
 
 
 JobStatus represents the current state of a Job.

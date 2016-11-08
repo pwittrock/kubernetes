@@ -3,6 +3,8 @@
 -----------
 # NamespaceSpec v1
 
+
+
 Group        | Version     | Kind
 ------------ | ---------- | -----------
 Core | v1 | NamespaceSpec
@@ -11,9 +13,6 @@ Core | v1 | NamespaceSpec
 
 
 
-
-
-> Example yaml coming soon...
 
 
 NamespaceSpec describes the attributes on a Namespace.

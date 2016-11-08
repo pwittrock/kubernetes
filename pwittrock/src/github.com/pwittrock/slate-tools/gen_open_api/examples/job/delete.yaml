@@ -1,4 +1,4 @@
-name: pi
+name: example-job
 namespace: default
 request: |
   gracePeriodSeconds: 0

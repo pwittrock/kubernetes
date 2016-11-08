@@ -3,6 +3,8 @@
 -----------
 # DeleteOptions v1
 
+
+
 Group        | Version     | Kind
 ------------ | ---------- | -----------
 Core | v1 | DeleteOptions
@@ -11,9 +13,6 @@ Core | v1 | DeleteOptions
 
 
 
-
-
-> Example yaml coming soon...
 
 
 DeleteOptions may be provided when deleting an API object

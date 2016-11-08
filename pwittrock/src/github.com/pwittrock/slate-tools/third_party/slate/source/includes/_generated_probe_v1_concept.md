@@ -3,6 +3,8 @@
 -----------
 # Probe v1
 
+
+
 Group        | Version     | Kind
 ------------ | ---------- | -----------
 Core | v1 | Probe
@@ -11,9 +13,6 @@ Core | v1 | Probe
 
 
 
-
-
-> Example yaml coming soon...
 
 
 Probe describes a health check to be performed against a container to determine whether it is alive or ready to receive traffic.

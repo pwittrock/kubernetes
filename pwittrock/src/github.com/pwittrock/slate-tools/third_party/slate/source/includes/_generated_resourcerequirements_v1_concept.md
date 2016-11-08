@@ -3,6 +3,8 @@
 -----------
 # ResourceRequirements v1
 
+
+
 Group        | Version     | Kind
 ------------ | ---------- | -----------
 Core | v1 | ResourceRequirements
@@ -11,9 +13,6 @@ Core | v1 | ResourceRequirements
 
 
 
-
-
-> Example yaml coming soon...
 
 
 ResourceRequirements describes the compute resource requirements.

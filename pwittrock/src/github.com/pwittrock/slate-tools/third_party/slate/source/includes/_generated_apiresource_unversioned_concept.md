@@ -3,6 +3,8 @@
 -----------
 # APIResource unversioned
 
+
+
 Group        | Version     | Kind
 ------------ | ---------- | -----------
 Core | unversioned | APIResource
@@ -11,9 +13,6 @@ Core | unversioned | APIResource
 
 
 
-
-
-> Example yaml coming soon...
 
 
 APIResource specifies the name of a resource and whether it is namespaced.

@@ -3,6 +3,8 @@
 -----------
 # ServerAddressByClientCIDR unversioned
 
+
+
 Group        | Version     | Kind
 ------------ | ---------- | -----------
 Core | unversioned | ServerAddressByClientCIDR
@@ -11,9 +13,6 @@ Core | unversioned | ServerAddressByClientCIDR
 
 
 
-
-
-> Example yaml coming soon...
 
 
 ServerAddressByClientCIDR helps the client to determine the server address that they should use, depending on the clientCIDR that they match.

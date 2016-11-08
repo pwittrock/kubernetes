@@ -3,6 +3,8 @@
 -----------
 # UserInfo v1beta1
 
+
+
 Group        | Version     | Kind
 ------------ | ---------- | -----------
 Core | v1beta1 | UserInfo
@@ -11,9 +13,6 @@ Core | v1beta1 | UserInfo
 
 
 
-
-
-> Example yaml coming soon...
 
 
 UserInfo holds the information about the user needed to implement the user.Info interface.

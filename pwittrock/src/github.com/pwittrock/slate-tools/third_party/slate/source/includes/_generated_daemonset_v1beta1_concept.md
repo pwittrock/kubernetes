@@ -3,6 +3,60 @@
 -----------
 # DaemonSet v1beta1
 
+ > DaemonSet Config to print the `hostname` on each Node in the cluster every 10 seconds. 
+
+```shell
+apiVersion: extensions/v1beta1
+kind: DaemonSet
+metadata:
+  name: daemonset-example
+spec:
+  template:
+    metadata:
+      labels:
+        app: daemonset-example
+    spec:
+      containers:
+      - name: daemonset-example
+        image: ubuntu:trusty
+        command:
+        - /bin/sh
+        args:
+        - -c
+        - >-
+          while [ true ]; do
+          echo "DaemonSet running on $(hostname)" ;
+          sleep 10 ;
+          done
+```
+
+
+```yaml
+apiVersion: extensions/v1beta1
+kind: DaemonSet
+metadata:
+  name: daemonset-example
+spec:
+  template:
+    metadata:
+      labels:
+        app: daemonset-example
+    spec:
+      containers:
+      - name: daemonset-example
+        image: ubuntu:trusty
+        command:
+        - /bin/sh
+        args:
+        - -c
+        - >-
+          while [ true ]; do
+          echo "DaemonSet running on $(hostname)" ;
+          sleep 10 ;
+          done
+```
+
+
 Group        | Version     | Kind
 ------------ | ---------- | -----------
 Extensions | v1beta1 | DaemonSet
@@ -11,9 +65,6 @@ Extensions | v1beta1 | DaemonSet
 
 
 
-
-
-> Example yaml coming soon...
 
 
 DaemonSet represents the configuration of a daemon set.
@@ -179,7 +230,7 @@ Code         | Schema     | Description
 
 ```shell
 
-$ echo '' | kubectl replace -f -
+
 
 ```
 
@@ -187,9 +238,7 @@ $ echo '' | kubectl replace -f -
 
 ```yaml
 
-$ kubectl proxy
-$ curl -X PUT -H 'Content-Type: application/yaml' --data '
-' http://127.0.0.1:8001/apis/extensions/v1beta1/namespaces/default/daemonsets/daemonset-example
+
 
 ```
 
@@ -197,7 +246,7 @@ $ curl -X PUT -H 'Content-Type: application/yaml' --data '
 
 ```shell
 
-daemonset "daemonset-example" replaced
+
 
 ```
 
@@ -243,7 +292,7 @@ Code         | Schema     | Description
 
 ```shell
 
-$ kubectl patch daemonset daemonset-example -p \
+$ kubectl patch daemonset  -p \
 	'{"spec":{"containers":[{"name":"nginx","image":"nginx:1.11"}]}}'
 
 ```
@@ -255,7 +304,7 @@ $ kubectl patch daemonset daemonset-example -p \
 $ kubectl proxy
 $ curl -X PATCH -H 'Content-Type: application/strategic-merge-patch+json' --data '
 {"spec":{"containers":[{"name":"nginx","image":"nginx:1.11"}]}}' \
-	'http://127.0.0.1:8001/apis/extensions/v1beta1/namespaces/default/daemonsets/daemonset-example'
+	'http://127.0.0.1:8001/apis/extensions/v1beta1/namespaces/default/daemonsets/'
 
 ```
 
@@ -263,7 +312,7 @@ $ curl -X PATCH -H 'Content-Type: application/strategic-merge-patch+json' --data
 
 ```shell
 
-"daemonset-example" patched
+
 
 ```
 
@@ -387,7 +436,7 @@ See supported operations below...
 
 ```shell
 
-$ kubectl get daemonset daemonset-example -o json
+
 
 ```
 
@@ -395,8 +444,7 @@ $ kubectl get daemonset daemonset-example -o json
 
 ```yaml
 
-$ kubectl proxy
-$ curl -X GET http://127.0.0.1:8001/apis/extensions/v1beta1/namespaces/default/daemonsets/daemonset-example
+
 
 ```
 
@@ -516,7 +564,7 @@ Code         | Schema     | Description
 
 ```shell
 
-$ kubectl get daemonset daemonset-example --watch -o json
+
 
 ```
 
@@ -524,8 +572,7 @@ $ kubectl get daemonset daemonset-example --watch -o json
 
 ```yaml
 
-$ kubectl proxy
-$ curl -X GET 'http://127.0.0.1:8001/apis/extensions/v1beta1/watch/namespaces/default/daemonsets/daemonset-example'
+
 
 ```
 
@@ -577,187 +624,6 @@ Code         | Schema     | Description
 ## <strong>Status & Collection Operations</strong>
 
 See supported operations below...
-
-## Patch Status
-
-> Execute
-
-```shell
-
-
-
-```
-
-
-
-```yaml
-
-
-
-```
-
-> Returns
-
-```shell
-
-
-
-```
-
-
-```yaml
-
-
-
-```
-
-
-
-partially update status of the specified DaemonSet
-
-### HTTP Request
-
-`PATCH /apis/extensions/v1beta1/namespaces/{namespace}/daemonsets/{name}/status`
-
-### Path Parameters
-
-Parameter    | Schema     | Description
------------- | ---------- | -----------
-name |  | name of the DaemonSet
-namespace |  | object name and auth scope, such as for teams and projects
-pretty |  | If 'true', then the output is pretty printed.
-
-### Query Parameters
-
-Parameter    | Schema     | Description
------------- | ---------- | -----------
-body | [Patch](#patch-unversioned) | 
-
-### Response
-
-Code         | Schema     | Description
------------- | ---------- | -----------
-200 | [DaemonSet](#daemonset-v1beta1) | OK
-
-
-## Read Status
-
-> Execute
-
-```shell
-
-
-
-```
-
-
-
-```yaml
-
-
-
-```
-
-> Returns
-
-```shell
-
-
-
-```
-
-
-```yaml
-
-
-
-```
-
-
-
-read status of the specified DaemonSet
-
-### HTTP Request
-
-`GET /apis/extensions/v1beta1/namespaces/{namespace}/daemonsets/{name}/status`
-
-### Path Parameters
-
-Parameter    | Schema     | Description
------------- | ---------- | -----------
-name |  | name of the DaemonSet
-namespace |  | object name and auth scope, such as for teams and projects
-pretty |  | If 'true', then the output is pretty printed.
-
-
-### Response
-
-Code         | Schema     | Description
------------- | ---------- | -----------
-200 | [DaemonSet](#daemonset-v1beta1) | OK
-
-
-## Replace Status
-
-> Execute
-
-```shell
-
-
-
-```
-
-
-
-```yaml
-
-
-
-```
-
-> Returns
-
-```shell
-
-
-
-```
-
-
-```yaml
-
-
-
-```
-
-
-
-replace status of the specified DaemonSet
-
-### HTTP Request
-
-`PUT /apis/extensions/v1beta1/namespaces/{namespace}/daemonsets/{name}/status`
-
-### Path Parameters
-
-Parameter    | Schema     | Description
------------- | ---------- | -----------
-name |  | name of the DaemonSet
-namespace |  | object name and auth scope, such as for teams and projects
-pretty |  | If 'true', then the output is pretty printed.
-
-### Query Parameters
-
-Parameter    | Schema     | Description
------------- | ---------- | -----------
-body | [DaemonSet](#daemonset-v1beta1) | 
-
-### Response
-
-Code         | Schema     | Description
------------- | ---------- | -----------
-200 | [DaemonSet](#daemonset-v1beta1) | OK
-
 
 ## Delete Collection
 
@@ -882,67 +748,6 @@ watch |  | Watch for changes to the described resources and return them as a str
 Code         | Schema     | Description
 ------------ | ---------- | -----------
 200 | [DaemonSetList](#daemonsetlist-v1beta1) | OK
-
-
-## Watch List
-
-> Execute
-
-```shell
-
-
-
-```
-
-
-
-```yaml
-
-
-
-```
-
-> Returns
-
-```shell
-
-
-
-```
-
-
-```yaml
-
-
-
-```
-
-
-
-watch individual changes to a list of DaemonSet
-
-### HTTP Request
-
-`GET /apis/extensions/v1beta1/watch/namespaces/{namespace}/daemonsets`
-
-### Path Parameters
-
-Parameter    | Schema     | Description
------------- | ---------- | -----------
-fieldSelector |  | A selector to restrict the list of returned objects by their fields. Defaults to everything.
-labelSelector |  | A selector to restrict the list of returned objects by their labels. Defaults to everything.
-namespace |  | object name and auth scope, such as for teams and projects
-pretty |  | If 'true', then the output is pretty printed.
-resourceVersion |  | When specified with a watch call, shows changes that occur after that particular version of a resource. Defaults to changes from the beginning of history.
-timeoutSeconds |  | Timeout for the list/watch call.
-watch |  | Watch for changes to the described resources and return them as a stream of add, update, and remove notifications. Specify resourceVersion.
-
-
-### Response
-
-Code         | Schema     | Description
------------- | ---------- | -----------
-200 | [Event](#event-versioned) | OK
 
 
 ## Watch List All Namespaces

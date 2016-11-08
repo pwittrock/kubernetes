@@ -3,6 +3,8 @@
 -----------
 # HorizontalPodAutoscalerSpec v1beta1
 
+
+
 Group        | Version     | Kind
 ------------ | ---------- | -----------
 Core | v1beta1 | HorizontalPodAutoscalerSpec
@@ -10,10 +12,7 @@ Core | v1beta1 | HorizontalPodAutoscalerSpec
 
 
 
-
 <aside class="notice">Other api versions of this object exist: <a href="#horizontalpodautoscalerspec-v1">v1</a> </aside>
-
-> Example yaml coming soon...
 
 
 specification of a horizontal pod autoscaler.

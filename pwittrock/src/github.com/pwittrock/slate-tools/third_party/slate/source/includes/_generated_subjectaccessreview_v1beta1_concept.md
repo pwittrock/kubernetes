@@ -3,6 +3,8 @@
 -----------
 # SubjectAccessReview v1beta1
 
+
+
 Group        | Version     | Kind
 ------------ | ---------- | -----------
 Authorization | v1beta1 | SubjectAccessReview
@@ -11,9 +13,6 @@ Authorization | v1beta1 | SubjectAccessReview
 
 
 
-
-
-> Example yaml coming soon...
 
 
 SubjectAccessReview checks whether or not a user or group can perform an action.

@@ -3,6 +3,8 @@
 -----------
 # ReplicationControllerCondition v1
 
+
+
 Group        | Version     | Kind
 ------------ | ---------- | -----------
 Core | v1 | ReplicationControllerCondition
@@ -11,9 +13,6 @@ Core | v1 | ReplicationControllerCondition
 
 
 
-
-
-> Example yaml coming soon...
 
 
 ReplicationControllerCondition describes the state of a replication controller at a certain point.

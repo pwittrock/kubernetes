@@ -3,6 +3,8 @@
 -----------
 # Scale v1beta1
 
+
+
 Group        | Version     | Kind
 ------------ | ---------- | -----------
 Core | v1beta1 | Scale
@@ -10,10 +12,7 @@ Core | v1beta1 | Scale
 
 
 
-
 <aside class="notice">Other api versions of this object exist: <a href="#scale-v1">v1</a> </aside>
-
-> Example yaml coming soon...
 
 
 represents a scaling request for a resource.

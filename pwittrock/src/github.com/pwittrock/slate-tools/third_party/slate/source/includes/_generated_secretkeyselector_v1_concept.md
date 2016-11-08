@@ -3,6 +3,8 @@
 -----------
 # SecretKeySelector v1
 
+
+
 Group        | Version     | Kind
 ------------ | ---------- | -----------
 Core | v1 | SecretKeySelector
@@ -11,9 +13,6 @@ Core | v1 | SecretKeySelector
 
 
 
-
-
-> Example yaml coming soon...
 
 
 SecretKeySelector selects a key of a Secret.

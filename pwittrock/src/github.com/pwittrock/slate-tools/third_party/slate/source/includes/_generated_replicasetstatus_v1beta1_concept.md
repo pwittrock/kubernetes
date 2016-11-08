@@ -3,6 +3,8 @@
 -----------
 # ReplicaSetStatus v1beta1
 
+
+
 Group        | Version     | Kind
 ------------ | ---------- | -----------
 Core | v1beta1 | ReplicaSetStatus
@@ -11,9 +13,6 @@ Core | v1beta1 | ReplicaSetStatus
 
 
 
-
-
-> Example yaml coming soon...
 
 
 ReplicaSetStatus represents the current status of a ReplicaSet.

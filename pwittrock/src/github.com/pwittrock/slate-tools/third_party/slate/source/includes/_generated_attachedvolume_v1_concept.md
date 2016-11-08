@@ -3,6 +3,8 @@
 -----------
 # AttachedVolume v1
 
+
+
 Group        | Version     | Kind
 ------------ | ---------- | -----------
 Core | v1 | AttachedVolume
@@ -11,9 +13,6 @@ Core | v1 | AttachedVolume
 
 
 
-
-
-> Example yaml coming soon...
 
 
 AttachedVolume describes a volume attached to a node

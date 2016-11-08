@@ -3,6 +3,8 @@
 -----------
 # SecurityContext v1
 
+
+
 Group        | Version     | Kind
 ------------ | ---------- | -----------
 Core | v1 | SecurityContext
@@ -11,9 +13,6 @@ Core | v1 | SecurityContext
 
 
 
-
-
-> Example yaml coming soon...
 
 
 SecurityContext holds security configuration that will be applied to a container. Some fields are present in both SecurityContext and PodSecurityContext.  When both are set, the values in SecurityContext take precedence.

@@ -3,6 +3,8 @@
 -----------
 # PersistentVolumeStatus v1
 
+
+
 Group        | Version     | Kind
 ------------ | ---------- | -----------
 Core | v1 | PersistentVolumeStatus
@@ -11,9 +13,6 @@ Core | v1 | PersistentVolumeStatus
 
 
 
-
-
-> Example yaml coming soon...
 
 
 PersistentVolumeStatus is the current status of a persistent volume.

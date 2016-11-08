@@ -3,6 +3,8 @@
 -----------
 # PersistentVolumeList v1
 
+
+
 Group        | Version     | Kind
 ------------ | ---------- | -----------
 Core | v1 | PersistentVolumeList
@@ -11,9 +13,6 @@ Core | v1 | PersistentVolumeList
 
 
 
-
-
-> Example yaml coming soon...
 
 
 PersistentVolumeList is a list of PersistentVolume items.

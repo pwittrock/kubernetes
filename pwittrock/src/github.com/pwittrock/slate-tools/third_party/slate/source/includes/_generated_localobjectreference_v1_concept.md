@@ -3,6 +3,8 @@
 -----------
 # LocalObjectReference v1
 
+
+
 Group        | Version     | Kind
 ------------ | ---------- | -----------
 Core | v1 | LocalObjectReference
@@ -11,9 +13,6 @@ Core | v1 | LocalObjectReference
 
 
 
-
-
-> Example yaml coming soon...
 
 
 LocalObjectReference contains enough information to let you locate the referenced object inside the same namespace.

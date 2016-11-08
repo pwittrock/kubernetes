@@ -3,6 +3,8 @@
 -----------
 # OwnerReference v1
 
+
+
 Group        | Version     | Kind
 ------------ | ---------- | -----------
 Core | v1 | OwnerReference
@@ -11,9 +13,6 @@ Core | v1 | OwnerReference
 
 
 
-
-
-> Example yaml coming soon...
 
 
 OwnerReference contains enough information to let you identify an owning object. Currently, an owning object must be in the same namespace, so there is no namespace field.

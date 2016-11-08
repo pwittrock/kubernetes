@@ -3,6 +3,8 @@
 -----------
 # JobList v1
 
+
+
 Group        | Version     | Kind
 ------------ | ---------- | -----------
 Batch | v1 | JobList
@@ -10,10 +12,7 @@ Batch | v1 | JobList
 
 
 
-
 <aside class="notice">Other api versions of this object exist: <a href="#joblist-v1beta1">v1beta1</a> </aside>
-
-> Example yaml coming soon...
 
 
 JobList is a collection of jobs.

@@ -3,17 +3,16 @@
 -----------
 # HorizontalPodAutoscalerStatus v1beta1
 
+
+
 Group        | Version     | Kind
 ------------ | ---------- | -----------
-Core | v1beta1 | HorizontalPodAutoscalerStatus
-
+Extensions | v1beta1 | HorizontalPodAutoscalerStatus
 
 
 
 
 <aside class="notice">Other api versions of this object exist: <a href="#horizontalpodautoscalerstatus-v1">v1</a> </aside>
-
-> Example yaml coming soon...
 
 
 current status of a horizontal pod autoscaler
@@ -30,6 +29,197 @@ lastScaleTime | [Time](#time-unversioned) | last time the HorizontalPodAutoscale
 observedGeneration | integer | most recent generation observed by this autoscaler.
 
 
+
+
+
+## <strong>Write Operations</strong>
+
+See supported operations below...
+
+## Replace
+
+> Execute
+
+```shell
+
+
+
+```
+
+
+
+```yaml
+
+
+
+```
+
+> Returns
+
+```shell
+
+
+
+```
+
+
+```yaml
+
+
+
+```
+
+
+
+replace status of the specified HorizontalPodAutoscaler
+
+### HTTP Request
+
+`PUT /apis/extensions/v1beta1/namespaces/{namespace}/horizontalpodautoscalers/{name}/status`
+
+### Path Parameters
+
+Parameter    | Schema     | Description
+------------ | ---------- | -----------
+name |  | name of the HorizontalPodAutoscaler
+namespace |  | object name and auth scope, such as for teams and projects
+pretty |  | If 'true', then the output is pretty printed.
+
+### Query Parameters
+
+Parameter    | Schema     | Description
+------------ | ---------- | -----------
+body | [HorizontalPodAutoscaler](#horizontalpodautoscaler-v1beta1) | 
+
+### Response
+
+Code         | Schema     | Description
+------------ | ---------- | -----------
+200 | [HorizontalPodAutoscaler](#horizontalpodautoscaler-v1beta1) | OK
+
+
+## Patch
+
+> Execute
+
+```shell
+
+
+
+```
+
+
+
+```yaml
+
+
+
+```
+
+> Returns
+
+```shell
+
+
+
+```
+
+
+```yaml
+
+
+
+```
+
+
+
+partially update status of the specified HorizontalPodAutoscaler
+
+### HTTP Request
+
+`PATCH /apis/extensions/v1beta1/namespaces/{namespace}/horizontalpodautoscalers/{name}/status`
+
+### Path Parameters
+
+Parameter    | Schema     | Description
+------------ | ---------- | -----------
+name |  | name of the HorizontalPodAutoscaler
+namespace |  | object name and auth scope, such as for teams and projects
+pretty |  | If 'true', then the output is pretty printed.
+
+### Query Parameters
+
+Parameter    | Schema     | Description
+------------ | ---------- | -----------
+body | [Patch](#patch-unversioned) | 
+
+### Response
+
+Code         | Schema     | Description
+------------ | ---------- | -----------
+200 | [HorizontalPodAutoscaler](#horizontalpodautoscaler-v1beta1) | OK
+
+
+
+## <strong>Read Operations</strong>
+
+See supported operations below...
+
+## Read
+
+> Execute
+
+```shell
+
+
+
+```
+
+
+
+```yaml
+
+
+
+```
+
+> Returns
+
+```shell
+
+
+
+```
+
+
+```yaml
+
+
+
+```
+
+
+
+read status of the specified HorizontalPodAutoscaler
+
+### HTTP Request
+
+`GET /apis/extensions/v1beta1/namespaces/{namespace}/horizontalpodautoscalers/{name}/status`
+
+### Path Parameters
+
+Parameter    | Schema     | Description
+------------ | ---------- | -----------
+name |  | name of the HorizontalPodAutoscaler
+namespace |  | object name and auth scope, such as for teams and projects
+pretty |  | If 'true', then the output is pretty printed.
+
+
+### Response
+
+Code         | Schema     | Description
+------------ | ---------- | -----------
+200 | [HorizontalPodAutoscaler](#horizontalpodautoscaler-v1beta1) | OK
 
 
 

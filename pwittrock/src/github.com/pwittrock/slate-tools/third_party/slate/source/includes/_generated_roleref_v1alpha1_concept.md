@@ -3,6 +3,8 @@
 -----------
 # RoleRef v1alpha1
 
+
+
 Group        | Version     | Kind
 ------------ | ---------- | -----------
 Core | v1alpha1 | RoleRef
@@ -11,9 +13,6 @@ Core | v1alpha1 | RoleRef
 
 
 
-
-
-> Example yaml coming soon...
 
 
 RoleRef contains information that points to the role being used

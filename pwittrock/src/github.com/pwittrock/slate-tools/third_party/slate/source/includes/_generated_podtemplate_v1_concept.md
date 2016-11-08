@@ -3,6 +3,8 @@
 -----------
 # PodTemplate v1
 
+
+
 Group        | Version     | Kind
 ------------ | ---------- | -----------
 Core | v1 | PodTemplate
@@ -11,9 +13,6 @@ Core | v1 | PodTemplate
 
 
 
-
-
-> Example yaml coming soon...
 
 
 PodTemplate describes a template for creating copies of a predefined pod.

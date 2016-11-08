@@ -3,6 +3,8 @@
 -----------
 # CertificateSigningRequestStatus v1alpha1
 
+
+
 Group        | Version     | Kind
 ------------ | ---------- | -----------
 Core | v1alpha1 | CertificateSigningRequestStatus
@@ -11,9 +13,6 @@ Core | v1alpha1 | CertificateSigningRequestStatus
 
 
 
-
-
-> Example yaml coming soon...
 
 
 

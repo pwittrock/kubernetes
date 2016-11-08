@@ -3,6 +3,8 @@
 -----------
 # ReplicationControllerList v1
 
+
+
 Group        | Version     | Kind
 ------------ | ---------- | -----------
 Core | v1 | ReplicationControllerList
@@ -11,9 +13,6 @@ Core | v1 | ReplicationControllerList
 
 
 
-
-
-> Example yaml coming soon...
 
 
 ReplicationControllerList is a collection of replication controllers.

@@ -3,6 +3,8 @@
 -----------
 # NodeStatus v1
 
+
+
 Group        | Version     | Kind
 ------------ | ---------- | -----------
 Core | v1 | NodeStatus
@@ -11,9 +13,6 @@ Core | v1 | NodeStatus
 
 
 
-
-
-> Example yaml coming soon...
 
 
 NodeStatus is information about the current status of a node.
@@ -35,6 +34,194 @@ volumesAttached | [AttachedVolume](#attachedvolume-v1) array | List of volumes t
 volumesInUse | string array | List of attachable volumes in use (mounted) by the node.
 
 
+
+
+
+## <strong>Write Operations</strong>
+
+See supported operations below...
+
+## Replace
+
+> Execute
+
+```shell
+
+
+
+```
+
+
+
+```yaml
+
+
+
+```
+
+> Returns
+
+```shell
+
+
+
+```
+
+
+```yaml
+
+
+
+```
+
+
+
+replace status of the specified Node
+
+### HTTP Request
+
+`PUT /api/v1/nodes/{name}/status`
+
+### Path Parameters
+
+Parameter    | Schema     | Description
+------------ | ---------- | -----------
+name |  | name of the Node
+pretty |  | If 'true', then the output is pretty printed.
+
+### Query Parameters
+
+Parameter    | Schema     | Description
+------------ | ---------- | -----------
+body | [Node](#node-v1) | 
+
+### Response
+
+Code         | Schema     | Description
+------------ | ---------- | -----------
+200 | [Node](#node-v1) | OK
+
+
+## Patch
+
+> Execute
+
+```shell
+
+
+
+```
+
+
+
+```yaml
+
+
+
+```
+
+> Returns
+
+```shell
+
+
+
+```
+
+
+```yaml
+
+
+
+```
+
+
+
+partially update status of the specified Node
+
+### HTTP Request
+
+`PATCH /api/v1/nodes/{name}/status`
+
+### Path Parameters
+
+Parameter    | Schema     | Description
+------------ | ---------- | -----------
+name |  | name of the Node
+pretty |  | If 'true', then the output is pretty printed.
+
+### Query Parameters
+
+Parameter    | Schema     | Description
+------------ | ---------- | -----------
+body | [Patch](#patch-unversioned) | 
+
+### Response
+
+Code         | Schema     | Description
+------------ | ---------- | -----------
+200 | [Node](#node-v1) | OK
+
+
+
+## <strong>Read Operations</strong>
+
+See supported operations below...
+
+## Read
+
+> Execute
+
+```shell
+
+
+
+```
+
+
+
+```yaml
+
+
+
+```
+
+> Returns
+
+```shell
+
+
+
+```
+
+
+```yaml
+
+
+
+```
+
+
+
+read status of the specified Node
+
+### HTTP Request
+
+`GET /api/v1/nodes/{name}/status`
+
+### Path Parameters
+
+Parameter    | Schema     | Description
+------------ | ---------- | -----------
+name |  | name of the Node
+pretty |  | If 'true', then the output is pretty printed.
+
+
+### Response
+
+Code         | Schema     | Description
+------------ | ---------- | -----------
+200 | [Node](#node-v1) | OK
 
 
 

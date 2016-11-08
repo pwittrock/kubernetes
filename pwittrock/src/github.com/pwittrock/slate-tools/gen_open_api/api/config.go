@@ -38,12 +38,13 @@ func NewConfig(yamlFile, openApiFile string) *Config {
 	// Initialize all of the operations
 	config.Definitions = GetDefinitions(specs)
 
-	// Mark resources in the ToC as such
-	markToc := func(resource *Resource, definition *Definition) {
-		definition.InToc = true
+	// Initialization for ToC resources only
+	vistToc := func(resource *Resource, definition *Definition) {
+		definition.InToc = true // Mark as in Toc
 		resource.Definition = definition
+		config.initDefExample(definition) // Init the example yaml
 	}
-	config.VisitResourcesInToc(config.Definitions, markToc)
+	config.VisitResourcesInToc(config.Definitions, vistToc)
 
 	// Get the map of operations appearing in the open-api spec keyed by id
 	config.InitOperations(specs)
@@ -117,7 +118,23 @@ func (config *Config) initOpExample(o *Operation) {
 	}
 	err = yaml.Unmarshal(content, &o.ExampleConfig)
 	if err != nil {
-		panic(fmt.Sprintf("Could not Unmarshal yaml: %s\n", content))
+		panic(fmt.Sprintf("Could not Unmarshal ExampleConfig yaml: %s\n", content))
+	}
+}
+
+func (config *Config) GetDefExampleFile(d *Definition) string {
+	return strings.Replace(strings.ToLower(filepath.Join(config.ExampleLocation, d.Name, d.Name+".yaml")), " ", "_", -1)
+}
+
+func (config *Config) initDefExample(d *Definition) {
+	content, err := ioutil.ReadFile(config.GetDefExampleFile(d))
+	if err != nil || len(content) <= 0 {
+		fmt.Printf("Missing example: %s %v\n", d.Name, err)
+		return
+	}
+	err = yaml.Unmarshal(content, &d.Sample)
+	if err != nil {
+		panic(fmt.Sprintf("Could not Unmarshal SampleConfig yaml: %s\n", content))
 	}
 }
 

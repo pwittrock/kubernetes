@@ -3,6 +3,8 @@
 -----------
 # PodSpec v1
 
+
+
 Group        | Version     | Kind
 ------------ | ---------- | -----------
 Core | v1 | PodSpec
@@ -11,9 +13,6 @@ Core | v1 | PodSpec
 
 
 
-
-
-> Example yaml coming soon...
 
 
 PodSpec is a description of a pod.

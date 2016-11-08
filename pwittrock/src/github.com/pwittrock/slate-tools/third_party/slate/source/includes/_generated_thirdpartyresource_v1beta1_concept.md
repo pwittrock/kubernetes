@@ -3,6 +3,8 @@
 -----------
 # ThirdPartyResource v1beta1
 
+
+
 Group        | Version     | Kind
 ------------ | ---------- | -----------
 Extensions | v1beta1 | ThirdPartyResource
@@ -11,9 +13,6 @@ Extensions | v1beta1 | ThirdPartyResource
 
 
 
-
-
-> Example yaml coming soon...
 
 
 A ThirdPartyResource is a generic representation of a resource, it is used by add-ons and plugins to add new resource types to the API.  It consists of one or more Versions of the api.

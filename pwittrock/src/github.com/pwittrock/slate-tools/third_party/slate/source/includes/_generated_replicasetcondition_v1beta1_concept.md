@@ -3,6 +3,8 @@
 -----------
 # ReplicaSetCondition v1beta1
 
+
+
 Group        | Version     | Kind
 ------------ | ---------- | -----------
 Core | v1beta1 | ReplicaSetCondition
@@ -11,9 +13,6 @@ Core | v1beta1 | ReplicaSetCondition
 
 
 
-
-
-> Example yaml coming soon...
 
 
 ReplicaSetCondition describes the state of a replica set at a certain point.

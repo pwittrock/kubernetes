@@ -3,6 +3,8 @@
 -----------
 # NodeDaemonEndpoints v1
 
+
+
 Group        | Version     | Kind
 ------------ | ---------- | -----------
 Core | v1 | NodeDaemonEndpoints
@@ -11,9 +13,6 @@ Core | v1 | NodeDaemonEndpoints
 
 
 
-
-
-> Example yaml coming soon...
 
 
 NodeDaemonEndpoints lists ports opened by daemons running on the Node.

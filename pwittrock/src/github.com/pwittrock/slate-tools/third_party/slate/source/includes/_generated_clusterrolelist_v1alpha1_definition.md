@@ -2,7 +2,7 @@
 
 Group        | Version     | Kind
 ------------ | ---------- | -----------
-Core | v1alpha1 | ClusterRoleList
+RbacAuthorization | v1alpha1 | ClusterRoleList
 
 > Example yaml coming soon...
 

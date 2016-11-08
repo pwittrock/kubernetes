@@ -3,6 +3,8 @@
 -----------
 # ContainerStateRunning v1
 
+
+
 Group        | Version     | Kind
 ------------ | ---------- | -----------
 Core | v1 | ContainerStateRunning
@@ -11,9 +13,6 @@ Core | v1 | ContainerStateRunning
 
 
 
-
-
-> Example yaml coming soon...
 
 
 ContainerStateRunning is a running state of a container.

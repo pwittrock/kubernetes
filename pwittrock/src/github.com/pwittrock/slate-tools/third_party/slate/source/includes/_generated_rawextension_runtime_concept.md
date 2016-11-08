@@ -3,6 +3,8 @@
 -----------
 # RawExtension runtime
 
+
+
 Group        | Version     | Kind
 ------------ | ---------- | -----------
 Core | runtime | RawExtension
@@ -11,9 +13,6 @@ Core | runtime | RawExtension
 
 
 
-
-
-> Example yaml coming soon...
 
 
 RawExtension is used to hold extensions in external versions.

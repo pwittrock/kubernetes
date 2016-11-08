@@ -3,6 +3,8 @@
 -----------
 # IngressSpec v1beta1
 
+
+
 Group        | Version     | Kind
 ------------ | ---------- | -----------
 Core | v1beta1 | IngressSpec
@@ -11,9 +13,6 @@ Core | v1beta1 | IngressSpec
 
 
 
-
-
-> Example yaml coming soon...
 
 
 IngressSpec describes the Ingress the user wishes to exist.

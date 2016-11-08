@@ -3,6 +3,8 @@
 -----------
 # ReplicationControllerSpec v1
 
+
+
 Group        | Version     | Kind
 ------------ | ---------- | -----------
 Core | v1 | ReplicationControllerSpec
@@ -11,9 +13,6 @@ Core | v1 | ReplicationControllerSpec
 
 
 
-
-
-> Example yaml coming soon...
 
 
 ReplicationControllerSpec is the specification of a replication controller.

@@ -3,6 +3,8 @@
 -----------
 # NamespaceStatus v1
 
+
+
 Group        | Version     | Kind
 ------------ | ---------- | -----------
 Core | v1 | NamespaceStatus
@@ -11,9 +13,6 @@ Core | v1 | NamespaceStatus
 
 
 
-
-
-> Example yaml coming soon...
 
 
 NamespaceStatus is information about the current status of a Namespace.

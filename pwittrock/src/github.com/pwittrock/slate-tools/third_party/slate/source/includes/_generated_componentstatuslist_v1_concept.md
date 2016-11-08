@@ -3,6 +3,8 @@
 -----------
 # ComponentStatusList v1
 
+
+
 Group        | Version     | Kind
 ------------ | ---------- | -----------
 Core | v1 | ComponentStatusList
@@ -11,9 +13,6 @@ Core | v1 | ComponentStatusList
 
 
 
-
-
-> Example yaml coming soon...
 
 
 Status of all the conditions for the component as a list of ComponentStatus objects.

@@ -3,6 +3,8 @@
 -----------
 # PersistentVolumeSpec v1
 
+
+
 Group        | Version     | Kind
 ------------ | ---------- | -----------
 Core | v1 | PersistentVolumeSpec
@@ -11,9 +13,6 @@ Core | v1 | PersistentVolumeSpec
 
 
 
-
-
-> Example yaml coming soon...
 
 
 PersistentVolumeSpec is the specification of a persistent volume.

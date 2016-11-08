@@ -3,17 +3,54 @@
 -----------
 # ReplicaSet v1beta1
 
+ > ReplicaSet Config to run 3 nginx instances. 
+
+```shell
+apiVersion: extensions/v1beta1
+kind: ReplicaSet
+metadata:
+  name: replicaset-example
+spec:
+  replicas: 3
+  template:
+    metadata:
+      labels:
+        app: nginx
+    spec:
+      containers:
+      - name: nginx
+        image: nginx:1.10
+
+```
+
+
+```yaml
+apiVersion: extensions/v1beta1
+kind: ReplicaSet
+metadata:
+  name: replicaset-example
+spec:
+  replicas: 3
+  template:
+    metadata:
+      labels:
+        app: nginx
+    spec:
+      containers:
+      - name: nginx
+        image: nginx:1.10
+
+```
+
+
 Group        | Version     | Kind
 ------------ | ---------- | -----------
 Extensions | v1beta1 | ReplicaSet
-
 
 <aside class="warning">In most cases it is better to create a <a href="#deployment-v1beta1">Deployment</a> instead as it will create new ReplicaSets and manage rolling out changes to them.</aside>
 
 
 
-
-> Example yaml coming soon...
 
 
 ReplicaSet represents the configuration of a ReplicaSet.

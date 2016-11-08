@@ -3,6 +3,8 @@
 -----------
 # Job v1beta1
 
+
+
 Group        | Version     | Kind
 ------------ | ---------- | -----------
 Extensions | v1beta1 | Job
@@ -10,10 +12,7 @@ Extensions | v1beta1 | Job
 
 
 
-
 <aside class="notice">Other api versions of this object exist: <a href="#job-v1">v1</a> </aside>
-
-> Example yaml coming soon...
 
 
 Job represents the configuration of a single job.
@@ -81,11 +80,11 @@ See supported operations below...
 $ echo 'apiVersion: batch/v1
 kind: Job
 metadata:
-  name: pi
+  name: example-job
 spec:
   template:
     metadata:
-      name: pi
+      name: example-job
     spec:
       containers:
       - name: pi
@@ -105,11 +104,11 @@ $ curl -X POST -H 'Content-Type: application/yaml' --data '
 apiVersion: batch/v1
 kind: Job
 metadata:
-  name: pi
+  name: example-job
 spec:
   template:
     metadata:
-      name: pi
+      name: example-job
     spec:
       containers:
       - name: pi
@@ -124,7 +123,7 @@ spec:
 
 ```shell
 
-job "pi" created
+job "example-job" created
 
 ```
 
@@ -135,9 +134,9 @@ job "pi" created
   "kind": "Job",
   "apiVersion": "batch/v1",
   "metadata": {
-    "name": "pi",
+    "name": "example-job",
     "namespace": "default",
-    "selfLink": "/apis/batch/v1/namespaces/default/jobs/pi",
+    "selfLink": "/apis/batch/v1/namespaces/default/jobs/example-job",
     "uid": "d93a3569-a2be-11e6-a008-fa043d458cc7",
     "resourceVersion": "7479",
     "creationTimestamp": "2016-11-04T18:45:25Z"
@@ -152,11 +151,11 @@ job "pi" created
     },
     "template": {
       "metadata": {
-        "name": "pi",
+        "name": "example-job",
         "creationTimestamp": null,
         "labels": {
           "controller-uid": "d93a3569-a2be-11e6-a008-fa043d458cc7",
-          "job-name": "pi"
+          "job-name": "example-job"
         }
       },
       "spec": {
@@ -231,7 +230,7 @@ $ echo '' | kubectl replace -f -
 
 $ kubectl proxy
 $ curl -X PUT -H 'Content-Type: application/yaml' --data '
-' http://127.0.0.1:8001/apis/extensions/v1beta1/namespaces/default/jobs/pi
+' http://127.0.0.1:8001/apis/extensions/v1beta1/namespaces/default/jobs/example-job
 
 ```
 
@@ -239,7 +238,7 @@ $ curl -X PUT -H 'Content-Type: application/yaml' --data '
 
 ```shell
 
-job "pi" replaced
+job "example-job" replaced
 
 ```
 
@@ -285,7 +284,7 @@ Code         | Schema     | Description
 
 ```shell
 
-$ kubectl patch job pi -p \
+$ kubectl patch job example-job -p \
 	''
 
 ```
@@ -297,7 +296,7 @@ $ kubectl patch job pi -p \
 $ kubectl proxy
 $ curl -X PATCH -H 'Content-Type: application/strategic-merge-patch+json' --data '
 ' \
-	'http://127.0.0.1:8001/apis/extensions/v1beta1/namespaces/default/jobs/pi'
+	'http://127.0.0.1:8001/apis/extensions/v1beta1/namespaces/default/jobs/example-job'
 
 ```
 
@@ -305,7 +304,7 @@ $ curl -X PATCH -H 'Content-Type: application/strategic-merge-patch+json' --data
 
 ```shell
 
-"pi" patched
+"example-job" patched
 
 ```
 
@@ -351,7 +350,7 @@ Code         | Schema     | Description
 
 ```shell
 
-$ kubectl delete job pi
+$ kubectl delete job example-job
 
 ```
 
@@ -363,7 +362,7 @@ $ kubectl proxy
 $ curl -X DELETE -H 'Content-Type: application/yaml' --data '
 gracePeriodSeconds: 0
 orphanDependents: false
-' 'http://127.0.0.1:8001/apis/extensions/v1beta1/namespaces/default/jobs/pi'
+' 'http://127.0.0.1:8001/apis/extensions/v1beta1/namespaces/default/jobs/example-job'
 
 ```
 
@@ -371,7 +370,7 @@ orphanDependents: false
 
 ```shell
 
-job "pi" deleted
+job "example-job" deleted
 
 ```
 
@@ -429,7 +428,7 @@ See supported operations below...
 
 ```shell
 
-$ kubectl get job pi -o json
+$ kubectl get job example-job -o json
 
 ```
 
@@ -438,7 +437,7 @@ $ kubectl get job pi -o json
 ```yaml
 
 $ kubectl proxy
-$ curl -X GET http://127.0.0.1:8001/apis/extensions/v1beta1/namespaces/default/jobs/pi
+$ curl -X GET http://127.0.0.1:8001/apis/extensions/v1beta1/namespaces/default/jobs/example-job
 
 ```
 
@@ -450,9 +449,9 @@ $ curl -X GET http://127.0.0.1:8001/apis/extensions/v1beta1/namespaces/default/j
   "kind": "Job",
   "apiVersion": "batch/v1",
   "metadata": {
-    "name": "pi",
+    "name": "example-job",
     "namespace": "default",
-    "selfLink": "/apis/batch/v1/namespaces/default/jobs/pi",
+    "selfLink": "/apis/batch/v1/namespaces/default/jobs/example-job",
     "uid": "d93a3569-a2be-11e6-a008-fa043d458cc7",
     "resourceVersion": "7482",
     "creationTimestamp": "2016-11-04T18:45:25Z"
@@ -467,11 +466,11 @@ $ curl -X GET http://127.0.0.1:8001/apis/extensions/v1beta1/namespaces/default/j
     },
     "template": {
       "metadata": {
-        "name": "pi",
+        "name": "example-job",
         "creationTimestamp": null,
         "labels": {
           "controller-uid": "d93a3569-a2be-11e6-a008-fa043d458cc7",
-          "job-name": "pi"
+          "job-name": "example-job"
         }
       },
       "spec": {
@@ -512,9 +511,9 @@ $ curl -X GET http://127.0.0.1:8001/apis/extensions/v1beta1/namespaces/default/j
   "kind": "Job",
   "apiVersion": "batch/v1",
   "metadata": {
-    "name": "pi",
+    "name": "example-job",
     "namespace": "default",
-    "selfLink": "/apis/batch/v1/namespaces/default/jobs/pi",
+    "selfLink": "/apis/batch/v1/namespaces/default/jobs/example-job",
     "uid": "d93a3569-a2be-11e6-a008-fa043d458cc7",
     "resourceVersion": "7482",
     "creationTimestamp": "2016-11-04T18:45:25Z"
@@ -529,11 +528,11 @@ $ curl -X GET http://127.0.0.1:8001/apis/extensions/v1beta1/namespaces/default/j
     },
     "template": {
       "metadata": {
-        "name": "pi",
+        "name": "example-job",
         "creationTimestamp": null,
         "labels": {
           "controller-uid": "d93a3569-a2be-11e6-a008-fa043d458cc7",
-          "job-name": "pi"
+          "job-name": "example-job"
         }
       },
       "spec": {
@@ -630,9 +629,9 @@ $ curl -X GET 'http://127.0.0.1:8001/apis/extensions/v1beta1/namespaces/default/
   "items": [
     {
       "metadata": {
-        "name": "pi",
+        "name": "",
         "namespace": "default",
-        "selfLink": "/apis/batch/v1/namespaces/default/jobs/pi",
+        "selfLink": "/apis/batch/v1/namespaces/default/jobs/",
         "uid": "d93a3569-a2be-11e6-a008-fa043d458cc7",
         "resourceVersion": "7482",
         "creationTimestamp": "2016-11-04T18:45:25Z"
@@ -647,11 +646,11 @@ $ curl -X GET 'http://127.0.0.1:8001/apis/extensions/v1beta1/namespaces/default/
         },
         "template": {
           "metadata": {
-            "name": "pi",
+            "name": "",
             "creationTimestamp": null,
             "labels": {
               "controller-uid": "d93a3569-a2be-11e6-a008-fa043d458cc7",
-              "job-name": "pi"
+              "job-name": ""
             }
           },
           "spec": {
@@ -700,9 +699,9 @@ $ curl -X GET 'http://127.0.0.1:8001/apis/extensions/v1beta1/namespaces/default/
   "items": [
     {
       "metadata": {
-        "name": "pi",
+        "name": "",
         "namespace": "default",
-        "selfLink": "/apis/batch/v1/namespaces/default/jobs/pi",
+        "selfLink": "/apis/batch/v1/namespaces/default/jobs/",
         "uid": "d93a3569-a2be-11e6-a008-fa043d458cc7",
         "resourceVersion": "7482",
         "creationTimestamp": "2016-11-04T18:45:25Z"
@@ -717,11 +716,11 @@ $ curl -X GET 'http://127.0.0.1:8001/apis/extensions/v1beta1/namespaces/default/
         },
         "template": {
           "metadata": {
-            "name": "pi",
+            "name": "",
             "creationTimestamp": null,
             "labels": {
               "controller-uid": "d93a3569-a2be-11e6-a008-fa043d458cc7",
-              "job-name": "pi"
+              "job-name": ""
             }
           },
           "spec": {
@@ -795,7 +794,7 @@ Code         | Schema     | Description
 
 ```shell
 
-$ kubectl get job pi --watch -o json
+$ kubectl get job example-job --watch -o json
 
 ```
 
@@ -804,7 +803,7 @@ $ kubectl get job pi --watch -o json
 ```yaml
 
 $ kubectl proxy
-$ curl -X GET 'http://127.0.0.1:8001/apis/extensions/v1beta1/watch/namespaces/default/jobs/pi'
+$ curl -X GET 'http://127.0.0.1:8001/apis/extensions/v1beta1/watch/namespaces/default/jobs/example-job'
 
 ```
 
@@ -818,9 +817,9 @@ $ curl -X GET 'http://127.0.0.1:8001/apis/extensions/v1beta1/watch/namespaces/de
 		"kind": "Job",
 		"apiVersion": "batch/v1",
 		"metadata": {
-			"name": "pi",
+			"name": "example-job",
 			"namespace": "default",
-			"selfLink": "/apis/batch/v1/namespaces/default/jobs/pi",
+			"selfLink": "/apis/batch/v1/namespaces/default/jobs/example-job",
 			"uid": "d93a3569-a2be-11e6-a008-fa043d458cc7",
 			"resourceVersion": "7482",
 			"creationTimestamp": "2016-11-04T18:45:25Z"
@@ -835,11 +834,11 @@ $ curl -X GET 'http://127.0.0.1:8001/apis/extensions/v1beta1/watch/namespaces/de
 			},
 			"template": {
 				"metadata": {
-					"name": "pi",
+					"name": "example-job",
 					"creationTimestamp": null,
 					"labels": {
 						"controller-uid": "d93a3569-a2be-11e6-a008-fa043d458cc7",
-						"job-name": "pi"
+						"job-name": "example-job"
 					}
 				},
 				"spec": {
@@ -885,9 +884,9 @@ $ curl -X GET 'http://127.0.0.1:8001/apis/extensions/v1beta1/watch/namespaces/de
 		"kind": "Job",
 		"apiVersion": "batch/v1",
 		"metadata": {
-			"name": "pi",
+			"name": "example-job",
 			"namespace": "default",
-			"selfLink": "/apis/batch/v1/namespaces/default/jobs/pi",
+			"selfLink": "/apis/batch/v1/namespaces/default/jobs/example-job",
 			"uid": "d93a3569-a2be-11e6-a008-fa043d458cc7",
 			"resourceVersion": "7482",
 			"creationTimestamp": "2016-11-04T18:45:25Z"
@@ -902,11 +901,11 @@ $ curl -X GET 'http://127.0.0.1:8001/apis/extensions/v1beta1/watch/namespaces/de
 			},
 			"template": {
 				"metadata": {
-					"name": "pi",
+					"name": "example-job",
 					"creationTimestamp": null,
 					"labels": {
 						"controller-uid": "d93a3569-a2be-11e6-a008-fa043d458cc7",
-						"job-name": "pi"
+						"job-name": "example-job"
 					}
 				},
 				"spec": {

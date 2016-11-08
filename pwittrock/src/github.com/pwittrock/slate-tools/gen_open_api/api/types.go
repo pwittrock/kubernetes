@@ -95,6 +95,13 @@ type ExampleConfig struct {
 	Namespace string `yaml:",omitempty"`
 	Request   string `yaml:",omitempty"`
 	Response  string `yaml:",omitempty"`
+	RequestNote  string `yaml:",omitempty"`
+	ResponseNote  string `yaml:",omitempty"`
+}
+
+type SampleConfig struct {
+	Note  string `yaml:",omitempty"`
+	Sample  string `yaml:",omitempty"`
 }
 
 

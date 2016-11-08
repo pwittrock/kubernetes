@@ -3,6 +3,8 @@
 -----------
 # ServicePort v1
 
+
+
 Group        | Version     | Kind
 ------------ | ---------- | -----------
 Core | v1 | ServicePort
@@ -11,9 +13,6 @@ Core | v1 | ServicePort
 
 
 
-
-
-> Example yaml coming soon...
 
 
 ServicePort contains information on service's port.

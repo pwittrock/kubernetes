@@ -3,6 +3,8 @@
 -----------
 # LoadBalancerIngress v1
 
+
+
 Group        | Version     | Kind
 ------------ | ---------- | -----------
 Core | v1 | LoadBalancerIngress
@@ -11,9 +13,6 @@ Core | v1 | LoadBalancerIngress
 
 
 
-
-
-> Example yaml coming soon...
 
 
 LoadBalancerIngress represents the status of a load-balancer ingress point: traffic intended for the service should be sent to an ingress point.

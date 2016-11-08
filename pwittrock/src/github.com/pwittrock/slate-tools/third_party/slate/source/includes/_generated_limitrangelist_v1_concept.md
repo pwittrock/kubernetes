@@ -3,6 +3,8 @@
 -----------
 # LimitRangeList v1
 
+
+
 Group        | Version     | Kind
 ------------ | ---------- | -----------
 Core | v1 | LimitRangeList
@@ -11,9 +13,6 @@ Core | v1 | LimitRangeList
 
 
 
-
-
-> Example yaml coming soon...
 
 
 LimitRangeList is a list of LimitRange items.

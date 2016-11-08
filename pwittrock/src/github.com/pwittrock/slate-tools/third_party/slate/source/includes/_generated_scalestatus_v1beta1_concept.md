@@ -3,6 +3,8 @@
 -----------
 # ScaleStatus v1beta1
 
+
+
 Group        | Version     | Kind
 ------------ | ---------- | -----------
 Core | v1beta1 | ScaleStatus
@@ -10,10 +12,7 @@ Core | v1beta1 | ScaleStatus
 
 
 
-
 <aside class="notice">Other api versions of this object exist: <a href="#scalestatus-v1">v1</a> </aside>
-
-> Example yaml coming soon...
 
 
 represents the current status of a scale subresource.

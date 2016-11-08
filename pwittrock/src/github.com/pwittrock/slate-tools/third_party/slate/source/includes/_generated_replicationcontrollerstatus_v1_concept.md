@@ -3,6 +3,8 @@
 -----------
 # ReplicationControllerStatus v1
 
+
+
 Group        | Version     | Kind
 ------------ | ---------- | -----------
 Core | v1 | ReplicationControllerStatus
@@ -11,9 +13,6 @@ Core | v1 | ReplicationControllerStatus
 
 
 
-
-
-> Example yaml coming soon...
 
 
 ReplicationControllerStatus represents the current status of a replication controller.

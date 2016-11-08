@@ -3,6 +3,8 @@
 -----------
 # ServiceAccount v1
 
+
+
 Group        | Version     | Kind
 ------------ | ---------- | -----------
 Core | v1 | ServiceAccount
@@ -11,9 +13,6 @@ Core | v1 | ServiceAccount
 
 
 
-
-
-> Example yaml coming soon...
 
 
 ServiceAccount binds together: * a name, understood by users, and perhaps by peripheral systems, for an identity * a principal that can be authenticated and authorized * a set of secrets

@@ -3,6 +3,8 @@
 -----------
 # ResourceFieldSelector v1
 
+
+
 Group        | Version     | Kind
 ------------ | ---------- | -----------
 Core | v1 | ResourceFieldSelector
@@ -11,9 +13,6 @@ Core | v1 | ResourceFieldSelector
 
 
 
-
-
-> Example yaml coming soon...
 
 
 ResourceFieldSelector represents container resources (cpu, memory) and their output format

@@ -3,6 +3,8 @@
 -----------
 # CrossVersionObjectReference v1
 
+
+
 Group        | Version     | Kind
 ------------ | ---------- | -----------
 Core | v1 | CrossVersionObjectReference
@@ -11,9 +13,6 @@ Core | v1 | CrossVersionObjectReference
 
 
 
-
-
-> Example yaml coming soon...
 
 
 CrossVersionObjectReference contains enough information to let you identify the referred resource.

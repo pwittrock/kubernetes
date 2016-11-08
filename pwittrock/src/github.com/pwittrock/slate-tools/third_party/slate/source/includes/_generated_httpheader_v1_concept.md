@@ -3,6 +3,8 @@
 -----------
 # HTTPHeader v1
 
+
+
 Group        | Version     | Kind
 ------------ | ---------- | -----------
 Core | v1 | HTTPHeader
@@ -11,9 +13,6 @@ Core | v1 | HTTPHeader
 
 
 
-
-
-> Example yaml coming soon...
 
 
 HTTPHeader describes a custom header to be used in HTTP probes

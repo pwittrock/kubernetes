@@ -3,6 +3,8 @@
 -----------
 # DeploymentList v1beta1
 
+
+
 Group        | Version     | Kind
 ------------ | ---------- | -----------
 Extensions | v1beta1 | DeploymentList
@@ -11,9 +13,6 @@ Extensions | v1beta1 | DeploymentList
 
 
 
-
-
-> Example yaml coming soon...
 
 
 DeploymentList is a list of Deployments.

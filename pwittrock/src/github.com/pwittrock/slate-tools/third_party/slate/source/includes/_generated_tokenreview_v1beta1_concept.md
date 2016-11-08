@@ -3,6 +3,8 @@
 -----------
 # TokenReview v1beta1
 
+
+
 Group        | Version     | Kind
 ------------ | ---------- | -----------
 Authentication | v1beta1 | TokenReview
@@ -11,9 +13,6 @@ Authentication | v1beta1 | TokenReview
 
 
 
-
-
-> Example yaml coming soon...
 
 
 TokenReview attempts to authenticate a token to a known user. Note: TokenReview requests may be cached by the webhook token authenticator plugin in the kube-apiserver.

@@ -3,6 +3,8 @@
 -----------
 # CertificateSigningRequestSpec v1alpha1
 
+
+
 Group        | Version     | Kind
 ------------ | ---------- | -----------
 Core | v1alpha1 | CertificateSigningRequestSpec
@@ -11,9 +13,6 @@ Core | v1alpha1 | CertificateSigningRequestSpec
 
 
 
-
-
-> Example yaml coming soon...
 
 
 This information is immutable after the request is created. Only the Request and ExtraInfo fields can be set on creation, other fields are derived by Kubernetes and cannot be modified by users.

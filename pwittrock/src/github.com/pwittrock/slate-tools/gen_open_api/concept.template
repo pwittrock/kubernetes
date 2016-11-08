@@ -24,17 +24,21 @@ Code         | Schema     | Description
 -----------
 # {{.Name}} {{.Definition.Version}}
 
+{{if .Definition.Sample.Sample}} > {{.Definition.Sample.Note}} {{range $e := .Definition.GetSamples}}
+
+```{{$e.Type}}
+{{$e.Text}}
+```
+{{end}}{{end}}
+
 Group        | Version     | Kind
 ------------ | ---------- | -----------
 {{.Definition.GroupDisplayName}} | {{.Definition.Version}} | {{.Name}}
-
 
 {{if .DescriptionWarning}}<aside class="warning">{{.DescriptionWarning}}</aside>{{end}}
 {{if .DescriptionNote}}<aside class="notice">{{.DescriptionNote}}</aside>{{end}}
 
 {{if .Definition.OtherVersions}}<aside class="notice">Other api versions of this object exist: {{range $v := .Definition.OtherVersions}}{{$v.VersionLink}} {{end}}</aside>{{end}}
-
-> Example yaml coming soon...
 
 
 {{.Definition.Description}}

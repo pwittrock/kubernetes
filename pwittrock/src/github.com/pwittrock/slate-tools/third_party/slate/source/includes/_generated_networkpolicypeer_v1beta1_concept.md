@@ -3,6 +3,8 @@
 -----------
 # NetworkPolicyPeer v1beta1
 
+
+
 Group        | Version     | Kind
 ------------ | ---------- | -----------
 Core | v1beta1 | NetworkPolicyPeer
@@ -11,9 +13,6 @@ Core | v1beta1 | NetworkPolicyPeer
 
 
 
-
-
-> Example yaml coming soon...
 
 
 

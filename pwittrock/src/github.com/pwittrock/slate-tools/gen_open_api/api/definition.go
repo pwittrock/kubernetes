@@ -146,7 +146,7 @@ type Definition struct {
 	OtherVersions       SortDefinitionsByName
 	NewerVersions       SortDefinitionsByName
 
-	Example             string
+	Sample              SampleConfig
 }
 
 func (d *Definition) Key() string {
@@ -185,6 +185,17 @@ func VisitDefinitions(specs []*loads.Document, fn func(definition *Definition)) 
 			})
 		}
 	}
+}
+
+func (d *Definition) GetSamples() []ExampleText {
+	r := []ExampleText{}
+	for _, p := range ExampleProviders {
+		r = append(r, ExampleText{
+			Type: p.GetType(),
+			Text: p.GetSample(d),
+		})
+	}
+	return r
 }
 
 func GetDefinitions(specs []*loads.Document) Definitions {

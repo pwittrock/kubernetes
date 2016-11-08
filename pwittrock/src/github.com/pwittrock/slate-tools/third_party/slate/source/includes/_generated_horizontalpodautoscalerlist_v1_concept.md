@@ -3,6 +3,8 @@
 -----------
 # HorizontalPodAutoscalerList v1
 
+
+
 Group        | Version     | Kind
 ------------ | ---------- | -----------
 Autoscaling | v1 | HorizontalPodAutoscalerList
@@ -10,10 +12,7 @@ Autoscaling | v1 | HorizontalPodAutoscalerList
 
 
 
-
 <aside class="notice">Other api versions of this object exist: <a href="#horizontalpodautoscalerlist-v1beta1">v1beta1</a> </aside>
-
-> Example yaml coming soon...
 
 
 list of horizontal pod autoscaler objects.

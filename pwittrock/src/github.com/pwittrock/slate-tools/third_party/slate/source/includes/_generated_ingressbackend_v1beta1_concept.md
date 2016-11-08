@@ -3,6 +3,8 @@
 -----------
 # IngressBackend v1beta1
 
+
+
 Group        | Version     | Kind
 ------------ | ---------- | -----------
 Core | v1beta1 | IngressBackend
@@ -11,9 +13,6 @@ Core | v1beta1 | IngressBackend
 
 
 
-
-
-> Example yaml coming soon...
 
 
 IngressBackend describes all endpoints for a given service and port.

@@ -3,6 +3,8 @@
 -----------
 # PersistentVolumeClaimSpec v1
 
+
+
 Group        | Version     | Kind
 ------------ | ---------- | -----------
 Core | v1 | PersistentVolumeClaimSpec
@@ -11,9 +13,6 @@ Core | v1 | PersistentVolumeClaimSpec
 
 
 
-
-
-> Example yaml coming soon...
 
 
 PersistentVolumeClaimSpec describes the common attributes of storage devices and allows a Source for provider-specific attributes

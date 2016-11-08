@@ -3,6 +3,8 @@
 -----------
 # APIVersions unversioned
 
+
+
 Group        | Version     | Kind
 ------------ | ---------- | -----------
 Core | unversioned | APIVersions
@@ -11,9 +13,6 @@ Core | unversioned | APIVersions
 
 
 
-
-
-> Example yaml coming soon...
 
 
 APIVersions lists the versions that are available, to allow clients to discover the API at /api, which is the root path of the legacy v1 API.

@@ -3,6 +3,8 @@
 -----------
 # EndpointPort v1
 
+
+
 Group        | Version     | Kind
 ------------ | ---------- | -----------
 Core | v1 | EndpointPort
@@ -11,9 +13,6 @@ Core | v1 | EndpointPort
 
 
 
-
-
-> Example yaml coming soon...
 
 
 EndpointPort is a tuple that describes a single port.

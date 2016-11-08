@@ -3,6 +3,8 @@
 -----------
 # ConfigMapList v1
 
+
+
 Group        | Version     | Kind
 ------------ | ---------- | -----------
 Core | v1 | ConfigMapList
@@ -11,9 +13,6 @@ Core | v1 | ConfigMapList
 
 
 
-
-
-> Example yaml coming soon...
 
 
 ConfigMapList is a resource containing a list of ConfigMap objects.

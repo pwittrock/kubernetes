@@ -3,6 +3,8 @@
 -----------
 # SelfSubjectAccessReviewSpec v1beta1
 
+
+
 Group        | Version     | Kind
 ------------ | ---------- | -----------
 Core | v1beta1 | SelfSubjectAccessReviewSpec
@@ -11,9 +13,6 @@ Core | v1beta1 | SelfSubjectAccessReviewSpec
 
 
 
-
-
-> Example yaml coming soon...
 
 
 SelfSubjectAccessReviewSpec is a description of the access request.  Exactly one of ResourceAuthorizationAttributes and NonResourceAuthorizationAttributes must be set

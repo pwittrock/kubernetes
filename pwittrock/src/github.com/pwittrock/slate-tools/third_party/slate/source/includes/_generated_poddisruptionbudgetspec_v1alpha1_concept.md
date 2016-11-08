@@ -3,6 +3,8 @@
 -----------
 # PodDisruptionBudgetSpec v1alpha1
 
+
+
 Group        | Version     | Kind
 ------------ | ---------- | -----------
 Core | v1alpha1 | PodDisruptionBudgetSpec
@@ -11,9 +13,6 @@ Core | v1alpha1 | PodDisruptionBudgetSpec
 
 
 
-
-
-> Example yaml coming soon...
 
 
 PodDisruptionBudgetSpec is a description of a PodDisruptionBudget.

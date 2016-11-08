@@ -3,6 +3,8 @@
 -----------
 # NodeSpec v1
 
+
+
 Group        | Version     | Kind
 ------------ | ---------- | -----------
 Core | v1 | NodeSpec
@@ -11,9 +13,6 @@ Core | v1 | NodeSpec
 
 
 
-
-
-> Example yaml coming soon...
 
 
 NodeSpec describes the attributes that a node is created with.

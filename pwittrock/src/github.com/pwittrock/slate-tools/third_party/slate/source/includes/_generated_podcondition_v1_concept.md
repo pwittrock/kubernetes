@@ -3,6 +3,8 @@
 -----------
 # PodCondition v1
 
+
+
 Group        | Version     | Kind
 ------------ | ---------- | -----------
 Core | v1 | PodCondition
@@ -11,9 +13,6 @@ Core | v1 | PodCondition
 
 
 
-
-
-> Example yaml coming soon...
 
 
 PodCondition contains details for the current condition of this pod.

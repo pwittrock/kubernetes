@@ -3,6 +3,8 @@
 -----------
 # ListMeta unversioned
 
+
+
 Group        | Version     | Kind
 ------------ | ---------- | -----------
 Core | unversioned | ListMeta
@@ -11,9 +13,6 @@ Core | unversioned | ListMeta
 
 
 
-
-
-> Example yaml coming soon...
 
 
 ListMeta describes metadata that synthetic resources must have, including lists and various status objects. A resource may have only one of {ObjectMeta, ListMeta}.

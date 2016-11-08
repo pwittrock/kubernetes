@@ -1,0 +1,36 @@
+apiVersion: extensions/v1beta1
+kind: Deployment
+metadata:
+  annotations:
+    push-image: "true"
+  name: container-image-pusher
+spec:
+  template:
+    metadata:
+      labels:
+        app: container-image-pusher
+    spec:
+      containers:
+      - image: pwittrock/container-image-pusher:v10
+        name: container-image-pusher
+        command:
+          - "./main"
+          - "--port"
+          - "443"
+          - "--web-hook-secret"
+          - "examplesecret"
+          - "--tag-whitelist"
+          - "v[0-9\\.]*"
+          - "--cert-path"
+          - "/tls/tls.crt"
+          - "--key-path"
+          - "/tls/tls.key"
+        volumeMounts:
+          - name: container-tls-certs
+            mountPath: /tls/
+            readOnly: true
+      volumes:
+        - name: container-tls-certs
+          secret:
+            secretName: yoursecretname
+

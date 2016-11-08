@@ -1,0 +1,15 @@
+## *APIResourceList unversioned*
+
+> Example yaml coming soon...
+
+
+
+APIResourceList is a list of APIResource, it is used to expose the name of the resources supported in a specific group and version, and if the resource is namespaced.
+
+
+
+Field        | Schema     | Description
+------------ | ---------- | -----------
+groupVersion | string | groupVersion is the group and version this APIResourceList is for.
+resources | [APIResource](#apiresource-unversioned) array | resources contains the name of the resources and if they are namespaced.
+

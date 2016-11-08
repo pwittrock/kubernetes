@@ -1,0 +1,15 @@
+## *ResourceQuotaList v1*
+
+> Example yaml coming soon...
+
+
+
+ResourceQuotaList is a list of ResourceQuota items.
+
+
+
+Field        | Schema     | Description
+------------ | ---------- | -----------
+items | [ResourceQuota](#resourcequota-v1) array | Items is a list of ResourceQuota objects. More info: http://releases.k8s.io/HEAD/docs/design/admission_control_resource_quota.md#admissioncontrol-plugin-resourcequota
+metadata | [ListMeta](#listmeta-unversioned) | Standard list metadata. More info: http://releases.k8s.io/HEAD/docs/devel/api-conventions.md#types-kinds
+

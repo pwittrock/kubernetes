@@ -1,0 +1,15 @@
+## *StorageClassList v1beta1*
+
+> Example yaml coming soon...
+
+
+
+StorageClassList is a collection of storage classes.
+
+
+
+Field        | Schema     | Description
+------------ | ---------- | -----------
+items | [StorageClass](#storageclass-v1beta1) array | Items is the list of StorageClasses
+metadata | [ListMeta](#listmeta-unversioned) | Standard list metadata More info: http://releases.k8s.io/HEAD/docs/devel/api-conventions.md#metadata
+

@@ -1,0 +1,15 @@
+## *DaemonEndpoint v1*
+
+> Example yaml coming soon...
+
+
+
+DaemonEndpoint contains information about a single Daemon endpoint.
+
+<aside class="notice">
+Appears In  <a href="#nodedaemonendpoints-v1">NodeDaemonEndpoints</a> </aside>
+
+Field        | Schema     | Description
+------------ | ---------- | -----------
+Port | integer | Port number of the given endpoint.
+

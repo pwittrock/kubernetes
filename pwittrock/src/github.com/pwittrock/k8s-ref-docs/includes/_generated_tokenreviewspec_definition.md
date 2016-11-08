@@ -1,0 +1,15 @@
+## *TokenReviewSpec v1beta1*
+
+> Example yaml coming soon...
+
+
+
+TokenReviewSpec is a description of the token authentication request.
+
+<aside class="notice">
+Appears In  <a href="#tokenreview-v1beta1">TokenReview</a> </aside>
+
+Field        | Schema     | Description
+------------ | ---------- | -----------
+token | string | Token is the opaque bearer token.
+

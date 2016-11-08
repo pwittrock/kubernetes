@@ -1,0 +1,22 @@
+## *ContainerStatus v1*
+
+> Example yaml coming soon...
+
+
+
+ContainerStatus contains details for the current status of this container.
+
+<aside class="notice">
+Appears In  <a href="#podstatus-v1">PodStatus</a> </aside>
+
+Field        | Schema     | Description
+------------ | ---------- | -----------
+lastState | [ContainerState](#containerstate-v1) | Details about the container's last termination condition.
+name | string | This must be a DNS_LABEL. Each container in a pod must have a unique name. Cannot be updated.
+ready | boolean | Specifies whether the container has passed its readiness probe.
+restartCount | integer | The number of times the container has been restarted, currently based on the number of dead containers that have not yet been removed. Note that this is calculated from dead containers. But those containers are subject to garbage collection. This value will get capped at 5 by GC.
+state | [ContainerState](#containerstate-v1) | Details about the container's current condition.
+containerID | string | Container's ID in the format 'docker://<container_id>'. More info: http://kubernetes.io/docs/user-guide/container-environment#container-information
+image | string | The image the container is running. More info: http://kubernetes.io/docs/user-guide/images
+imageID | string | ImageID of the container's image.
+

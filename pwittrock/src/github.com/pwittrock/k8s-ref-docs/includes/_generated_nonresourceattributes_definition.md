@@ -1,0 +1,16 @@
+## *NonResourceAttributes v1beta1*
+
+> Example yaml coming soon...
+
+
+
+NonResourceAttributes includes the authorization attributes available for non-resource requests to the Authorizer interface
+
+<aside class="notice">
+Appears In  <a href="#selfsubjectaccessreviewspec-v1beta1">SelfSubjectAccessReviewSpec</a>  <a href="#subjectaccessreviewspec-v1beta1">SubjectAccessReviewSpec</a> </aside>
+
+Field        | Schema     | Description
+------------ | ---------- | -----------
+path | string | Path is the URL path of the request
+verb | string | Verb is the standard HTTP verb
+

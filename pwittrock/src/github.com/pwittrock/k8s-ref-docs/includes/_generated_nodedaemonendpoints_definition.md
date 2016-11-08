@@ -1,0 +1,15 @@
+## *NodeDaemonEndpoints v1*
+
+> Example yaml coming soon...
+
+
+
+NodeDaemonEndpoints lists ports opened by daemons running on the Node.
+
+<aside class="notice">
+Appears In  <a href="#nodestatus-v1">NodeStatus</a> </aside>
+
+Field        | Schema     | Description
+------------ | ---------- | -----------
+kubeletEndpoint | [DaemonEndpoint](#daemonendpoint-v1) | Endpoint on which Kubelet is listening.
+

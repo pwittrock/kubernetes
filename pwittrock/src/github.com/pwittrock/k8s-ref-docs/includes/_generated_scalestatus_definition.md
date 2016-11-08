@@ -1,0 +1,16 @@
+## *ScaleStatus v1*
+
+> Example yaml coming soon...
+
+<aside class="notice">Older api versions of this object exist: <a href="#scalestatus-v1beta1">v1beta1</a> </aside>
+
+ScaleStatus represents the current status of a scale subresource.
+
+<aside class="notice">
+Appears In  <a href="#scale-v1">Scale</a> </aside>
+
+Field        | Schema     | Description
+------------ | ---------- | -----------
+replicas | integer | actual number of observed instances of the scaled object.
+selector | string | label query over pods that should match the replicas count. This is same as the label selector but in the string format to avoid introspection by clients. The string will be in the same format as the query-param syntax. More info about label selectors: http://kubernetes.io/docs/user-guide/labels#label-selectors
+

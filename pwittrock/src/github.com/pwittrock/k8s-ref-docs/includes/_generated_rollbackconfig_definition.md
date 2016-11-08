@@ -1,0 +1,15 @@
+## *RollbackConfig v1beta1*
+
+> Example yaml coming soon...
+
+
+
+
+
+<aside class="notice">
+Appears In  <a href="#deploymentrollback-v1beta1">DeploymentRollback</a>  <a href="#deploymentspec-v1beta1">DeploymentSpec</a> </aside>
+
+Field        | Schema     | Description
+------------ | ---------- | -----------
+revision | integer | The revision to rollback to. If set to 0, rollbck to the last revision.
+

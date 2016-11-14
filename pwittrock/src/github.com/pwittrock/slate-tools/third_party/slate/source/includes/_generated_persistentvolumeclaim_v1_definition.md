@@ -11,7 +11,7 @@ Core | v1 | PersistentVolumeClaim
 PersistentVolumeClaim is a user's request for and claim to a persistent volume
 
 <aside class="notice">
-Appears In  <a href="#persistentvolumeclaimlist-v1">PersistentVolumeClaimList</a>  <a href="#petsetspec-v1alpha1">PetSetSpec</a> </aside>
+Appears In  <a href="#persistentvolumeclaimlist-v1">PersistentVolumeClaimList</a>  <a href="#statefulsetspec-v1beta1">StatefulSetSpec</a> </aside>
 
 Field        | Schema     | Description
 ------------ | ---------- | -----------

@@ -1,17 +1,17 @@
-## PetSetStatus v1alpha1
+## StatefulSetStatus v1beta1
 
 Group        | Version     | Kind
 ------------ | ---------- | -----------
-Apps | v1alpha1 | PetSetStatus
+Apps | v1beta1 | StatefulSetStatus
 
 > Example yaml coming soon...
 
 
 
-PetSetStatus represents the current state of a PetSet.
+StatefulSetStatus represents the current state of a StatefulSet.
 
 <aside class="notice">
-Appears In  <a href="#petset-v1alpha1">PetSet</a> </aside>
+Appears In  <a href="#statefulset-v1beta1">StatefulSet</a> </aside>
 
 Field        | Schema     | Description
 ------------ | ---------- | -----------

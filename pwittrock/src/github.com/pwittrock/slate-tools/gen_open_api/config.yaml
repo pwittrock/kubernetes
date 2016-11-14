@@ -32,24 +32,24 @@ resource_categories:
     resources:
     - name: Container
       version: v1
-      description_warning: "Containers are never created directly by users, and are created within a <a href=\"#pod-v1\">Pod</a>, usually through a Controller object.  See <a href=\"#deployment-v1beta1\">Deployment</a>, <a href=\"#job-v1\">Job</a>, or <a href=\"#petset-v1alpha1\">PetSet</a>"
+      description_warning: "Containers are never created directly by users, and are created within a <a href=\"#pod-v1\">Pod</a>, usually through a Controller object.  See <a href=\"#deployment-v1beta1\">Deployment</a>, <a href=\"#job-v1\">Job</a>, or <a href=\"#statefulset-v1beta1\">StatefulSet</a>"
     - name: DaemonSet
       version: v1beta1
     - name: Deployment
       version: v1beta1
     - name: Job
       version: v1
-    - name: PetSet
-      version: v1alpha1
     - name: Pod
       version: v1
-      description_warning: "Pods are not meant to be created directly by users, and instead are generally created through a controller such as <a href=\"#deployment-v1beta1\">Deployment</a>, <a href=\"#job-v1\">Job</a>, or <a href=\"#petset-v1alpha1\">PetSet</a>.  Controllers manage the creation and deletion of Pods using a <a href=\"#podtemplate-v1\">PodTemplate</a> and will ensure Pods are recreated in the event of Machine failure."
+      description_warning: "Pods are not meant to be created directly by users, and instead are generally created through a controller such as <a href=\"#deployment-v1beta1\">Deployment</a>, <a href=\"#job-v1\">Job</a>, or <a href=\"#statefulset-v1beta1\">StatefulSet</a>.  Controllers manage the creation and deletion of Pods using a <a href=\"#podtemplate-v1\">PodTemplate</a> and will ensure Pods are recreated in the event of Machine failure."
     - name: ReplicaSet
       version: v1beta1
       description_warning: "In most cases it is better to create a <a href=\"#deployment-v1beta1\">Deployment</a> instead as it will create new ReplicaSets and manage rolling out changes to them."
     - name: ReplicationController
       version: v1
       description_warning: "In most cases it is better to create a <a href=\"#deployment-v1beta1\">Deployment</a> instead for new Workloads."
+    - name: StatefulSet
+      version: v1beta1
   - name: "Service Apis"
     include: "servicediscovery"
     resources:
@@ -86,13 +86,13 @@ resource_categories:
     - name: PodTemplate
       version: v1
     - name: PodDisruptionBudget
-      version: v1alpha1
+      version: v1beta1
     - name: Scale
       version: v1
     - name: ThirdPartyResource
       version: v1beta1
     - name: Eviction
-      version: v1alpha1
+      version: v1beta1
   - name: "Cluster Apis"
     include: "cluster"
     resources:
@@ -142,15 +142,23 @@ operation_categories:
         match: patch${group}${version}(Namespaced)?${resource}
       - name: Delete
         match: delete${group}${version}(Namespaced)?${resource}
+      - name: Delete Collection
+        match: delete${group}${version}Collection(Namespaced)?${resource}
   - name: "Read Operations"
     operation_types:
       - name: Read
         match: read${group}${version}(Namespaced)?${resource}
       - name: List
         match: list${group}${version}(Namespaced)?${resource}
+      - name: List All Namespaces
+        match: list${group}${version}(Namespaced)?${resource}ForAllNamespaces
       - name: Watch
         match: watch${group}${version}(Namespaced)?${resource}
-  - name: "Status & Collection Operations"
+      - name: Watch List
+        match: watch${group}${version}(Namespaced)?${resource}List
+      - name: Watch List All Namespaces
+        match: watch${group}${version}(Namespaced)?${resource}ListForAllNamespaces
+  - name: "Status Operations"
     operation_types:
       - name: Patch Status
         match: patch${group}${version}(Namespaced)?${resource}Status
@@ -158,14 +166,6 @@ operation_categories:
         match: read${group}${version}(Namespaced)?${resource}Status
       - name: Replace Status
         match: replace${group}${version}(Namespaced)?${resource}Status
-      - name: Delete Collection
-        match: delete${group}${version}Collection(Namespaced)?${resource}
-      - name: List All Namespaces
-        match: list${group}${version}(Namespaced)?${resource}ForAllNamespaces
-      - name: Watch List
-        match: watch${group}${version}(Namespaced)?${resource}List
-      - name: Watch List All Namespaces
-        match: watch${group}${version}(Namespaced)?${resource}ListForAllNamespaces
   - name: "Misc Operations"
     default: true
     operation_types:

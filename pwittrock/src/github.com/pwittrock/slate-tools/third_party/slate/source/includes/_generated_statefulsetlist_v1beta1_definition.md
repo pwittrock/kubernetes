@@ -1,19 +1,19 @@
-## PetSetList v1alpha1
+## StatefulSetList v1beta1
 
 Group        | Version     | Kind
 ------------ | ---------- | -----------
-Apps | v1alpha1 | PetSetList
+Core | v1beta1 | StatefulSetList
 
 > Example yaml coming soon...
 
 
 
-PetSetList is a collection of PetSets.
+StatefulSetList is a collection of StatefulSets.
 
 
 
 Field        | Schema     | Description
 ------------ | ---------- | -----------
-items | [PetSet](#petset-v1alpha1) array | 
+items | [StatefulSet](#statefulset-v1beta1) array | 
 metadata | [ListMeta](#listmeta-unversioned) | 
 

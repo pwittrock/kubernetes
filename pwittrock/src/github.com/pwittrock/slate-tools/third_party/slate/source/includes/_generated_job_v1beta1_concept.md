@@ -15,7 +15,7 @@ Extensions | v1beta1 | Job
 <aside class="notice">Other api versions of this object exist: <a href="#job-v1">v1</a> </aside>
 
 
-Job represents the configuration of a single job.
+Job represents the configuration of a single job. DEPRECATED: extensions/v1beta1.Job is deprecated, use batch/v1.Job instead.
 
 <aside class="notice">
 Appears In <a href="#joblist-v1beta1">JobList</a> </aside>
@@ -38,7 +38,7 @@ activeDeadlineSeconds | integer | Optional duration in seconds relative to the s
 autoSelector | boolean | AutoSelector controls generation of pod labels and pod selectors. It was not present in the original extensions/v1beta1 Job definition, but exists to allow conversion from batch/v1 Jobs, where it corresponds to, but has the opposite meaning as, ManualSelector. More info: http://releases.k8s.io/HEAD/docs/design/selector-generation.md
 completions | integer | Completions specifies the desired number of successfully finished pods the job should be run with.  Setting to nil means that the success of any pod signals the success of all pods, and allows parallelism to have any positive value.  Setting to 1 means that parallelism is limited to 1 and the success of that pod signals the success of the job. More info: http://kubernetes.io/docs/user-guide/jobs
 parallelism | integer | Parallelism specifies the maximum desired number of pods the job should run at any given time. The actual number of pods running in steady state will be less than this number when ((.spec.completions - .status.successful) < .spec.parallelism), i.e. when the work left to do is less than max parallelism. More info: http://kubernetes.io/docs/user-guide/jobs
-selector | [LabelSelector](#labelselector-v1beta1) | Selector is a label query over pods that should match the pod count. Normally, the system sets this field for you. More info: http://kubernetes.io/docs/user-guide/labels#label-selectors
+selector | [LabelSelector](#labelselector-unversioned) | Selector is a label query over pods that should match the pod count. Normally, the system sets this field for you. More info: http://kubernetes.io/docs/user-guide/labels#label-selectors
 template | [PodTemplateSpec](#podtemplatespec-v1) | Template is the object that describes the pod that will be created when executing a job. More info: http://kubernetes.io/docs/user-guide/jobs
 
 ### JobStatus v1beta1
@@ -409,6 +409,73 @@ pretty |  | If 'true', then the output is pretty printed.
 Parameter    | Schema     | Description
 ------------ | ---------- | -----------
 body | [DeleteOptions](#deleteoptions-v1) | 
+gracePeriodSeconds |  | The duration in seconds before the object should be deleted. Value must be non-negative integer. The value zero indicates delete immediately. If this value is nil, the default grace period for the specified type will be used. Defaults to a per object value if not specified. zero means delete immediately.
+orphanDependents |  | Should the dependent objects be orphaned. If true/false, the "orphan" finalizer will be added to/removed from the object's finalizers list.
+
+### Response
+
+Code         | Schema     | Description
+------------ | ---------- | -----------
+200 | [Status](#status-unversioned) | OK
+
+
+## Delete Collection
+
+> Execute
+
+```shell
+
+
+
+```
+
+
+
+```yaml
+
+
+
+```
+
+> Returns
+
+```shell
+
+
+
+```
+
+
+```yaml
+
+
+
+```
+
+
+
+delete collection of Job
+
+### HTTP Request
+
+`DELETE /apis/extensions/v1beta1/namespaces/{namespace}/jobs`
+
+### Path Parameters
+
+Parameter    | Schema     | Description
+------------ | ---------- | -----------
+namespace |  | object name and auth scope, such as for teams and projects
+pretty |  | If 'true', then the output is pretty printed.
+
+### Query Parameters
+
+Parameter    | Schema     | Description
+------------ | ---------- | -----------
+fieldSelector |  | A selector to restrict the list of returned objects by their fields. Defaults to everything.
+labelSelector |  | A selector to restrict the list of returned objects by their labels. Defaults to everything.
+resourceVersion |  | When specified with a watch call, shows changes that occur after that particular version of a resource. Defaults to changes from the beginning of history.
+timeoutSeconds |  | Timeout for the list/watch call.
+watch |  | Watch for changes to the described resources and return them as a stream of add, update, and remove notifications. Specify resourceVersion.
 
 ### Response
 
@@ -788,6 +855,66 @@ Code         | Schema     | Description
 200 | [JobList](#joblist-v1beta1) | OK
 
 
+## List All Namespaces
+
+> Execute
+
+```shell
+
+
+
+```
+
+
+
+```yaml
+
+
+
+```
+
+> Returns
+
+```shell
+
+
+
+```
+
+
+```yaml
+
+
+
+```
+
+
+
+list or watch objects of kind Job
+
+### HTTP Request
+
+`GET /apis/extensions/v1beta1/jobs`
+
+### Path Parameters
+
+Parameter    | Schema     | Description
+------------ | ---------- | -----------
+fieldSelector |  | A selector to restrict the list of returned objects by their fields. Defaults to everything.
+labelSelector |  | A selector to restrict the list of returned objects by their labels. Defaults to everything.
+pretty |  | If 'true', then the output is pretty printed.
+resourceVersion |  | When specified with a watch call, shows changes that occur after that particular version of a resource. Defaults to changes from the beginning of history.
+timeoutSeconds |  | Timeout for the list/watch call.
+watch |  | Watch for changes to the described resources and return them as a stream of add, update, and remove notifications. Specify resourceVersion.
+
+
+### Response
+
+Code         | Schema     | Description
+------------ | ---------- | -----------
+200 | [JobList](#joblist-v1beta1) | OK
+
+
 ## Watch
 
 > Execute
@@ -969,136 +1096,6 @@ watch |  | Watch for changes to the described resources and return them as a str
 Code         | Schema     | Description
 ------------ | ---------- | -----------
 200 | [Event](#event-versioned) | OK
-
-
-
-## <strong>Status & Collection Operations</strong>
-
-See supported operations below...
-
-## Delete Collection
-
-> Execute
-
-```shell
-
-
-
-```
-
-
-
-```yaml
-
-
-
-```
-
-> Returns
-
-```shell
-
-
-
-```
-
-
-```yaml
-
-
-
-```
-
-
-
-delete collection of Job
-
-### HTTP Request
-
-`DELETE /apis/extensions/v1beta1/namespaces/{namespace}/jobs`
-
-### Path Parameters
-
-Parameter    | Schema     | Description
------------- | ---------- | -----------
-namespace |  | object name and auth scope, such as for teams and projects
-pretty |  | If 'true', then the output is pretty printed.
-
-### Query Parameters
-
-Parameter    | Schema     | Description
------------- | ---------- | -----------
-fieldSelector |  | A selector to restrict the list of returned objects by their fields. Defaults to everything.
-labelSelector |  | A selector to restrict the list of returned objects by their labels. Defaults to everything.
-resourceVersion |  | When specified with a watch call, shows changes that occur after that particular version of a resource. Defaults to changes from the beginning of history.
-timeoutSeconds |  | Timeout for the list/watch call.
-watch |  | Watch for changes to the described resources and return them as a stream of add, update, and remove notifications. Specify resourceVersion.
-
-### Response
-
-Code         | Schema     | Description
------------- | ---------- | -----------
-200 | [Status](#status-unversioned) | OK
-
-
-## List All Namespaces
-
-> Execute
-
-```shell
-
-
-
-```
-
-
-
-```yaml
-
-
-
-```
-
-> Returns
-
-```shell
-
-
-
-```
-
-
-```yaml
-
-
-
-```
-
-
-
-list or watch objects of kind Job
-
-### HTTP Request
-
-`GET /apis/extensions/v1beta1/jobs`
-
-### Path Parameters
-
-Parameter    | Schema     | Description
------------- | ---------- | -----------
-fieldSelector |  | A selector to restrict the list of returned objects by their fields. Defaults to everything.
-labelSelector |  | A selector to restrict the list of returned objects by their labels. Defaults to everything.
-pretty |  | If 'true', then the output is pretty printed.
-resourceVersion |  | When specified with a watch call, shows changes that occur after that particular version of a resource. Defaults to changes from the beginning of history.
-timeoutSeconds |  | Timeout for the list/watch call.
-watch |  | Watch for changes to the described resources and return them as a stream of add, update, and remove notifications. Specify resourceVersion.
-
-
-### Response
-
-Code         | Schema     | Description
------------- | ---------- | -----------
-200 | [JobList](#joblist-v1beta1) | OK
 
 
 ## Watch List All Namespaces

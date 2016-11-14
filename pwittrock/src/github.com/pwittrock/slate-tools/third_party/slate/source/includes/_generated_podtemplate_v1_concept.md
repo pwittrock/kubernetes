@@ -29,7 +29,7 @@ template | [PodTemplateSpec](#podtemplatespec-v1) | Template defines the pods th
 ### PodTemplateSpec v1
 
 <aside class="notice">
-Appears In <a href="#daemonsetspec-v1beta1">DaemonSetSpec</a> <a href="#deploymentspec-v1beta1">DeploymentSpec</a> <a href="#jobspec-v1">JobSpec</a> <a href="#petsetspec-v1alpha1">PetSetSpec</a> <a href="#podtemplate-v1">PodTemplate</a> <a href="#replicasetspec-v1beta1">ReplicaSetSpec</a> <a href="#replicationcontrollerspec-v1">ReplicationControllerSpec</a> </aside>
+Appears In <a href="#daemonsetspec-v1beta1">DaemonSetSpec</a> <a href="#deploymentspec-v1beta1">DeploymentSpec</a> <a href="#jobspec-v1">JobSpec</a> <a href="#podtemplate-v1">PodTemplate</a> <a href="#replicasetspec-v1beta1">ReplicaSetSpec</a> <a href="#replicationcontrollerspec-v1">ReplicationControllerSpec</a> <a href="#statefulsetspec-v1beta1">StatefulSetSpec</a> </aside>
 
 Field        | Schema     | Description
 ------------ | ---------- | -----------
@@ -291,6 +291,73 @@ pretty |  | If 'true', then the output is pretty printed.
 Parameter    | Schema     | Description
 ------------ | ---------- | -----------
 body | [DeleteOptions](#deleteoptions-v1) | 
+gracePeriodSeconds |  | The duration in seconds before the object should be deleted. Value must be non-negative integer. The value zero indicates delete immediately. If this value is nil, the default grace period for the specified type will be used. Defaults to a per object value if not specified. zero means delete immediately.
+orphanDependents |  | Should the dependent objects be orphaned. If true/false, the "orphan" finalizer will be added to/removed from the object's finalizers list.
+
+### Response
+
+Code         | Schema     | Description
+------------ | ---------- | -----------
+200 | [Status](#status-unversioned) | OK
+
+
+## Delete Collection
+
+> Execute
+
+```shell
+
+
+
+```
+
+
+
+```yaml
+
+
+
+```
+
+> Returns
+
+```shell
+
+
+
+```
+
+
+```yaml
+
+
+
+```
+
+
+
+delete collection of PodTemplate
+
+### HTTP Request
+
+`DELETE /api/v1/namespaces/{namespace}/podtemplates`
+
+### Path Parameters
+
+Parameter    | Schema     | Description
+------------ | ---------- | -----------
+namespace |  | object name and auth scope, such as for teams and projects
+pretty |  | If 'true', then the output is pretty printed.
+
+### Query Parameters
+
+Parameter    | Schema     | Description
+------------ | ---------- | -----------
+fieldSelector |  | A selector to restrict the list of returned objects by their fields. Defaults to everything.
+labelSelector |  | A selector to restrict the list of returned objects by their labels. Defaults to everything.
+resourceVersion |  | When specified with a watch call, shows changes that occur after that particular version of a resource. Defaults to changes from the beginning of history.
+timeoutSeconds |  | Timeout for the list/watch call.
+watch |  | Watch for changes to the described resources and return them as a stream of add, update, and remove notifications. Specify resourceVersion.
 
 ### Response
 
@@ -432,6 +499,66 @@ Code         | Schema     | Description
 200 | [PodTemplateList](#podtemplatelist-v1) | OK
 
 
+## List All Namespaces
+
+> Execute
+
+```shell
+
+
+
+```
+
+
+
+```yaml
+
+
+
+```
+
+> Returns
+
+```shell
+
+
+
+```
+
+
+```yaml
+
+
+
+```
+
+
+
+list or watch objects of kind PodTemplate
+
+### HTTP Request
+
+`GET /api/v1/podtemplates`
+
+### Path Parameters
+
+Parameter    | Schema     | Description
+------------ | ---------- | -----------
+fieldSelector |  | A selector to restrict the list of returned objects by their fields. Defaults to everything.
+labelSelector |  | A selector to restrict the list of returned objects by their labels. Defaults to everything.
+pretty |  | If 'true', then the output is pretty printed.
+resourceVersion |  | When specified with a watch call, shows changes that occur after that particular version of a resource. Defaults to changes from the beginning of history.
+timeoutSeconds |  | Timeout for the list/watch call.
+watch |  | Watch for changes to the described resources and return them as a stream of add, update, and remove notifications. Specify resourceVersion.
+
+
+### Response
+
+Code         | Schema     | Description
+------------ | ---------- | -----------
+200 | [PodTemplateList](#podtemplatelist-v1) | OK
+
+
 ## Watch
 
 > Execute
@@ -494,12 +621,7 @@ Code         | Schema     | Description
 200 | [Event](#event-versioned) | OK
 
 
-
-## <strong>Status & Collection Operations</strong>
-
-See supported operations below...
-
-## Delete Collection
+## Watch List
 
 > Execute
 
@@ -534,84 +656,20 @@ See supported operations below...
 
 
 
-delete collection of PodTemplate
+watch individual changes to a list of PodTemplate
 
 ### HTTP Request
 
-`DELETE /api/v1/namespaces/{namespace}/podtemplates`
+`GET /api/v1/watch/namespaces/{namespace}/podtemplates`
 
 ### Path Parameters
 
 Parameter    | Schema     | Description
 ------------ | ---------- | -----------
+fieldSelector |  | A selector to restrict the list of returned objects by their fields. Defaults to everything.
+labelSelector |  | A selector to restrict the list of returned objects by their labels. Defaults to everything.
 namespace |  | object name and auth scope, such as for teams and projects
 pretty |  | If 'true', then the output is pretty printed.
-
-### Query Parameters
-
-Parameter    | Schema     | Description
------------- | ---------- | -----------
-fieldSelector |  | A selector to restrict the list of returned objects by their fields. Defaults to everything.
-labelSelector |  | A selector to restrict the list of returned objects by their labels. Defaults to everything.
-resourceVersion |  | When specified with a watch call, shows changes that occur after that particular version of a resource. Defaults to changes from the beginning of history.
-timeoutSeconds |  | Timeout for the list/watch call.
-watch |  | Watch for changes to the described resources and return them as a stream of add, update, and remove notifications. Specify resourceVersion.
-
-### Response
-
-Code         | Schema     | Description
------------- | ---------- | -----------
-200 | [Status](#status-unversioned) | OK
-
-
-## List All Namespaces
-
-> Execute
-
-```shell
-
-
-
-```
-
-
-
-```yaml
-
-
-
-```
-
-> Returns
-
-```shell
-
-
-
-```
-
-
-```yaml
-
-
-
-```
-
-
-
-list or watch objects of kind PodTemplate
-
-### HTTP Request
-
-`GET /api/v1/podtemplates`
-
-### Path Parameters
-
-Parameter    | Schema     | Description
------------- | ---------- | -----------
-fieldSelector |  | A selector to restrict the list of returned objects by their fields. Defaults to everything.
-labelSelector |  | A selector to restrict the list of returned objects by their labels. Defaults to everything.
-pretty |  | If 'true', then the output is pretty printed.
 resourceVersion |  | When specified with a watch call, shows changes that occur after that particular version of a resource. Defaults to changes from the beginning of history.
 timeoutSeconds |  | Timeout for the list/watch call.
 watch |  | Watch for changes to the described resources and return them as a stream of add, update, and remove notifications. Specify resourceVersion.
@@ -621,7 +679,7 @@ watch |  | Watch for changes to the described resources and return them as a str
 
 Code         | Schema     | Description
 ------------ | ---------- | -----------
-200 | [PodTemplateList](#podtemplatelist-v1) | OK
+200 | [Event](#event-versioned) | OK
 
 
 ## Watch List All Namespaces

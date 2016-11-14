@@ -1,13 +1,13 @@
 
 
 -----------
-# PetSetStatus v1alpha1
+# StatefulSetStatus v1beta1
 
 
 
 Group        | Version     | Kind
 ------------ | ---------- | -----------
-Apps | v1alpha1 | PetSetStatus
+Apps | v1beta1 | StatefulSetStatus
 
 
 
@@ -15,10 +15,10 @@ Apps | v1alpha1 | PetSetStatus
 
 
 
-PetSetStatus represents the current state of a PetSet.
+StatefulSetStatus represents the current state of a StatefulSet.
 
 <aside class="notice">
-Appears In <a href="#petset-v1alpha1">PetSet</a> </aside>
+Appears In <a href="#statefulset-v1beta1">StatefulSet</a> </aside>
 
 Field        | Schema     | Description
 ------------ | ---------- | -----------
@@ -68,17 +68,17 @@ See supported operations below...
 
 
 
-replace status of the specified PetSet
+replace status of the specified StatefulSet
 
 ### HTTP Request
 
-`PUT /apis/apps/v1alpha1/namespaces/{namespace}/petsets/{name}/status`
+`PUT /apis/apps/v1beta1/namespaces/{namespace}/statefulsets/{name}/status`
 
 ### Path Parameters
 
 Parameter    | Schema     | Description
 ------------ | ---------- | -----------
-name |  | name of the PetSet
+name |  | name of the StatefulSet
 namespace |  | object name and auth scope, such as for teams and projects
 pretty |  | If 'true', then the output is pretty printed.
 
@@ -86,13 +86,13 @@ pretty |  | If 'true', then the output is pretty printed.
 
 Parameter    | Schema     | Description
 ------------ | ---------- | -----------
-body | [PetSet](#petset-v1alpha1) | 
+body | [StatefulSet](#statefulset-v1beta1) | 
 
 ### Response
 
 Code         | Schema     | Description
 ------------ | ---------- | -----------
-200 | [PetSet](#petset-v1alpha1) | OK
+200 | [StatefulSet](#statefulset-v1beta1) | OK
 
 
 ## Patch
@@ -130,17 +130,17 @@ Code         | Schema     | Description
 
 
 
-partially update status of the specified PetSet
+partially update status of the specified StatefulSet
 
 ### HTTP Request
 
-`PATCH /apis/apps/v1alpha1/namespaces/{namespace}/petsets/{name}/status`
+`PATCH /apis/apps/v1beta1/namespaces/{namespace}/statefulsets/{name}/status`
 
 ### Path Parameters
 
 Parameter    | Schema     | Description
 ------------ | ---------- | -----------
-name |  | name of the PetSet
+name |  | name of the StatefulSet
 namespace |  | object name and auth scope, such as for teams and projects
 pretty |  | If 'true', then the output is pretty printed.
 
@@ -154,7 +154,7 @@ body | [Patch](#patch-unversioned) |
 
 Code         | Schema     | Description
 ------------ | ---------- | -----------
-200 | [PetSet](#petset-v1alpha1) | OK
+200 | [StatefulSet](#statefulset-v1beta1) | OK
 
 
 
@@ -197,17 +197,17 @@ See supported operations below...
 
 
 
-read status of the specified PetSet
+read status of the specified StatefulSet
 
 ### HTTP Request
 
-`GET /apis/apps/v1alpha1/namespaces/{namespace}/petsets/{name}/status`
+`GET /apis/apps/v1beta1/namespaces/{namespace}/statefulsets/{name}/status`
 
 ### Path Parameters
 
 Parameter    | Schema     | Description
 ------------ | ---------- | -----------
-name |  | name of the PetSet
+name |  | name of the StatefulSet
 namespace |  | object name and auth scope, such as for teams and projects
 pretty |  | If 'true', then the output is pretty printed.
 
@@ -216,7 +216,7 @@ pretty |  | If 'true', then the output is pretty printed.
 
 Code         | Schema     | Description
 ------------ | ---------- | -----------
-200 | [PetSet](#petset-v1alpha1) | OK
+200 | [StatefulSet](#statefulset-v1beta1) | OK
 
 
 

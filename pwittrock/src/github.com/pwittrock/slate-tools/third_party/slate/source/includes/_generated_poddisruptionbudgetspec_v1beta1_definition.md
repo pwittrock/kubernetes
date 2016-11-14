@@ -1,8 +1,8 @@
-## PodDisruptionBudgetSpec v1alpha1
+## PodDisruptionBudgetSpec v1beta1
 
 Group        | Version     | Kind
 ------------ | ---------- | -----------
-Core | v1alpha1 | PodDisruptionBudgetSpec
+Core | v1beta1 | PodDisruptionBudgetSpec
 
 > Example yaml coming soon...
 
@@ -11,7 +11,7 @@ Core | v1alpha1 | PodDisruptionBudgetSpec
 PodDisruptionBudgetSpec is a description of a PodDisruptionBudget.
 
 <aside class="notice">
-Appears In  <a href="#poddisruptionbudget-v1alpha1">PodDisruptionBudget</a> </aside>
+Appears In  <a href="#poddisruptionbudget-v1beta1">PodDisruptionBudget</a> </aside>
 
 Field        | Schema     | Description
 ------------ | ---------- | -----------

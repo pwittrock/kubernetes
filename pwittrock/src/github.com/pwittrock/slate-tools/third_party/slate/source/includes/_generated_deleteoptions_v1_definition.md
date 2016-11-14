@@ -11,7 +11,7 @@ Core | v1 | DeleteOptions
 DeleteOptions may be provided when deleting an API object
 
 <aside class="notice">
-Appears In  <a href="#eviction-v1alpha1">Eviction</a> </aside>
+Appears In  <a href="#eviction-v1beta1">Eviction</a> </aside>
 
 Field        | Schema     | Description
 ------------ | ---------- | -----------

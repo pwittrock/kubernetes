@@ -307,6 +307,73 @@ pretty |  | If 'true', then the output is pretty printed.
 Parameter    | Schema     | Description
 ------------ | ---------- | -----------
 body | [DeleteOptions](#deleteoptions-v1) | 
+gracePeriodSeconds |  | The duration in seconds before the object should be deleted. Value must be non-negative integer. The value zero indicates delete immediately. If this value is nil, the default grace period for the specified type will be used. Defaults to a per object value if not specified. zero means delete immediately.
+orphanDependents |  | Should the dependent objects be orphaned. If true/false, the "orphan" finalizer will be added to/removed from the object's finalizers list.
+
+### Response
+
+Code         | Schema     | Description
+------------ | ---------- | -----------
+200 | [Status](#status-unversioned) | OK
+
+
+## Delete Collection
+
+> Execute
+
+```shell
+
+
+
+```
+
+
+
+```yaml
+
+
+
+```
+
+> Returns
+
+```shell
+
+
+
+```
+
+
+```yaml
+
+
+
+```
+
+
+
+delete collection of HorizontalPodAutoscaler
+
+### HTTP Request
+
+`DELETE /apis/autoscaling/v1/namespaces/{namespace}/horizontalpodautoscalers`
+
+### Path Parameters
+
+Parameter    | Schema     | Description
+------------ | ---------- | -----------
+namespace |  | object name and auth scope, such as for teams and projects
+pretty |  | If 'true', then the output is pretty printed.
+
+### Query Parameters
+
+Parameter    | Schema     | Description
+------------ | ---------- | -----------
+fieldSelector |  | A selector to restrict the list of returned objects by their fields. Defaults to everything.
+labelSelector |  | A selector to restrict the list of returned objects by their labels. Defaults to everything.
+resourceVersion |  | When specified with a watch call, shows changes that occur after that particular version of a resource. Defaults to changes from the beginning of history.
+timeoutSeconds |  | Timeout for the list/watch call.
+watch |  | Watch for changes to the described resources and return them as a stream of add, update, and remove notifications. Specify resourceVersion.
 
 ### Response
 
@@ -448,6 +515,66 @@ Code         | Schema     | Description
 200 | [HorizontalPodAutoscalerList](#horizontalpodautoscalerlist-v1) | OK
 
 
+## List All Namespaces
+
+> Execute
+
+```shell
+
+
+
+```
+
+
+
+```yaml
+
+
+
+```
+
+> Returns
+
+```shell
+
+
+
+```
+
+
+```yaml
+
+
+
+```
+
+
+
+list or watch objects of kind HorizontalPodAutoscaler
+
+### HTTP Request
+
+`GET /apis/autoscaling/v1/horizontalpodautoscalers`
+
+### Path Parameters
+
+Parameter    | Schema     | Description
+------------ | ---------- | -----------
+fieldSelector |  | A selector to restrict the list of returned objects by their fields. Defaults to everything.
+labelSelector |  | A selector to restrict the list of returned objects by their labels. Defaults to everything.
+pretty |  | If 'true', then the output is pretty printed.
+resourceVersion |  | When specified with a watch call, shows changes that occur after that particular version of a resource. Defaults to changes from the beginning of history.
+timeoutSeconds |  | Timeout for the list/watch call.
+watch |  | Watch for changes to the described resources and return them as a stream of add, update, and remove notifications. Specify resourceVersion.
+
+
+### Response
+
+Code         | Schema     | Description
+------------ | ---------- | -----------
+200 | [HorizontalPodAutoscalerList](#horizontalpodautoscalerlist-v1) | OK
+
+
 ## Watch
 
 > Execute
@@ -510,8 +637,129 @@ Code         | Schema     | Description
 200 | [Event](#event-versioned) | OK
 
 
+## Watch List
 
-## <strong>Status & Collection Operations</strong>
+> Execute
+
+```shell
+
+
+
+```
+
+
+
+```yaml
+
+
+
+```
+
+> Returns
+
+```shell
+
+
+
+```
+
+
+```yaml
+
+
+
+```
+
+
+
+watch individual changes to a list of HorizontalPodAutoscaler
+
+### HTTP Request
+
+`GET /apis/autoscaling/v1/watch/namespaces/{namespace}/horizontalpodautoscalers`
+
+### Path Parameters
+
+Parameter    | Schema     | Description
+------------ | ---------- | -----------
+fieldSelector |  | A selector to restrict the list of returned objects by their fields. Defaults to everything.
+labelSelector |  | A selector to restrict the list of returned objects by their labels. Defaults to everything.
+namespace |  | object name and auth scope, such as for teams and projects
+pretty |  | If 'true', then the output is pretty printed.
+resourceVersion |  | When specified with a watch call, shows changes that occur after that particular version of a resource. Defaults to changes from the beginning of history.
+timeoutSeconds |  | Timeout for the list/watch call.
+watch |  | Watch for changes to the described resources and return them as a stream of add, update, and remove notifications. Specify resourceVersion.
+
+
+### Response
+
+Code         | Schema     | Description
+------------ | ---------- | -----------
+200 | [Event](#event-versioned) | OK
+
+
+## Watch List All Namespaces
+
+> Execute
+
+```shell
+
+
+
+```
+
+
+
+```yaml
+
+
+
+```
+
+> Returns
+
+```shell
+
+
+
+```
+
+
+```yaml
+
+
+
+```
+
+
+
+watch individual changes to a list of HorizontalPodAutoscaler
+
+### HTTP Request
+
+`GET /apis/autoscaling/v1/watch/horizontalpodautoscalers`
+
+### Path Parameters
+
+Parameter    | Schema     | Description
+------------ | ---------- | -----------
+fieldSelector |  | A selector to restrict the list of returned objects by their fields. Defaults to everything.
+labelSelector |  | A selector to restrict the list of returned objects by their labels. Defaults to everything.
+pretty |  | If 'true', then the output is pretty printed.
+resourceVersion |  | When specified with a watch call, shows changes that occur after that particular version of a resource. Defaults to changes from the beginning of history.
+timeoutSeconds |  | Timeout for the list/watch call.
+watch |  | Watch for changes to the described resources and return them as a stream of add, update, and remove notifications. Specify resourceVersion.
+
+
+### Response
+
+Code         | Schema     | Description
+------------ | ---------- | -----------
+200 | [Event](#event-versioned) | OK
+
+
+
+## <strong>Status Operations</strong>
 
 See supported operations below...
 
@@ -694,191 +942,6 @@ body | [HorizontalPodAutoscaler](#horizontalpodautoscaler-v1) |
 Code         | Schema     | Description
 ------------ | ---------- | -----------
 200 | [HorizontalPodAutoscaler](#horizontalpodautoscaler-v1) | OK
-
-
-## Delete Collection
-
-> Execute
-
-```shell
-
-
-
-```
-
-
-
-```yaml
-
-
-
-```
-
-> Returns
-
-```shell
-
-
-
-```
-
-
-```yaml
-
-
-
-```
-
-
-
-delete collection of HorizontalPodAutoscaler
-
-### HTTP Request
-
-`DELETE /apis/autoscaling/v1/namespaces/{namespace}/horizontalpodautoscalers`
-
-### Path Parameters
-
-Parameter    | Schema     | Description
------------- | ---------- | -----------
-namespace |  | object name and auth scope, such as for teams and projects
-pretty |  | If 'true', then the output is pretty printed.
-
-### Query Parameters
-
-Parameter    | Schema     | Description
------------- | ---------- | -----------
-fieldSelector |  | A selector to restrict the list of returned objects by their fields. Defaults to everything.
-labelSelector |  | A selector to restrict the list of returned objects by their labels. Defaults to everything.
-resourceVersion |  | When specified with a watch call, shows changes that occur after that particular version of a resource. Defaults to changes from the beginning of history.
-timeoutSeconds |  | Timeout for the list/watch call.
-watch |  | Watch for changes to the described resources and return them as a stream of add, update, and remove notifications. Specify resourceVersion.
-
-### Response
-
-Code         | Schema     | Description
------------- | ---------- | -----------
-200 | [Status](#status-unversioned) | OK
-
-
-## List All Namespaces
-
-> Execute
-
-```shell
-
-
-
-```
-
-
-
-```yaml
-
-
-
-```
-
-> Returns
-
-```shell
-
-
-
-```
-
-
-```yaml
-
-
-
-```
-
-
-
-list or watch objects of kind HorizontalPodAutoscaler
-
-### HTTP Request
-
-`GET /apis/autoscaling/v1/horizontalpodautoscalers`
-
-### Path Parameters
-
-Parameter    | Schema     | Description
------------- | ---------- | -----------
-fieldSelector |  | A selector to restrict the list of returned objects by their fields. Defaults to everything.
-labelSelector |  | A selector to restrict the list of returned objects by their labels. Defaults to everything.
-pretty |  | If 'true', then the output is pretty printed.
-resourceVersion |  | When specified with a watch call, shows changes that occur after that particular version of a resource. Defaults to changes from the beginning of history.
-timeoutSeconds |  | Timeout for the list/watch call.
-watch |  | Watch for changes to the described resources and return them as a stream of add, update, and remove notifications. Specify resourceVersion.
-
-
-### Response
-
-Code         | Schema     | Description
------------- | ---------- | -----------
-200 | [HorizontalPodAutoscalerList](#horizontalpodautoscalerlist-v1) | OK
-
-
-## Watch List All Namespaces
-
-> Execute
-
-```shell
-
-
-
-```
-
-
-
-```yaml
-
-
-
-```
-
-> Returns
-
-```shell
-
-
-
-```
-
-
-```yaml
-
-
-
-```
-
-
-
-watch individual changes to a list of HorizontalPodAutoscaler
-
-### HTTP Request
-
-`GET /apis/autoscaling/v1/watch/horizontalpodautoscalers`
-
-### Path Parameters
-
-Parameter    | Schema     | Description
------------- | ---------- | -----------
-fieldSelector |  | A selector to restrict the list of returned objects by their fields. Defaults to everything.
-labelSelector |  | A selector to restrict the list of returned objects by their labels. Defaults to everything.
-pretty |  | If 'true', then the output is pretty printed.
-resourceVersion |  | When specified with a watch call, shows changes that occur after that particular version of a resource. Defaults to changes from the beginning of history.
-timeoutSeconds |  | Timeout for the list/watch call.
-watch |  | Watch for changes to the described resources and return them as a stream of add, update, and remove notifications. Specify resourceVersion.
-
-
-### Response
-
-Code         | Schema     | Description
------------- | ---------- | -----------
-200 | [Event](#event-versioned) | OK
 
 
 

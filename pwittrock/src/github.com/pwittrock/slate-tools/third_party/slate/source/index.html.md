@@ -15,10 +15,10 @@ includes:
   - generated_daemonset_v1beta1_concept
   - generated_deployment_v1beta1_concept
   - generated_job_v1_concept
-  - generated_petset_v1alpha1_concept
   - generated_pod_v1_concept
   - generated_replicaset_v1beta1_concept
   - generated_replicationcontroller_v1_concept
+  - generated_statefulset_v1beta1_concept
   - servicediscovery
   - generated_endpoints_v1_concept
   - generated_ingress_v1beta1_concept
@@ -34,10 +34,10 @@ includes:
   - generated_limitrange_v1_concept
   - generated_horizontalpodautoscaler_v1_concept
   - generated_podtemplate_v1_concept
-  - generated_poddisruptionbudget_v1alpha1_concept
+  - generated_poddisruptionbudget_v1beta1_concept
   - generated_scale_v1_concept
   - generated_thirdpartyresource_v1beta1_concept
-  - generated_eviction_v1alpha1_concept
+  - generated_eviction_v1beta1_concept
   - cluster
   - generated_binding_v1_concept
   - generated_certificatesigningrequest_v1alpha1_concept
@@ -76,6 +76,7 @@ includes:
   - generated_crossversionobjectreference_v1_definition
   - generated_daemonendpoint_v1_definition
   - generated_deleteoptions_v1_definition
+  - generated_deploymentcondition_v1beta1_definition
   - generated_endpointaddress_v1_definition
   - generated_endpointport_v1_definition
   - generated_endpointsubset_v1_definition
@@ -93,8 +94,8 @@ includes:
   - generated_ingresstls_v1beta1_definition
   - generated_intorstring_intstr_definition
   - generated_jobcondition_v1_definition
-  - generated_labelselector_v1_definition
-  - generated_labelselectorrequirement_v1_definition
+  - generated_labelselector_unversioned_definition
+  - generated_labelselectorrequirement_unversioned_definition
   - generated_lifecycle_v1_definition
   - generated_limitrangeitem_v1_definition
   - generated_listmeta_unversioned_definition
@@ -147,10 +148,6 @@ includes:
   - generated_horizontalpodautoscaler_v1beta1_concept
   - generated_job_v1beta1_concept
   - generated_jobcondition_v1beta1_concept
-  - generated_labelselector_v1beta1_concept
-  - generated_labelselector_unversioned_concept
-  - generated_labelselectorrequirement_v1beta1_concept
-  - generated_labelselectorrequirement_unversioned_concept
   - generated_scale_v1beta1_concept
 
 search: false

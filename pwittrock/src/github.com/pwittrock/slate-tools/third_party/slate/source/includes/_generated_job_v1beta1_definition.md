@@ -8,7 +8,7 @@ Extensions | v1beta1 | Job
 
 <aside class="notice">Other api versions of this object exist: <a href="#job-v1">v1</a> </aside>
 
-Job represents the configuration of a single job.
+Job represents the configuration of a single job. DEPRECATED: extensions/v1beta1.Job is deprecated, use batch/v1.Job instead.
 
 <aside class="notice">
 Appears In  <a href="#joblist-v1beta1">JobList</a> </aside>

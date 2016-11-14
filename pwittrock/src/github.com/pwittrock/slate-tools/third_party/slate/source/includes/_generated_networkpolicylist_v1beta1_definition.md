@@ -2,7 +2,7 @@
 
 Group        | Version     | Kind
 ------------ | ---------- | -----------
-Extensions | v1beta1 | NetworkPolicyList
+Core | v1beta1 | NetworkPolicyList
 
 > Example yaml coming soon...
 

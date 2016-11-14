@@ -8,7 +8,7 @@ container.
 The most common Controllers are:
 
 - [Deployments](#deployment-v1beta1) for stateless persistent apps (e.g. http servers)
-- [PetSets](#petset-v1alpha1) for stateful persistent apps (e.g. databases)
+- [StatefulSets](#statefulset-v1beta1) for stateful persistent apps (e.g. databases)
 - [Jobs](#job-v1) for run-to-completion apps (e.g. batch jobs).
 
 ------------

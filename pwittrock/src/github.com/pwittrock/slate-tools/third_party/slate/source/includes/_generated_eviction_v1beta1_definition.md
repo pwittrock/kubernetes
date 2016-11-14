@@ -1,17 +1,10 @@
-
-
------------
-# Eviction v1alpha1
-
-
+## Eviction v1beta1
 
 Group        | Version     | Kind
 ------------ | ---------- | -----------
-Core | v1alpha1 | Eviction
+Core | v1beta1 | Eviction
 
-
-
-
+> Example yaml coming soon...
 
 
 
@@ -23,9 +16,4 @@ Field        | Schema     | Description
 ------------ | ---------- | -----------
 deleteOptions | [DeleteOptions](#deleteoptions-v1) | DeleteOptions may be provided
 metadata | [ObjectMeta](#objectmeta-v1) | ObjectMeta describes the pod that is being evicted.
-
-
-
-
-
 

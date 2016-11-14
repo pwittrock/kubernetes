@@ -18,7 +18,7 @@ Core | v1 | PodTemplateSpec
 PodTemplateSpec describes the data a pod should have when created from a template
 
 <aside class="notice">
-Appears In <a href="#daemonsetspec-v1beta1">DaemonSetSpec</a> <a href="#deploymentspec-v1beta1">DeploymentSpec</a> <a href="#jobspec-v1">JobSpec</a> <a href="#petsetspec-v1alpha1">PetSetSpec</a> <a href="#podtemplate-v1">PodTemplate</a> <a href="#replicasetspec-v1beta1">ReplicaSetSpec</a> <a href="#replicationcontrollerspec-v1">ReplicationControllerSpec</a> </aside>
+Appears In <a href="#daemonsetspec-v1beta1">DaemonSetSpec</a> <a href="#deploymentspec-v1beta1">DeploymentSpec</a> <a href="#jobspec-v1">JobSpec</a> <a href="#podtemplate-v1">PodTemplate</a> <a href="#replicasetspec-v1beta1">ReplicaSetSpec</a> <a href="#replicationcontrollerspec-v1">ReplicationControllerSpec</a> <a href="#statefulsetspec-v1beta1">StatefulSetSpec</a> </aside>
 
 Field        | Schema     | Description
 ------------ | ---------- | -----------

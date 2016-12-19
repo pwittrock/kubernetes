@@ -34,13 +34,13 @@ import (
 // gen_slate_yaml creates a yaml representation of the kubectl help commands.  This is to be consumed
 // by tools to generate documentation.
 
-var outputFile = flag.String("output", "", "Destination for kubectl yaml representation.")
+var yamlOut = flag.String("yaml-out", "", "Destination for kubectl yaml representation.")
 
 func main() {
 	flag.Parse()
 
-	if len(*outputFile) < 1 {
-		fmt.Printf("Must specify --output.\n")
+	if len(*yamlOut) < 1 {
+		fmt.Printf("Must specify --yaml-out.\n")
 		os.Exit(1)
 	}
 
@@ -63,7 +63,7 @@ func WriteFile(spec KubectlSpec) {
 	}
 
 	// Create the file
-	outFile, err := os.Create(*outputFile)
+	outFile, err := os.Create(*yamlOut)
 	if err != nil {
 		fmt.Println(err)
 		os.Exit(1)
@@ -108,13 +108,15 @@ func NewTopLevelCommand(c *cobra.Command) TopLevelCommand {
 func NewOptions(flags *pflag.FlagSet) Options {
 	result := Options{}
 	flags.VisitAll(func(flag *pflag.Flag) {
-		opt := &Option{
-			Name:         flag.Name,
-			Shorthand:    flag.Shorthand,
-			DefaultValue: flag.DefValue,
-			Usage:        flag.Usage,
+		if flag.Name != "yaml-out" {
+			opt := &Option{
+				Name:         flag.Name,
+				Shorthand:    flag.Shorthand,
+				DefaultValue: flag.DefValue,
+				Usage:        flag.Usage,
+			}
+			result = append(result, opt)
 		}
-		result = append(result, opt)
 	})
 	return result
 }

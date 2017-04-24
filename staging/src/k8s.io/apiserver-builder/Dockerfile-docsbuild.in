@@ -1,0 +1,5 @@
+FROM ARG_FROM
+
+RUN mkdir /build /manifest /source && \
+    touch /build/.keep /manifest/.keep /source/.keep && \
+    chown -R ARG_UID /build /manifest /source .

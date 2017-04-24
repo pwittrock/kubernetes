@@ -13,7 +13,8 @@
 # limitations under the License.
 
 # NOTE: Project must live under GOPATH/src/k8s.io/apiserver-builder for the code to compile
-REPO=k8s.io/apiserver-builder/example
+PROJECT_NAME ?= example
+REPO=k8s.io/apiserver-builder/$(PROJECT_NAME)
 
 SRC=$(REPO)/pkg/apis/...
 APIBUILDER_DIR="."
@@ -26,13 +27,18 @@ CLIENT=clientset
 INTERNAL_CLIENT=internalclientset
 LISTERS_PKG="$(CLIENT_PKG)/listers_generated"
 INFORMERS_PKG="$(CLIENT_PKG)/informers_generated"
+DOCS_IMAGE ?= pwittrock/brodocs
+PROJECT_DOCS_IMAGE := $(DOCS_IMAGE):$(PROJECT_NAME)
 
 UNVERSIONED="miskatonic/,innsmouth/"
 VERSIONED="miskatonic/v1beta1,innsmouth/v1"
 
-DIR=example/pkg
+DIR=$(PROJECT_NAME)/pkg
 
-all: build
+build: cleanbin generate
+	go build $(PROJECT_NAME)/main.go
+
+all: docs
 
 clean: cleanbin cleangenerated cleandocs
 
@@ -58,20 +64,27 @@ generate: cleangenerated
 	lister-gen -i $(SRC) --output-package=$(LISTERS_PKG) -o $(OUT) --go-header-file boilerplate.go.txt
 	informer-gen -i $(SRC) -o $(OUT) --go-header-file boilerplate.go.txt --internal-clientset-package="$(CLIENT_PATH)/$(INTERNAL_CLIENT)" --versioned-clientset-package="$(CLIENT_PATH)/$(CLIENT)" --listers-package=$(LISTERS_PKG) --output-package=$(INFORMERS_PKG)
 
-build: cleanbin generate
-	go build example/main.go
-
 cleandocs:
 	rm -rf $(shell pwd)/docs/build
 	rm -rf $(shell pwd)/docs/includes
 	rm -rf $(shell pwd)/docs/manifest.json
 	rm -rf $(shell pwd)/docs/includes/_generated_*
 
-docs: cleandocs build
+docs: cleandocs build docsimage
 	bash -c "mkdir -p docs/openapi-spec; mkdir -p docs/static_includes; echo ''"
 	./main --delegated-auth=false --etcd-servers=http://localhost:2379 --secure-port=9443 --print-openapi > ./docs/openapi-spec/swagger.json
 	gen-apidocs --allow-errors --use-tags --config-dir docs
-	docker run -v $(shell pwd)/docs/includes:/source -v $(shell pwd)/docs/build:/build -v $(shell pwd)/docs/:/manifest pwittrock/brodocs
+	bash -c "mkdir -p docs/build; echo ''"
+	docker run --rm -u $(shell id -u):$(shell id -g) -v $(shell pwd)/docs/includes:/source:Z -v $(shell pwd)/docs/build:/build:Z -v $(shell pwd)/docs/:/manifest:Z $(PROJECT_DOCS_IMAGE)
+
+docsimage: .docsimage
+.docsimage: Dockerfile-docsbuild.in
+	sed \
+    -e 's|ARG_FROM|$(DOCS_IMAGE)|g' \
+		-e 's|ARG_UID|$(shell id -u):$(shell id -g)|g' \
+    Dockerfile-docsbuild.in > .dockerfile-docsbuild
+	docker build -t $(PROJECT_DOCS_IMAGE) -f .dockerfile-docsbuild .
+	docker images -q $(PROJECT_DOCS_IMAGE) > $@
 
 run: build
 	./main -v 10 --authentication-kubeconfig ~/.kube/auth_config --authorization-kubeconfig ~/.kube/auth_config --client-ca-file /var/run/kubernetes/apiserver.crt  --requestheader-client-ca-file /var/run/kubernetes/apiserver.crt --requestheader-username-headers=X-Remote-User --requestheader-group-headers=X-Remote-Group --requestheader-extra-headers-prefix=X-Remote-Extra- --etcd-servers=http://localhost:2379 --secure-port=9443 --tls-ca-file  /var/run/kubernetes/apiserver.crt --print-bearer-token

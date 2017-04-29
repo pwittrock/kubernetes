@@ -139,6 +139,9 @@ func NewCmdGet(f cmdutil.Factory, out io.Writer, errOut io.Writer) *cobra.Comman
 // RunGet implements the generic Get command
 // TODO: convert all direct flag accessors to a struct and pass that instead of cmd
 func RunGet(f cmdutil.Factory, out, errOut io.Writer, cmd *cobra.Command, args []string, options *GetOptions) error {
+	// Cache the schema in the background
+	go f.OpenAPISchema(cmdutil.GetOpenAPICacheDir(cmd))
+
 	if len(options.Raw) > 0 {
 		restClient, err := f.RESTClient()
 		if err != nil {

@@ -408,6 +408,10 @@ func AddValidateOptionFlags(cmd *cobra.Command, options *ValidateOptions) {
 	cmd.MarkFlagFilename("schema-cache-dir")
 }
 
+func GetOpenAPICacheDir(cmd *cobra.Command) string {
+	return GetFlagString(cmd, "schema-cache-dir")
+}
+
 func AddOpenAPIFlags(cmd *cobra.Command) {
 	cmd.Flags().String("schema-cache-dir",
 		fmt.Sprintf("~/%s/%s", clientcmd.RecommendedHomeDir, clientcmd.RecommendedSchemaName),

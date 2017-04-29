@@ -22,12 +22,14 @@ import (
 	"fmt"
 	"io"
 	"os"
+	"strings"
 
 	"github.com/spf13/cobra"
 
 	"k8s.io/apimachinery/pkg/api/meta"
 	"k8s.io/apimachinery/pkg/apis/meta/v1/unstructured"
 	"k8s.io/apimachinery/pkg/runtime"
+	"k8s.io/kubernetes/pkg/kubectl/cmd/util/openapi"
 	"k8s.io/kubernetes/pkg/kubectl/plugins"
 	"k8s.io/kubernetes/pkg/kubectl/resource"
 	"k8s.io/kubernetes/pkg/printers"
@@ -57,6 +59,32 @@ func (f *ring2Factory) PrinterForCommand(cmd *cobra.Command) (printers.ResourceP
 	return PrinterForCommand(cmd, mapper, typer, decoders)
 }
 
+// lookupDisplayColumnsFromOpenAPI looks for the mapping in the openapi schema and returns the result if found.
+func (f *ring2Factory) lookupDisplayColumnsFromOpenAPI(cmd *cobra.Command, mapping *meta.RESTMapping) []string {
+	api, err := f.objectMappingFactory.OpenAPISchema(GetOpenAPICacheDir(cmd))
+	if err != nil {
+		// Error getting the
+		return []string{}
+	}
+
+	// Found openapi metadata for this resource
+	kind, found := api.LookupResource(mapping.GroupVersionKind)
+	if !found {
+		// Kind not found, return empty columns
+		return []string{}
+	}
+
+	columns, found := openapi.GetPrintColumns(kind.Extensions)
+	if !found {
+		// Extension not found, return empty columns
+		return []string{}
+	}
+
+	// Use the display column metadata
+	return strings.Split(columns, ",")
+
+}
+
 func (f *ring2Factory) PrinterForMapping(cmd *cobra.Command, mapping *meta.RESTMapping, withNamespace bool) (printers.ResourcePrinter, error) {
 	printer, generic, err := f.PrinterForCommand(cmd)
 	if err != nil {
@@ -80,6 +108,11 @@ func (f *ring2Factory) PrinterForMapping(cmd *cobra.Command, mapping *meta.RESTM
 		if err != nil {
 			columnLabel = []string{}
 		}
+
+		if len(columnLabel) == 0 {
+			columnLabel = f.lookupDisplayColumnsFromOpenAPI(cmd, mapping)
+		}
+
 		printer, err = f.clientAccessFactory.Printer(mapping, printers.PrintOptions{
 			NoHeaders:          GetFlagBool(cmd, "no-headers"),
 			WithNamespace:      withNamespace,

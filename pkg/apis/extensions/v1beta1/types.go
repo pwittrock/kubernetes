@@ -53,6 +53,7 @@ type ScaleStatus struct {
 // +noMethods=true
 
 // represents a scaling request for a resource.
+ // +k8s:openapi-gen=x-kubernetes-test-prop:test
 type Scale struct {
 	metav1.TypeMeta `json:",inline"`
 	// Standard object metadata; More info: http://releases.k8s.io/HEAD/docs/devel/api-conventions.md#metadata.
@@ -101,6 +102,7 @@ type CustomMetricCurrentStatusList struct {
 
 // A ThirdPartyResource is a generic representation of a resource, it is used by add-ons and plugins to add new resource
 // types to the API.  It consists of one or more Versions of the api.
+// +k8s:openapi-gen=x-kubernetes-print-columns:test
 type ThirdPartyResource struct {
 	metav1.TypeMeta `json:",inline"`
 

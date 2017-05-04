@@ -2551,7 +2551,7 @@ type PodStatusResult struct {
 
 // Pod is a collection of containers that can run on a host. This resource is created
 // by clients and scheduled onto hosts.
-// +k8s:openapi-gen=x-kubernetes-print-columns:NAME:.metadata.name,RSRC:.metadata.resourceVersion,PHASE:.status.phase
+// +k8s:openapi-gen=x-kubernetes-print-columns:test
 type Pod struct {
 	metav1.TypeMeta `json:",inline"`
 	// Standard object's metadata.

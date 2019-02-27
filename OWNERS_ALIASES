@@ -142,6 +142,8 @@ aliases:
     - wgliang
 
   sig-cli-maintainers:
+  sig-cli:
+  sig-cli-maintainers-emeritus:
     - adohe
     - brendandburns
     - deads2k
@@ -154,7 +156,7 @@ aliases:
     - mengqiy
     - smarterclayton
     - soltysh
-  sig-cli:
+  sig-cli-emeritus:
     - adohe
     - deads2k
     - derekwaynecarr

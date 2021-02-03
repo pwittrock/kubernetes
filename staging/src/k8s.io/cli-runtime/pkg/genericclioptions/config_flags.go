@@ -98,6 +98,7 @@ type ConfigFlags struct {
 	Username         *string
 	Password         *string
 	Timeout          *string
+	WrapConfigFn     func(*rest.Config) *rest.Config
 
 	clientConfig clientcmd.ClientConfig
 	lock         sync.Mutex
@@ -115,7 +116,14 @@ type ConfigFlags struct {
 // to a .kubeconfig file, loading rules, and config flag overrides.
 // Expects the AddFlags method to have been called.
 func (f *ConfigFlags) ToRESTConfig() (*rest.Config, error) {
-	return f.ToRawKubeConfigLoader().ClientConfig()
+	c, err := f.ToRawKubeConfigLoader().ClientConfig()
+	if err != nil {
+		return nil, err
+	}
+	if f.WrapConfigFn != nil {
+		return f.WrapConfigFn(c), nil
+	}
+	return c, nil
 }
 
 // ToRawKubeConfigLoader binds config flag values to config overrides

@@ -20,6 +20,7 @@ import (
 	"flag"
 	"fmt"
 	"io"
+	"net/http"
 	"os"
 	"os/exec"
 	"runtime"
@@ -431,6 +432,16 @@ func HandlePluginCommand(pluginHandler PluginHandler, cmdArgs []string) error {
 	return nil
 }
 
+type CommandHeaderRoundTripper struct {
+	Delegate http.RoundTripper
+	Headers  map[string]string
+}
+
+func (c *CommandHeaderRoundTripper) RoundTrip(req *http.Request) (*http.Response, error) {
+	req = req.Header.Set("X-Sean", "seans-header-value")
+	return c.Delegate.RoundTrip(req)
+}
+
 // NewKubectlCommand creates the `kubectl` command and its nested children.
 func NewKubectlCommand(in io.Reader, out, err io.Writer) *cobra.Command {
 	warningHandler := rest.NewWarningWriter(err, rest.WarningWriterOptions{Deduplicate: true, Color: term.AllowsColorOutput(err)})
@@ -446,12 +457,6 @@ func NewKubectlCommand(in io.Reader, out, err io.Writer) *cobra.Command {
       Find more information at:
             https://kubernetes.io/docs/reference/kubectl/overview/`),
 		Run: runHelp,
-		// Hook before and after Run initialize and write profiles to disk,
-		// respectively.
-		PersistentPreRunE: func(*cobra.Command, []string) error {
-			rest.SetDefaultWarningHandler(warningHandler)
-			return initProfiling()
-		},
 		PersistentPostRunE: func(*cobra.Command, []string) error {
 			if err := flushProfiling(); err != nil {
 				return err
@@ -467,6 +472,7 @@ func NewKubectlCommand(in io.Reader, out, err io.Writer) *cobra.Command {
 					return fmt.Errorf("%d warnings received", count)
 				}
 			}
+
 			return nil
 		},
 		BashCompletionFunction: bashCompletionFunc,
@@ -485,6 +491,29 @@ func NewKubectlCommand(in io.Reader, out, err io.Writer) *cobra.Command {
 
 	kubeConfigFlags := genericclioptions.NewConfigFlags(true).WithDeprecatedPasswordFlag()
 	kubeConfigFlags.AddFlags(flags)
+
+	crt := &CommandHeaderRoundTripper{}
+
+	// Hook before and after Run initialize and write profiles to disk,
+	// respectively.
+	cmds.PersistentPreRunE = func(cmd *cobra.Command, args []string) error {
+		rest.SetDefaultWarningHandler(warningHandler)
+		crt.Headers = map[string]string{}
+
+		// Create headers from cmd here and put in map
+
+		// Generated header with new request id here and put in map
+		return initProfiling()
+	}
+
+	// Setup the round tripper to add the command headers
+	kubeConfigFlags.WrapConfigFn = func(c *rest.Config) *rest.Config {
+		c.Wrap(func(rt http.RoundTripper) http.RoundTripper {
+			crt.Delegate = rt
+			return crt
+		})
+		return c
+	}
 	matchVersionKubeConfigFlags := cmdutil.NewMatchVersionFlags(kubeConfigFlags)
 	matchVersionKubeConfigFlags.AddFlags(cmds.PersistentFlags())
 

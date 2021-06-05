@@ -4036,6 +4036,12 @@ func ValidatePodUpdate(newPod, oldPod *core.Pod, opts PodValidationOptions) fiel
 		activeDeadlineSeconds := *oldPod.Spec.ActiveDeadlineSeconds
 		mungedPodSpec.ActiveDeadlineSeconds = &activeDeadlineSeconds
 	}
+
+	// if the pod hasn't been scheduled, allow its NodeSelector to be changed
+	if oldPod.Spec.NodeName != "" {
+		mungedPodSpec.NodeSelector = oldPod.Spec.NodeSelector
+	}
+
 	// tolerations are checked before the deep copy, so munge those too
 	mungedPodSpec.Tolerations = oldPod.Spec.Tolerations // +k8s:verify-mutation:reason=clone
 
